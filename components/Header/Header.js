@@ -16,11 +16,11 @@ export const Header = () => {
                     <h1 className="logo mb-0">
                         <Link href="/">
                             <Image
-                                src="/nutritrack.svg"
+                                src="/sgheda.png"
                                 alt="logo"
-                                className="h-6 w-auto"
-                                height="24"
-                                width="100"
+                                className="h-12 w-auto"
+                                height="32"
+                                width="200"
                                 priority
                             />
                         </Link>

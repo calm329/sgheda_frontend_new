@@ -4,49 +4,12 @@ import Image from "next/image";
 import { ButtonGroup } from "@components/Button";
 import { Icon } from "@iconify/react";
 
-const DATA = [
-    {
-        title: "Template",
-        items: [
-            {
-                label: "Features",
-                href: "#features"
-            },
-            {
-                label: "Testimonials",
-                href: "#testimonials"
-            },
-            {
-                label: "FAQ",
-                href: "#faq"
-            }
-        ]
-    },
-    {
-        title: "Company",
-        items: [
-            {
-                label: "About",
-                href: "https://github.com/christian-luntok/",
-                target: "_blank"
-            },
-            {
-                label: "Twitter",
-                href: "https://github.com/christian-luntok/",
-                target: "_blank"
-            },
-            {
-                label: "Instagram",
-                href: "https://github.com/christian-luntok/",
-                target: "_blank"
-            },
-            {
-                label: "Facebook",
-                href: "https://github.com/christian-luntok/",
-                target: "_blank"
-            }
-        ]
-    }
+const navigation = [
+    { name: "Home", to: "/", href: "/" },
+    { name: "Resource", to: "resource", href: "/resource" },
+    { name: "Collective", to: "company", href: "/collective" },
+    { name: "License", to: "#license", href: "/#license" },
+    { name: "Contact Us", to: "#contact", href: "/#contact" }
 ];
 
 export const Footer = () => {
@@ -54,94 +17,140 @@ export const Footer = () => {
     const year = date.getFullYear();
 
     return (
-        <footer id="footer" className="bg-white">
+        <footer id="footer" className="m-4 rounded-xl bg-[#09112D]">
             {/* Footer Links */}
-            <SectionContainer className="footer--container wrap wrap-px relative z-10">
-                <div className="footer--content-container py-16">
-                    <div className="footer-links mb-12 grid grid-cols-2 gap-8 md:mb-16 md:grid-cols-8 lg:grid-cols-12">
-                        <div className="col-span-6">
-                            <div className="footer--logo grid gap-8">
-                                <Link href="/">
-                                    <Image
-                                        src="/nutritrack.svg"
-                                        alt="logo"
-                                        className="h-10 w-auto"
-                                        height="25"
-                                        width="100"
-                                        priority
-                                    />
-                                </Link>
-                                {/* Get Template button; remove if not used */}
-                                <ButtonGroup alignment="left">
-                                    <a
-                                        role="button"
-                                        href="https://avenuelabs.lemonsqueezy.com/checkout/buy/df8ccd46-fa63-4384-b2aa-c4c9b8ad3ef0?embed=1"
-                                        className="btn btn--secondary lemonsqueezy-button"
-                                    >
-                                        Get Template
-                                        <Icon icon="material-symbols:arrow-forward-rounded" />
-                                    </a>
-                                </ButtonGroup>
+            <SectionContainer className="footer--container p-12 relative">
+                <div className="flex md:flex-row flex-col gap-12">
+                    <Link href="/" className="md:hidden">
+                        <Image
+                            src="/sgheda.png"
+                            alt="logo"
+                            className="h-12 w-auto"
+                            height="25"
+                            width="100"
+                            priority
+                        />
+                    </Link>
+                    <div className="md:w-[60%] w-full flex gap-16">
+                        <div className="w-[70%] flex flex-col">
+                            <Link href="/" className="hidden md:flex">
+                                <Image
+                                    src="/sgheda.png"
+                                    alt="logo"
+                                    className="h-12 w-auto"
+                                    height="25"
+                                    width="100"
+                                    priority
+                                />
+                            </Link>
+                            <div className="md:mt-8">
+                                <div className="text-title text-orange-400 uppercase text-lg">
+                                    About us:
+                                </div>
+                                <div className="text-content text-white-500 text-sm">
+                                    Our collective embarked on designing our
+                                    concept, it required a novel use of ground
+                                    source heat exchangers. When traditional
+                                    mathematical solutions proved elusive, we
+                                    took it upon ourselves to forge a pioneering
+                                    analytical tool. Our primary focus is on
+                                    developing a compact, 20-foot shipping
+                                    container-based solution that integrates
+                                    power generation and market fungibility
+                                    through server hosting. This visionary
+                                    approach will yield decentralized power hubs
+                                    in developing countries, and provide
+                                    ethically sourced renewable powered server
+                                    hosting in 2024.
+                                </div>
                             </div>
                         </div>
-                        <div className="col-span-6">
-                            <div className="footer-menu grid grid-cols-2 md:grid-cols-8 lg:grid-cols-12">
-                                {DATA.map((footerLinks) => (
-                                    <div
-                                        key={footerLinks.title}
-                                        className="footer-menu--container col-span-1 md:col-span-4"
-                                    >
-                                        <h3 className="font-bold text-base mb-2">
-                                            {footerLinks.title}
-                                        </h3>
-                                        <ul className="footer-menu--list">
-                                            {footerLinks.items.map(
-                                                (footerItem) => (
-                                                    <li
-                                                        key={footerItem.label}
-                                                        className="footer-menu--list-item gap-2"
-                                                    >
-                                                        <a
-                                                            className="mb-2 block w-auto font-medium transition-colors duration-300 hover:underline"
-                                                            href={
-                                                                footerItem.href
-                                                            }
-                                                            target={
-                                                                footerItem.target
-                                                            }
-                                                        >
-                                                            {footerItem.label}
-                                                        </a>
-                                                    </li>
-                                                )
-                                            )}
-                                        </ul>
+                        <div className="w-[30%]">
+                            <div className="text-title text-orange-400 uppercase text-lg">
+                                Navigation
+                            </div>
+                            <div className="text-content text-white-500 mt-4 text-lg">
+                                {navigation.map((item) => (
+                                    <div key={item.name}>
+                                        <Link
+                                            href={item.href}
+                                            className="hover:text-[#FFC700]"
+                                        >
+                                            {item.name}
+                                        </Link>
                                     </div>
                                 ))}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="md:w-[40%] w-full">
+                        <div className="text-title text-orange-400 uppercase text-lg">
+                            Availablity
+                        </div>
+                        <div className="mt-4 flex flex-col gap-2">
+                            <div className="flex gap-4 items-center text-white">
+                                <div className="min-w-[30px] max-w-[30px] h-[30px] flex justify-center items-center">
+                                    <Icon
+                                        icon="fluent:location-12-filled"
+                                        className="w-full h-full"
+                                    />
+                                </div>
+                                <div className="text-content text-md">
+                                    Cardamone Law 100 W. Main Street, Suite 120,
+                                    Lansdale, PA 19446
+                                </div>
+                            </div>
+                            <div className="flex gap-4 items-center text-white">
+                                <div className="min-w-[30px] max-w-[30px] h-[30px] flex justify-center items-center">
+                                    <Icon
+                                        icon="ph:phone-fill"
+                                        className="w-full h-full"
+                                    />
+                                </div>
+                                <div className="text-content text-md flex flex-col">
+                                    <span>
+                                        Always Call Cards® (215) 206-9068
+                                    </span>
+                                    <span className="text-white-500">
+                                        (All Communications Remain Confidential)
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="flex gap-4 items-center text-white">
+                                <div className="min-w-[30px] max-w-[30px] h-[30px] flex justify-center items-center">
+                                    <Icon
+                                        icon="mingcute:time-fill"
+                                        className="w-full h-full"
+                                    />
+                                </div>
+                                <div className="text-content text-md">
+                                    Hours: Available 24/7/365
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </SectionContainer>
             {/* Footer Credits */}
-            <SectionContainer className="footer-credits relative z-10">
-                <div className="wrap wrap-px py-6">
-                    <p className="my-0">
-                        © {year} Nutritrack. All rights reserved{" - "}
-                        <span className="font-normal">
-                            A template by{" "}
-                            <Link
-                                className="transition-colors duration-300 hover:underline"
-                                href="https://cjluntok.com"
-                                target="_blank"
-                            >
-                                Christian Luntok.
-                            </Link>
-                        </span>
-                    </p>
+            <SectionContainer className="footer-credits relative z-10 px-12 py-4 flex justify-between bg-[#040B21] rounded-b-xl">
+                <div className="text-white-500 text-sm">
+                    <p className="my-0">© {year} All rights reserved</p>
+                </div>
+                <div className="text-white-500 flex gap-4">
+                    <Link href="/">
+                        <Icon icon="brandico:facebook" className="w-6 h-6" />
+                    </Link>
+                    <Link href="/">
+                        <Icon icon="pajamas:twitter" className="w-6 h-6" />
+                    </Link>
+                    <Link href="/">
+                        <Icon icon="mdi:instagram" className="w-6 h-6" />
+                    </Link>
+                    <Link href="/">
+                        <Icon icon="fa:youtube" className="w-6 h-6" />
+                    </Link>
                 </div>
             </SectionContainer>
-            <div className="footer--background"></div>
         </footer>
     );
 };

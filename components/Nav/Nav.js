@@ -4,15 +4,11 @@ import { Icon } from "@iconify/react";
 import { useRouter } from "next/router";
 
 const navigation = [
-    { name: "Features", to: "#features", href: "/#features" },
-    { name: "Testimonials", to: "#testimonials", href: "/#testimonials" },
-    { name: "FAQ?", to: "#faq", href: "/#faq" },
-    {
-        name: "Contact",
-        href: "https://cjluntok.com/",
-        isArrow: true,
-        target: "_blank"
-    }
+    { name: "Home", to: "/", href: "/" },
+    { name: "Resource", to: "resource", href: "/resource" },
+    { name: "Collective", to: "company", href: "/collective" },
+    { name: "License", to: "#license", href: "/#license" },
+    { name: "Contact Us", to: "#contact", href: "/#contact" }
 ];
 
 export const Nav = () => {
@@ -36,7 +32,7 @@ export const Nav = () => {
                     <span className="sr-only">Open main menu</span>
                     <Icon
                         icon="material-symbols:menu-rounded"
-                        className="h-6 w-auto text-black"
+                        className="h-6 w-auto text-white"
                     />
                 </button>
                 <div
@@ -45,32 +41,28 @@ export const Nav = () => {
                     }`}
                     id="navbar-default"
                 >
-                    <ul className="header-nav--menu">
+                    <ul
+                        className={`header-nav--menu ${
+                            isNavOpen
+                                ? "bg-[#111A32] ml-auto rounded-2xl mt-8 w-2/3 sm:w-1/2"
+                                : ""
+                        } border-0`}
+                    >
                         {navigation.map((item) => (
                             <li
                                 key={item.name}
                                 className="header-nav--menu-item"
                             >
-                                <a
-                                    key={item.name}
-                                    to={item.to}
+                                <Link
                                     href={item.href}
-                                    className={`menu-item--link flex items-center
-                    ${router.pathname === item.href ? "active" : ""}
-                  `}
-                                    onClick={closeNav}
-                                    target={item.target ? item.target : "_self"}
+                                    className={`menu-item--link text-white flex items-center hover:text-[#F98222] ${
+                                        router.asPath === item.href
+                                            ? "text-[#F98222]"
+                                            : ""
+                                    }`}
                                 >
                                     {item.name}
-                                    {item.isArrow && (
-                                        <span className="ml-2 inline-block text-sm font-medium text-inherit">
-                                            <Icon
-                                                icon="material-symbols:arrow-outward"
-                                                className="h-6 w-auto"
-                                            />
-                                        </span>
-                                    )}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>

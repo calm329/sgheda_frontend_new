@@ -15,13 +15,19 @@ export const Button = ({
     href = "",
     type = "link",
     variant = "primary",
+    onClick = () => {},
     className = ""
 }) => {
     const Element = type === "button" ? "button" : Link;
     const variantClass = ButtonVariant[variant];
     const buttonClass = clsx("btn", variantClass, className);
     return (
-        <Element href={href} role="button" className={buttonClass}>
+        <Element
+            href={href}
+            onClick={onClick}
+            role="button"
+            className={buttonClass}
+        >
             {children}
             {icon?.length && <Icon icon={icon} />}
         </Element>

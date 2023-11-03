@@ -29,9 +29,12 @@
 @import "core/components/badge";
 @import "core/components/nav";
 @import "core/components/header";
+@import "core/components/table";
 @import "core/components/card";
 @import "core/components/page-banner";
 @import "core/components/footer";
 
 // Core Plugins
 // @import "plugins/plugin-tailwind";
+
+@import "react-image-gallery/styles/css/image-gallery.css";

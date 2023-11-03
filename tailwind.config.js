@@ -7,6 +7,10 @@ module.exports = {
     ],
     theme: {
         extend: {
+            backgroundImage: {
+                gradient:
+                    "linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), linear-gradient(0deg, rgba(9, 17, 45, 0.70) -0.26%, rgba(9, 17, 45, 0.00) 99.28%), lightgray 50%"
+            },
             fontFamily: {
                 body: ["Inter", "Sans Serif"],
                 title: ["Inter", "Sans Serif"]

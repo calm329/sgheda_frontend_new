@@ -161,7 +161,10 @@ export const LicenseSection = () => {
                                             </div>
                                         ))}
                                     </div>
-                                    <Button className="btn btn--secondary w-full text-white lemonsqueezy-button mt-4">
+                                    <Button
+                                        type="button"
+                                        className="btn btn--secondary w-full text-white lemonsqueezy-button mt-4"
+                                    >
                                         <Link
                                             href={`/license?price=${card.price}`}
                                         >

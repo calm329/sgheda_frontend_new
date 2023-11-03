@@ -15,6 +15,8 @@ export const Nav = () => {
     const router = useRouter();
     const [isNavOpen, setIsNavOpen] = useState(false);
 
+    console.log(router, router.asPath);
+
     const closeNav = () => {
         setIsNavOpen(false);
     };

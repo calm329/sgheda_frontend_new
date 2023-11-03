@@ -22,7 +22,7 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "next start -p 6000",
+        "start": "next start",
         "lint": "next lint"
     },
     "dependencies": {

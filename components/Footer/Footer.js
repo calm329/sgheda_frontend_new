@@ -48,20 +48,17 @@ export const Footer = () => {
                                     About us:
                                 </div>
                                 <div className="text-content text-white-500 text-sm">
-                                    Our collective embarked on designing our
-                                    concept, it required a novel use of ground
-                                    source heat exchangers. When traditional
-                                    mathematical solutions proved elusive, we
-                                    took it upon ourselves to forge a pioneering
-                                    analytical tool. Our primary focus is on
-                                    developing a compact, 20-foot shipping
-                                    container-based solution that integrates
-                                    power generation and market fungibility
-                                    through server hosting. This visionary
-                                    approach will yield decentralized power hubs
-                                    in developing countries, and provide
-                                    ethically sourced renewable powered server
-                                    hosting in 2024.
+                                    At SGHEDA, we are dedicated to
+                                    revolutionizing slinky ground loop heat
+                                    exchanger design. Our innovative software
+                                    simplifies the process, empowering
+                                    professionals and enthusiasts in creating
+                                    efficient heating and cooling systems. With
+                                    years of industry expertise, our team
+                                    provides custom solutions and exceptional
+                                    support. We prioritize sustainability,
+                                    helping reduce energy consumption and
+                                    environmental impact.
                                 </div>
                             </div>
                         </div>

@@ -70,10 +70,13 @@ export const FeatureSection = () => {
                                     Performance Analysis
                                 </div>
                                 <div className="text-content text-gray-300 text-lg">
-                                    With our program, you can accurately analyze
-                                    the performance of your ground heat
-                                    exchanger system, taking into account
-                                    factors.
+                                    Our program offers you the capability to
+                                    analyze accurately the performance of your
+                                    ground heat exchanger system. It enables
+                                    consideration of numerous real-world factors
+                                    in the design and analysis process,
+                                    providing a comprehensive and realistic
+                                    evaluation.
                                 </div>
                             </div>
                             <div className="rounded-lg flex flex-col bg-white/10 p-8 gap-4">

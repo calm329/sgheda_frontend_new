@@ -45,7 +45,7 @@ export const IntroSection = () => {
                             </div>
                             <div className="text-content text-gray-300 text-lg">
                                 Heat pump systems coupled to Ground Heat
-                                Exchangers(GHEs), so called Ground Source Heat
+                                Exchangers(GHX), so called Ground Source Heat
                                 Pump(GSHP) systems are energy efficient and have
                                 low environmental impact.
                                 <br />
@@ -57,8 +57,8 @@ export const IntroSection = () => {
                                 technology.
                                 <br />
                                 <br />
-                                SGHEDA is for design such system and simulate
-                                its behavior.
+                                SEGHDA was created for analytical design and
+                                quantifiable solutions for these systems.
                             </div>
                         </div>
                     </MotionBTTContainer>

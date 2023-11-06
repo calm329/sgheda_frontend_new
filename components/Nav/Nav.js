@@ -15,8 +15,6 @@ export const Nav = () => {
     const router = useRouter();
     const [isNavOpen, setIsNavOpen] = useState(false);
 
-    console.log(router, router.asPath);
-
     const closeNav = () => {
         setIsNavOpen(false);
     };
@@ -57,10 +55,10 @@ export const Nav = () => {
                             >
                                 <Link
                                     href={item.href}
-                                    className={`menu-item--link text-white flex items-center hover:text-[#F98222] ${
+                                    className={`menu-item--link flex items-center hover:text-[#F98222] ${
                                         router.asPath === item.href
                                             ? "text-[#F98222]"
-                                            : ""
+                                            : "text-white"
                                     }`}
                                 >
                                     {item.name}

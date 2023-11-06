@@ -65,12 +65,12 @@ export const CountrySelect = ({
                 );
                 const ipData = await ipResponse.json();
                 const locationResponse = await fetch(
-                    `http://ip-api.com/json/${ipData.ip}`
+                    `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.NEXT_PUBLIC_GEO_KEY}&ip=${ipData.ip}`
                 );
                 const locationData = await locationResponse.json();
 
                 for (const country of countryData) {
-                    if (country.label === locationData.country) {
+                    if (country.label === locationData.country_capital) {
                         if (handleChange) handleChange(country.label);
                         setSelectedCountry(country);
                         break;

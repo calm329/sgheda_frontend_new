@@ -95,7 +95,6 @@ export const BillingSection = () => {
                 })
             }
         );
-        console.log("SLDFJLSDFJLSKDJ");
 
         if (res.ok) {
             const { invoice_url } = await res.json();

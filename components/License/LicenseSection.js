@@ -102,10 +102,6 @@ export const LicenseSection = () => {
                                 modifier: 1,
                                 slideShadows: true
                             }}
-                            onSlideChange={(e) =>
-                                console.log(e, "slide change")
-                            }
-                            onSwiper={(swiper) => console.log(swiper)}
                             pagination={false}
                             modules={[EffectCoverflow, Pagination]}
                             className="w-full flex flex-row gap-12 justify-center"
@@ -166,7 +162,10 @@ export const LicenseSection = () => {
                                         className="btn btn--secondary w-full text-white lemonsqueezy-button mt-4"
                                     >
                                         <Link
-                                            href={`/license?price=${card.price}`}
+                                            href={{
+                                                pathname: "/license",
+                                                query: { price: card.price }
+                                            }}
                                         >
                                             Purchase
                                         </Link>

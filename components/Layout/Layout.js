@@ -4,7 +4,7 @@ import { Header } from "@components/Header";
 export const Layout = ({ children, className = "" }) => {
     return (
         <main
-            className={`main relative overflow-hidden ${
+            className={`main relative bg-[#111A32] overflow-hidden ${
                 className && className
             }`}
         >

@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-export const MotionBTTContainer = ({ children, transition }) => {
+export const MotionBTTContainer = ({ children, transition, className }) => {
     // Motion Bottom to Top
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
@@ -17,6 +17,7 @@ export const MotionBTTContainer = ({ children, transition }) => {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             transition={transition}
+            className={className}
             ref={ref}
         >
             {children}

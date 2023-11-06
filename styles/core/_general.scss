@@ -24,6 +24,26 @@ body {
     // @apply grid gap-8 sm:gap-16;
 }
 
+/* This will change the scroll bar globally */
+.main::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.main::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.main::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.main::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 #gradient-canvas {
     width: 100%;
     height: 100%;
@@ -39,4 +59,36 @@ body {
             @apply leading-7;
         }
     }
+}
+
+.text-title {
+    font-family: Work Sans;
+}
+
+.text-content {
+    font-family: Poppins;
+}
+
+.swiper {
+    cursor: pointer;
+
+    .swiper-slide {
+        @apply transition-transform;
+    }
+
+    .swiper-pagination {
+        // bottom: -30px !important;
+    }
+}
+
+.scale-swiper {
+    overflow: visible !important;
+    .swiper-slide-active {
+        transform: scale(1.15) !important;
+        cursor: pointer;
+    }
+}
+
+.image-gallery-bullets {
+    bottom: -30px !important;
 }

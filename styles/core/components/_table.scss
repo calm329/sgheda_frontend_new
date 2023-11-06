@@ -1,0 +1,32 @@
+/**
+
+=========================================================
+** Custom Header styling
+=========================================================
+
+**/
+
+@layer components {
+    table {
+        @apply w-full;
+
+        thead {
+            @apply border-b border-t border-neutral-300;
+
+            th {
+                @apply pr-4;
+            }
+        }
+
+        tbody {
+            tr {
+                @apply border-b border-gray-500;
+            }
+        }
+
+        td,
+        th {
+            @apply py-4 text-left;
+        }
+    }
+}

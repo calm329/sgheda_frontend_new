@@ -14,14 +14,16 @@ const nextConfig = {
     },
     images: {
         formats: ["image/avif", "image/webp"],
-        domains: ["s.gravatar.com"]
+        domains: ["slinkyghxdesign.com"]
     },
     env: {
-        siteTitle: "Your Company",
-        siteDescription: "Your company description.",
-        siteKeywords: "your company keywords",
-        siteUrl: "You site url",
-        siteImagePreviewUrl: "/images/preview.jpeg",
+        siteTitle: "SGHEDA",
+        siteDescription:
+            "SGHEDA is a cutting-edge analytical tool designed to provide comprehensive design solutions and promote the adoption of Ground Source Heat Pump systems for sustainable and decarbonized heating and cooling solutions.",
+        siteKeywords:
+            "ground source heat pump design, slinky ground loop heat exchanger, shallow ground heat exchanger, geothermal heat pump design, heat pump simulation",
+        siteUrl: "https://slinkyghxdesign.com",
+        siteImagePreviewUrl: "/images/preview.png",
         twitterHandle: "@your_handle"
     },
     headers() {

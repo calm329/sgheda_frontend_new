@@ -57,7 +57,7 @@ export const IntroSection = () => {
                                 technology.
                                 <br />
                                 <br />
-                                SEGHDA was created for analytical design and
+                                SGHEDA was created for analytical design and
                                 quantifiable solutions for these systems.
                             </div>
                         </div>

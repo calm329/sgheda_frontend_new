@@ -4,7 +4,7 @@ import { FounderSection } from "@components/Founder";
 import { TeamSection } from "@components/Team";
 import SEO from "@components/SEO/SEO";
 
-export default function Company() {
+export default function Collective() {
     return (
         <Layout className="">
             <SEO

@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 const navigation = [
     { name: "Home", to: "/", href: "/" },
     { name: "Resource", to: "resource", href: "/resource" },
-    { name: "Collective", to: "company", href: "/collective" },
+    { name: "Collective", to: "collective", href: "/collective" },
     { name: "License", to: "#license", href: "/#license" },
     { name: "Contact Us", to: "#contact", href: "/#contact" }
 ];

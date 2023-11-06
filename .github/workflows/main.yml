@@ -20,7 +20,7 @@ jobs:
 
             - name: Deploy to VPS Instance
               run: |
-                  ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}
+                  ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}
                   cd ~/sgheda/prod/sgheda-frontend-new
                   git pull origin main
                   yarn build

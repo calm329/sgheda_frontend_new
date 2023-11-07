@@ -27,14 +27,14 @@ export const FounderSection = () => {
                                     <div className="my-2 text-orange-400 text-content text-md">
                                         Our Founder
                                     </div>
-                                    <div className="text-title text-3xl text-white font-bold">
+                                    <h1 className="text-title text-3xl text-white font-bold">
                                         Meet Geniuses Behind Your Success.
-                                    </div>
+                                    </h1>
                                     {/* <div className="h-1 w-16 mb-2 bg-orange-400"></div> */}
                                 </div>
-                                <div className="text-content text-gray-300 text-sm">
+                                <h2 className="text-content text-gray-300 text-sm">
                                     {founder.bio}
-                                </div>
+                                </h2>
                             </div>
                             <div className="xl:w-1/4 lg:w-1/3 md:w-1/2 m-auto h-fit rounded-3xl relative max-w-[350px]">
                                 <div className="absolute flex flex-col top-0 right-0 p-4 bg-[#F98222]/30 rounded-tr-3xl rounded-bl-3xl text-center border border-[#F98222] border-r-0 border-t-0">

@@ -27,7 +27,10 @@ import {
 export default function Home() {
     return (
         <Layout className="">
-            <SEO title="SGHEDA | Home" description="" />
+            <SEO
+                title="SGHEDA | Slinky Ground Heat Exchanger Design & Analysis"
+                description=""
+            />
             <div className="main-wrapper relative z-10">
                 <HomeBanner />
                 <IntroSection />

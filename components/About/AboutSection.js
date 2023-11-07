@@ -17,16 +17,16 @@ export const AboutSection = () => {
                                 <div className="my-2 text-orange-400 text-content text-md">
                                     About Us
                                 </div>
-                                <div className="text-title text-3xl text-white text-center uppercase font-bold">
+                                <h1 className="text-title text-3xl text-white text-center uppercase font-bold">
                                     About SGHEDA
-                                </div>
+                                </h1>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
                             </div>
-                            <div className="text-content text-gray-300 text-center text-lg">
+                            <h2 className="text-content text-gray-300 text-center text-lg">
                                 SGHEDA is the ideal bridge between the latest
                                 technology and the people who benefit from these
                                 developments
-                            </div>
+                            </h2>
                         </div>
                     </MotionBTTContainer>
                     <MotionBTTContainer

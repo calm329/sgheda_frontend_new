@@ -1,7 +1,7 @@
 {
     "name": "sgheda-landing-page",
     "version": "0.1.0",
-    "description": "Nutritrack - A website developed by Avenue Labs, using the Avenue Starter.",
+    "description": "SGHEDA is a cutting-edge analytical tool designed to provide comprehensive design solutions and promote the adoption of Ground Source Heat Pump systems for sustainable and decarbonized heating and cooling solutions.",
     "main": "index.js",
     "private": true,
     "repository": {

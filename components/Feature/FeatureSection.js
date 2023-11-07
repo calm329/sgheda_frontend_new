@@ -24,9 +24,9 @@ export const FeatureSection = () => {
                                 <div className="my-2 text-orange-400 text-content text-md">
                                     Features
                                 </div>
-                                <div className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
+                                <h1 className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
                                     Features that makes your design easily
-                                </div>
+                                </h1>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
                             </div>
                         </div>

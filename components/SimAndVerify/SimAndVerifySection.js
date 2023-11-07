@@ -65,11 +65,11 @@ export const SimAndVerifySection = () => {
                                 {/* <div className="my-2 text-orange-400 text-content text-md">
                                     Features
                                 </div> */}
-                                <div className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
+                                <h1 className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
                                     Simulation and verification
-                                </div>
+                                </h1>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
-                                <div className="text-content text-gray-300 text-center text-lg">
+                                <h2 className="text-content text-gray-300 text-center text-lg">
                                     The slinky GHE configuration refers to the
                                     arrangement of the pipes in a tightly coiled
                                     or helical shape resembling a slinky toy.
@@ -78,7 +78,7 @@ export const SimAndVerifySection = () => {
                                     area of the pipes in contact with the
                                     ground, enhancing the heat transfer
                                     efficiency
-                                </div>
+                                </h2>
                             </div>
                         </div>
                     </MotionBTTContainer>

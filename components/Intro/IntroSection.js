@@ -38,12 +38,12 @@ export const IntroSection = () => {
                                 <div className="my-2 text-orange-400 text-content text-md">
                                     Intro
                                 </div>
-                                <div className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
+                                <h1 className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
                                     What is SGHEDA?
-                                </div>
+                                </h1>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
                             </div>
-                            <div className="text-content text-gray-300 text-lg">
+                            <h2 className="text-content text-gray-300 text-lg">
                                 Heat pump systems coupled to Ground Heat
                                 Exchangers(GHX), so called Ground Source Heat
                                 Pump(GSHP) systems are energy efficient and have
@@ -59,7 +59,7 @@ export const IntroSection = () => {
                                 <br />
                                 SGHEDA was created for analytical design and
                                 quantifiable solutions for these systems.
-                            </div>
+                            </h2>
                         </div>
                     </MotionBTTContainer>
                 </SectionContainer>

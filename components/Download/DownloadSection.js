@@ -22,19 +22,19 @@ export const DownloadSection = () => {
                                     <div className="my-2 text-orange-400 text-content text-md">
                                         Software
                                     </div>
-                                    <div className="text-title text-3xl uppercase text-white font-bold">
+                                    <h1 className="text-title text-3xl uppercase text-white font-bold">
                                         Get your software now
-                                    </div>
+                                    </h1>
                                     <div className="h-1 w-16 mb-2 bg-orange-400"></div>
                                 </div>
-                                <div className="text-content text-gray-300 text-lg">
+                                <h2 className="text-content text-gray-300 text-lg">
                                     Our design tool is your gateway to
                                     creativity and innovation. Whether
                                     you&apos;re a seasoned professional or a
                                     beginner, our intuitive platform simplifies
                                     the design process, making it accessible to
                                     all. Here&apos;s how it works:
-                                </div>
+                                </h2>
                             </div>
                             <div className="xl:w-1/3 md:w-1/2 m-auto h-fit relative">
                                 <Image

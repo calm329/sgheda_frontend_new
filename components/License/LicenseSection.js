@@ -71,17 +71,17 @@ export const LicenseSection = () => {
                                 <div className="my-2 text-orange-400 text-content text-md">
                                     License
                                 </div>
-                                <div className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
+                                <h1 className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
                                     Ghoose your plan
-                                </div>
+                                </h1>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
-                                <div className="text-content text-gray-300 text-center text-lg">
+                                <h2 className="text-content text-gray-300 text-center text-lg">
                                     Our subscription plan offers exclusive
                                     access to premium content, personalized
                                     services, and regular updates. Join today to
                                     enjoy a seamless and enhanced experience
                                     tailored to your needs.
-                                </div>
+                                </h2>
                             </div>
                         </div>
                     </MotionBTTContainer>

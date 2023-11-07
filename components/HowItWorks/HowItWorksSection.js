@@ -24,18 +24,18 @@ export const HowItWorksSection = () => {
                                 <div className="my-2 text-orange-400 text-content text-md">
                                     Tutorial
                                 </div>
-                                <div className="text-title text-3xl text-white text-center uppercase font-bold">
+                                <h1 className="text-title text-3xl text-white text-center uppercase font-bold">
                                     How It Works?
-                                </div>
+                                </h1>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
                             </div>
-                            <div className="text-content text-gray-300 text-center text-lg xl:px-16">
+                            <h2 className="text-content text-gray-300 text-center text-lg xl:px-16">
                                 Our design tool is your gateway to creativity
                                 and innovation. Whether you&apos;re a seasoned
                                 professional or a beginner, our intuitive
                                 platform simplifies the design process, making
                                 it accessible to all. Here&apos;s how it works:
-                            </div>
+                            </h2>
                         </div>
                     </MotionBTTContainer>
                     <MotionBTTContainer

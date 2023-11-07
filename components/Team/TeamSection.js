@@ -34,12 +34,12 @@ export const TeamSection = () => {
                                     <div className="my-2 text-orange-400 text-content text-md">
                                         Our Team
                                     </div>
-                                    <div className="text-title text-3xl text-white font-bold">
+                                    <h1 className="text-title text-3xl text-white font-bold">
                                         Meet Geniuses Behind Your Success.
-                                    </div>
+                                    </h1>
                                     {/* <div className="h-1 w-16 mb-2 bg-orange-400"></div> */}
                                 </div>
-                                <div className="text-content text-gray-300 text-sm">
+                                <h2 className="text-content text-gray-300 text-sm">
                                     At SGHEDA, we&apos;re powered by a
                                     passionate team of geothermal experts and
                                     software enthusiasts. Our dedicated
@@ -49,7 +49,7 @@ export const TeamSection = () => {
                                     future of geothermal services. Get to know
                                     the faces behind the software that&apos;s
                                     shaping the geothermal industry.
-                                </div>
+                                </h2>
                             </div>
                             <div
                                 className={`grid xl:grid-cols-${Math.min(

@@ -31,9 +31,9 @@ export const HomeBanner = () => {
                         >
                             SGHEDA
                         </PageTitle>
-                        <div className="text-white mx-auto text-center text-content text-2xl">
+                        <h2 className="text-white mx-auto text-center text-content text-2xl">
                             Slinky Ground Heat Exchanger Design & Analysis
-                        </div>
+                        </h2>
                         <div className="w-full bg-white backdrop-filter backdrop-blur-md bg-opacity-10 h-1 rounded-xl my-4"></div>
                     </MotionBTTContainer>
                     {/* Appear Third */}

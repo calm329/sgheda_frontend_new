@@ -37,7 +37,7 @@ export const DownloadSection = () => {
                                     src="/app.png"
                                     width={640}
                                     height={40}
-                                    alt="Commercial"
+                                    alt="SGHEDA Software"
                                     objectFit="cover"
                                     loading="lazy"
                                     className="rounded-lg w-full"

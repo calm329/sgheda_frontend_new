@@ -56,7 +56,7 @@ export const FeatureSection = () => {
                                     src="/images/features/performance.png"
                                     width={50}
                                     height={50}
-                                    alt="design capabilities"
+                                    alt="performance analysis"
                                     objectFit="cover"
                                     loading="lazy"
                                     className=""
@@ -79,7 +79,7 @@ export const FeatureSection = () => {
                                     src="/images/features/interface.png"
                                     width={50}
                                     height={50}
-                                    alt="design capabilities"
+                                    alt="user-friendly interface"
                                     objectFit="cover"
                                     loading="lazy"
                                     className=""

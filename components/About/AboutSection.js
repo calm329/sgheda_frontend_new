@@ -70,7 +70,7 @@ export const AboutSection = () => {
                                     src="/images/about/mission.png"
                                     width={640}
                                     height={40}
-                                    alt="Commercial"
+                                    alt="Our mission"
                                     objectFit="cover"
                                     loading="lazy"
                                     className="bg-[#111A32] m-auto rounded-md bg-opacity-30 p-2 w-full"
@@ -88,7 +88,7 @@ export const AboutSection = () => {
                                     src="/app.png"
                                     width={640}
                                     height={40}
-                                    alt="Commercial"
+                                    alt="About SGHEDA"
                                     objectFit="cover"
                                     loading="lazy"
                                     className="bg-[#111A32] m-auto rounded-md bg-opacity-30 p-2 w-full"

@@ -55,7 +55,7 @@ export const HomeBanner = () => {
                                     src="/images/pros/geothermal.svg"
                                     width={40}
                                     height={40}
-                                    alt="Commercial"
+                                    alt="Geothermal"
                                     objectFit="cover"
                                     loading="lazy"
                                     className="bg-[#004D9833] rounded-md bg-opacity-30 p-2"
@@ -67,7 +67,7 @@ export const HomeBanner = () => {
                                     src="/images/pros/betterdesign.svg"
                                     width={40}
                                     height={40}
-                                    alt="Commercial"
+                                    alt="Better design"
                                     objectFit="cover"
                                     loading="lazy"
                                     className="bg-[#004D9833] rounded-md bg-opacity-30 p-2"

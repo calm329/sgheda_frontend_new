@@ -23,7 +23,7 @@ export const Footer = () => {
                     <Link href="/" className="md:hidden">
                         <Image
                             src="/sgheda.png"
-                            alt="logo"
+                            alt="sgheda logo"
                             className="h-12 w-auto"
                             height="25"
                             width="100"
@@ -35,7 +35,7 @@ export const Footer = () => {
                             <Link href="/" className="hidden md:flex">
                                 <Image
                                     src="/sgheda.png"
-                                    alt="logo"
+                                    alt="sgheda logo"
                                     className="h-12 w-auto"
                                     height="25"
                                     width="100"

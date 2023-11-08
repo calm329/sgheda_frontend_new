@@ -40,7 +40,7 @@ export const HowItWorksSection = () => {
                             <video
                                 src="/video.mp4"
                                 controls
-                                alt="Page Banner"
+                                alt="tutorial video"
                                 type="video/mp4"
                                 className="m-auto rounded-xl md:w-2/3 w-full"
                             />

@@ -44,7 +44,7 @@ export const Header = () => {
                             <Link href="/">
                                 <Image
                                     src="/sgheda.png"
-                                    alt="logo"
+                                    alt="sgheda logo"
                                     className="h-12 w-auto"
                                     height="32"
                                     width="200"

@@ -120,7 +120,7 @@ export const BillingSection = () => {
                                     src="/small-logo.png"
                                     width={35}
                                     height={35}
-                                    alt="design capabilities"
+                                    alt="small sgheda logo"
                                     objectFit="cover"
                                     loading="lazy"
                                     className="mb-4"

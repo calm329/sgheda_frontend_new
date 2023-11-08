@@ -17,7 +17,7 @@ export const IntroSection = () => {
                             <video
                                 src="/intro.mp4"
                                 controls
-                                alt="Page Banner"
+                                alt="introduction video"
                                 type="video/mp4"
                                 className="m-auto rounded-xl w-full"
                             />

@@ -1,10 +1,5 @@
-import { BadgeGroup, BadgeIcon, BadgeMessage } from "@components/Badge";
-import { Button, ButtonGroup } from "@components/Button";
-import { Content } from "@components/Content";
-import { MotionBTTContainer, MotionInfiniteImage } from "@components/Motion";
+import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
-import { PageTitle } from "@components/Title";
-import { Icon } from "@iconify/react";
 import Image from "next/image";
 
 export const FounderSection = () => {
@@ -27,14 +22,14 @@ export const FounderSection = () => {
                                     <div className="my-2 text-orange-400 text-content text-md">
                                         Our Founder
                                     </div>
-                                    <h1 className="text-title text-3xl text-white font-bold">
+                                    <div className="text-title text-3xl text-white font-bold">
                                         Meet Geniuses Behind Your Success.
-                                    </h1>
+                                    </div>
                                     {/* <div className="h-1 w-16 mb-2 bg-orange-400"></div> */}
                                 </div>
-                                <h2 className="text-content text-gray-300 text-sm">
+                                <div className="text-content text-gray-300 text-sm">
                                     {founder.bio}
-                                </h2>
+                                </div>
                             </div>
                             <div className="xl:w-1/4 lg:w-1/3 md:w-1/2 m-auto h-fit rounded-3xl relative max-w-[350px]">
                                 <div className="absolute flex flex-col top-0 right-0 p-4 bg-[#F98222]/30 rounded-tr-3xl rounded-bl-3xl text-center border border-[#F98222] border-r-0 border-t-0">

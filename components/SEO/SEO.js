@@ -76,11 +76,6 @@ const SEO = ({ title, description, keywords }) => {
             <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
             <link rel="canonical" href={siteURL} />
-
-            <script
-                src="https://assets.lemonsqueezy.com/lemon.js"
-                defer
-            ></script>
         </Head>
     );
 };

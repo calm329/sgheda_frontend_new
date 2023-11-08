@@ -1,11 +1,6 @@
-import { BadgeGroup, BadgeIcon, BadgeMessage } from "@components/Badge";
 import { Button, ButtonGroup } from "@components/Button";
-import { Content } from "@components/Content";
-import { MotionBTTContainer, MotionInfiniteImage } from "@components/Motion";
+import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
-import { PageTitle } from "@components/Title";
-import { Icon } from "@iconify/react";
-import Image from "next/image";
 
 export const ManualSection = () => {
     const team = [
@@ -45,17 +40,17 @@ export const ManualSection = () => {
                                     <div className="my-2 text-orange-400 text-content text-md">
                                         Documentation
                                     </div>
-                                    <h1 className="text-title text-3xl uppercase text-white font-bold">
+                                    <div className="text-title text-3xl uppercase text-white font-bold">
                                         Get to know our software more better
-                                    </h1>
+                                    </div>
                                     <div className="h-1 w-16 mb-2 bg-orange-400"></div>
                                 </div>
-                                <h2 className="text-content text-gray-300 text-sm text-center">
+                                <div className="text-content text-gray-300 text-sm text-center">
                                     This document provides a comprehensive
                                     overview of SGHEDA, offering key insights,
                                     analysis, and essential information for your
                                     reference and understanding.
-                                </h2>
+                                </div>
                             </div>
                         </div>
                         <ButtonGroup alignment="center" className="mt-12">

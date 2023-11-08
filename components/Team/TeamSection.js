@@ -1,4 +1,4 @@
-import { MotionBTTContainer, MotionInfiniteImage } from "@components/Motion";
+import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
 import Image from "next/image";
 
@@ -34,12 +34,12 @@ export const TeamSection = () => {
                                     <div className="my-2 text-orange-400 text-content text-md">
                                         Our Team
                                     </div>
-                                    <h1 className="text-title text-3xl text-white font-bold">
+                                    <div className="text-title text-3xl text-white font-bold">
                                         Meet Geniuses Behind Your Success.
-                                    </h1>
+                                    </div>
                                     {/* <div className="h-1 w-16 mb-2 bg-orange-400"></div> */}
                                 </div>
-                                <h2 className="text-content text-gray-300 text-sm">
+                                <div className="text-content text-gray-300 text-sm">
                                     At SGHEDA, we&apos;re powered by a
                                     passionate team of geothermal experts and
                                     software enthusiasts. Our dedicated
@@ -49,7 +49,7 @@ export const TeamSection = () => {
                                     future of geothermal services. Get to know
                                     the faces behind the software that&apos;s
                                     shaping the geothermal industry.
-                                </h2>
+                                </div>
                             </div>
                             <div
                                 className={`grid xl:grid-cols-${Math.min(

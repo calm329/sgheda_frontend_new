@@ -1,8 +1,7 @@
 import { SectionContainer } from "@components/Section";
-import Link from "next/link";
-import Image from "next/image";
-import { ButtonGroup } from "@components/Button";
 import { Icon } from "@iconify/react";
+import Image from "next/image";
+import Link from "next/link";
 
 const navigation = [
     { name: "Home", to: "/", href: "/" },

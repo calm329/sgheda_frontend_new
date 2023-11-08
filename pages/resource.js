@@ -1,7 +1,7 @@
-import { Layout } from "@components/Layout";
-import { ResourceSection } from "@components/Resource";
 import { DownloadSection } from "@components/Download";
+import { Layout } from "@components/Layout";
 import { ManualSection } from "@components/Manual";
+import { ResourceSection } from "@components/Resource";
 import SEO from "@components/SEO/SEO";
 
 export default function Resource() {

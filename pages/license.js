@@ -1,14 +1,6 @@
-import { BadgeMessage, BadgeGroup, BadgeIcon } from "@components/Badge";
-import { SectionContainer } from "@components/Section";
-import { PageTitle } from "@components/Title";
+import { BillingSection } from "@components/Billing";
 import { Layout } from "@components/Layout";
 import { PaymentSection } from "@components/Payment";
-import { BillingSection } from "@components/Billing";
-import { Columns } from "@components/Columns";
-import { ContentImage } from "@components/ContentImage";
-import { Content } from "@components/Content";
-import { Accordion } from "@components/Accordion";
-import { MotionBTTContainer } from "@components/Motion";
 import SEO from "@components/SEO/SEO";
 
 export default function License() {

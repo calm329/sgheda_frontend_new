@@ -75,6 +75,8 @@ const SEO = ({ title, description, keywords }) => {
             <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
             <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
+            <link rel="canonical" href={siteURL} />
+
             <script
                 src="https://assets.lemonsqueezy.com/lemon.js"
                 defer

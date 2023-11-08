@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import { BadgeGroup, BadgeIcon, BadgeMessage } from "@components/Badge";
-import { Button, ButtonGroup } from "@components/Button";
-import { Content } from "@components/Content";
-import { MotionBTTContainer, MotionInfiniteImage } from "@components/Motion";
-import { SectionContainer } from "@components/Section";
-import { Input } from "@components/Input";
+import { Button } from "@components/Button";
 import { CountrySelect } from "@components/CountrySelect";
-import { PageTitle } from "@components/Title";
+import { Input } from "@components/Input";
+import { MotionBTTContainer } from "@components/Motion";
+import { SectionContainer } from "@components/Section";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 const cardData = [

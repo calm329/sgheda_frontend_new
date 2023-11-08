@@ -1,11 +1,5 @@
-import { BadgeGroup, BadgeIcon, BadgeMessage } from "@components/Badge";
-import { Button, ButtonGroup } from "@components/Button";
-import { Content } from "@components/Content";
-import { MotionBTTContainer, MotionInfiniteImage } from "@components/Motion";
+import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
-import { PageTitle } from "@components/Title";
-import { Icon } from "@iconify/react";
-import Image from "next/image";
 
 export const HowItWorksSection = () => {
     return (
@@ -24,18 +18,18 @@ export const HowItWorksSection = () => {
                                 <div className="my-2 text-orange-400 text-content text-md">
                                     Tutorial
                                 </div>
-                                <h1 className="text-title text-3xl text-white text-center uppercase font-bold">
+                                <div className="text-title text-3xl text-white text-center uppercase font-bold">
                                     How It Works?
-                                </h1>
+                                </div>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
                             </div>
-                            <h2 className="text-content text-gray-300 text-center text-lg xl:px-16">
+                            <div className="text-content text-gray-300 text-center text-lg xl:px-16">
                                 Our design tool is your gateway to creativity
                                 and innovation. Whether you&apos;re a seasoned
                                 professional or a beginner, our intuitive
                                 platform simplifies the design process, making
                                 it accessible to all. Here&apos;s how it works:
-                            </h2>
+                            </div>
                         </div>
                     </MotionBTTContainer>
                     <MotionBTTContainer

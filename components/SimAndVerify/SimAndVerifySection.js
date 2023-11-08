@@ -1,22 +1,16 @@
-import { BadgeGroup, BadgeIcon, BadgeMessage } from "@components/Badge";
-import { Button, ButtonGroup } from "@components/Button";
-import { Content } from "@components/Content";
-import { MotionBTTContainer, MotionInfiniteImage } from "@components/Motion";
+import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
-import { PageTitle } from "@components/Title";
-import { Icon } from "@iconify/react";
 import Image from "next/image";
-import ImageGallery from "react-image-gallery";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 export const SimAndVerifySection = () => {
     const images = [
@@ -65,11 +59,11 @@ export const SimAndVerifySection = () => {
                                 {/* <div className="my-2 text-orange-400 text-content text-md">
                                     Features
                                 </div> */}
-                                <h1 className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
+                                <div className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
                                     Simulation and verification
-                                </h1>
+                                </div>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
-                                <h2 className="text-content text-gray-300 text-center text-lg">
+                                <div className="text-content text-gray-300 text-center text-lg">
                                     The slinky GHE configuration refers to the
                                     arrangement of the pipes in a tightly coiled
                                     or helical shape resembling a slinky toy.
@@ -78,7 +72,7 @@ export const SimAndVerifySection = () => {
                                     area of the pipes in contact with the
                                     ground, enhancing the heat transfer
                                     efficiency
-                                </h2>
+                                </div>
                             </div>
                         </div>
                     </MotionBTTContainer>

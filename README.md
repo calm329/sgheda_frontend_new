@@ -1,16 +1,16 @@
 <div align="center">
-  <img alt="SGHEDA logo" src="/public/nutritrack.svg" width="100" />
+  <img alt="nutritrack logo" src="/public/nutritrack.svg" width="100" />
 </div>
 
 <h1 align="center">
-  SGHEDA - Avenue Labs landing page template 🚀
+  Nutritrack - Avenue Labs landing page template 🚀
 </h1>
 
-SGHEDA is a customizable NextJS and TailwindCSS landing page template that offers personalized styling and easy customization. Tailored to provide a minimal design, it allows you to effortlessly create a site that suits your requirements. You can easily make use of the components and customize the code to mix and match to suit your needs.
+Nutritrack is a customizable NextJS and TailwindCSS landing page template that offers personalized styling and easy customization. Tailored to provide a minimal design, it allows you to effortlessly create a site that suits your requirements. You can easily make use of the components and customize the code to mix and match to suit your needs.
 
 <hr>
 
-![SGHEDA Mockup](/public/nutritrack.png)
+![Nutritrack Mockup](/public/nutritrack.png)
 
 ## Key Features:
 
@@ -36,7 +36,7 @@ You also want to make sure the publish directory is out.
 
 ## Lighthouse Score
 
-SGHEDA scores 100/100 in the Lighthouse performance audit.
+Nutritrack scores 100/100 in the Lighthouse performance audit.
 
 ![SGHEDA Lighthouse Score](/lighthouse-score.png)
 

@@ -3,8 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { SectionContainer } from "@components/Section";
 import { Nav } from "@components/Nav";
-import { ButtonGroup, Button } from "@components/Button";
-import { Icon } from "@iconify/react";
 
 export const Header = () => {
     const [isScrollTop, setIsScrollTop] = useState(true);

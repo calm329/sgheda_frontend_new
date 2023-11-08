@@ -1,5 +1,3 @@
-import { Icon } from "@iconify/react";
-import Link from "next/link";
 import clsx from "clsx";
 
 const ButtonVariant = {

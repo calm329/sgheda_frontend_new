@@ -1,11 +1,5 @@
-import { BadgeGroup, BadgeIcon, BadgeMessage } from "@components/Badge";
-import { Button, ButtonGroup } from "@components/Button";
-import { Content } from "@components/Content";
-import { MotionBTTContainer, MotionInfiniteImage } from "@components/Motion";
+import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
-import { PageTitle } from "@components/Title";
-import { Icon } from "@iconify/react";
-import Image from "next/image";
 
 export const ResourceSection = () => {
     return (

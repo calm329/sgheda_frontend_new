@@ -1,10 +1,5 @@
-import { BadgeGroup, BadgeIcon, BadgeMessage } from "@components/Badge";
-import { Button, ButtonGroup } from "@components/Button";
-import { Content } from "@components/Content";
-import { MotionBTTContainer, MotionInfiniteImage } from "@components/Motion";
+import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
-import { PageTitle } from "@components/Title";
-import { Icon } from "@iconify/react";
 import Image from "next/image";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -65,9 +60,9 @@ export const TestimonialSection = () => {
                                 <div className="my-2 text-orange-400 text-content text-md">
                                     Testimonials
                                 </div>
-                                <h1 className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
+                                <div className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
                                     What our clients say about us?
-                                </h1>
+                                </div>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
                             </div>
                         </div>

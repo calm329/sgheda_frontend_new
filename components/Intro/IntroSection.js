@@ -1,11 +1,5 @@
-import { BadgeGroup, BadgeIcon, BadgeMessage } from "@components/Badge";
-import { Button, ButtonGroup } from "@components/Button";
-import { Content } from "@components/Content";
-import { MotionBTTContainer, MotionInfiniteImage } from "@components/Motion";
+import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
-import { PageTitle } from "@components/Title";
-import { Icon } from "@iconify/react";
-import Image from "next/image";
 
 export const IntroSection = () => {
     return (
@@ -38,12 +32,12 @@ export const IntroSection = () => {
                                 <div className="my-2 text-orange-400 text-content text-md">
                                     Intro
                                 </div>
-                                <h1 className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
+                                <div className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
                                     What is SGHEDA?
-                                </h1>
+                                </div>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
                             </div>
-                            <h2 className="text-content text-gray-300 text-lg">
+                            <div className="text-content text-gray-300 text-lg">
                                 Heat pump systems coupled to Ground Heat
                                 Exchangers(GHX), so called Ground Source Heat
                                 Pump(GSHP) systems are energy efficient and have
@@ -59,7 +53,7 @@ export const IntroSection = () => {
                                 <br />
                                 SGHEDA was created for analytical design and
                                 quantifiable solutions for these systems.
-                            </h2>
+                            </div>
                         </div>
                     </MotionBTTContainer>
                 </SectionContainer>

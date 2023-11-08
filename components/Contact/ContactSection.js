@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { BadgeGroup, BadgeIcon, BadgeMessage } from "@components/Badge";
-import { Button, ButtonGroup } from "@components/Button";
-import { Content } from "@components/Content";
-import { MotionBTTContainer, MotionInfiniteImage } from "@components/Motion";
-import { SectionContainer } from "@components/Section";
-import { PageTitle } from "@components/Title";
+import { Button } from "@components/Button";
 import { Input } from "@components/Input";
+import { MotionBTTContainer } from "@components/Motion";
+import { SectionContainer } from "@components/Section";
 import { Textarea } from "@components/Textarea";
-import { Icon } from "@iconify/react";
-import Image from "next/image";
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 export const ContactSection = () => {
@@ -66,9 +61,9 @@ export const ContactSection = () => {
                                 <div className="my-2 text-orange-400 text-content text-md">
                                     Contact Us
                                 </div>
-                                <h1 className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
+                                <div className="text-title text-3xl text-white md:text-left text-center uppercase font-bold">
                                     Need assistance
-                                </h1>
+                                </div>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
                             </div>
                         </div>

@@ -343,7 +343,7 @@ export const BillingSection = () => {
                                         GET
                                     </Button>
                                 </div>
-                                <div className="w-full mt-8">
+                                <div className="w-full mt-8 flex items-center">
                                     <p className="text-content text-sm text-white">
                                         Do you have a QR code? -{" "}
                                         <input
@@ -367,6 +367,7 @@ export const BillingSection = () => {
                                                     : setVisible(true)
                                             }
                                         >
+                                            {" "}
                                             Scan it here
                                         </span>
                                     </p>

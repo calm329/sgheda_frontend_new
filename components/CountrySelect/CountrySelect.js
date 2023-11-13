@@ -5,6 +5,7 @@ import Select from "react-select";
 export const CountrySelect = ({
     name = "",
     label = "",
+    className = "",
     handleChange = () => {}
 }) => {
     const [countries, setCountries] = useState([]);
@@ -97,7 +98,7 @@ export const CountrySelect = ({
     );
 
     return (
-        <div className="w-full">
+        <div className={className}>
             <label htmlFor={name} className="mb-1 text-white text-title">
                 {label}
             </label>

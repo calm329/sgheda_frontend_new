@@ -4,10 +4,24 @@ import { Input } from "@components/Input";
 import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
 import { Icon } from "@iconify/react";
+import { Dialog } from "primereact/dialog";
+import { TabView, TabPanel } from "primereact/tabview";
+import { QrReader } from "react-qr-reader";
+import { createCanvas, loadImage } from "canvas";
+// import ReactImagePickerEditor from "react-image-picker-editor";
+import dynamic from "next/dynamic";
+
+const ReactImagePickerEditor = dynamic(
+    () => import("react-image-picker-editor"),
+    { ssr: false } // this will load the module only on the client side
+);
+
+import jsQR from "jsqr";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import "react-image-picker-editor/dist/index.css";
 
 const cardData = [
     {
@@ -57,9 +71,66 @@ export const BillingSection = () => {
     const [email, setEmail] = useState(null);
     const [machineNumber, setMachineNumber] = useState(null);
     const [country, setCountry] = useState(null);
+    const [visible, setVisible] = useState(false);
+    const [qrcode, setQRCode] = useState(null);
+
+    const config2 = {
+        borderRadius: "8px",
+        language: "en",
+        width: "330px",
+        height: "250px",
+        objectFit: "contain",
+        compressInitial: null,
+        hideDeleteBtn: true,
+        hideDownloadBtn: true,
+        hideEditBtn: true,
+        hideAddBtn: true
+    };
+    // const initialImage: string = '/assets/images/8ptAya.webp';
+    const initialImage = "";
 
     const emailPattern =
         /^[\w-]+(\.[\w-]+)*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$/i;
+
+    const handleScan = (data) => {
+        if (data) {
+            setQRCode(data);
+            toast.success("QR Code decoded successfully.");
+        }
+    };
+
+    const handleError = (err) => {
+        console.error(err);
+    };
+
+    const getQRCode = (base64Image) => {
+        loadImage(base64Image).then((image) => {
+            const canvas = createCanvas(image.width, image.height);
+            const context = canvas.getContext("2d");
+            context.drawImage(image, 0, 0, image.width, image.height);
+            const imageData = context.getImageData(
+                0,
+                0,
+                image.width,
+                image.height
+            );
+
+            const code = jsQR(
+                imageData.data,
+                imageData.width,
+                imageData.height
+            );
+
+            if (code) {
+                console.log(`Decoded QR Code: ${code.data}`);
+                setQRCode(code.data);
+                toast.success("QR Code decoded successfully.");
+            } else {
+                console.log("Unable to decode the QR Code.");
+                toast.error("Unable to decode the QR Code.");
+            }
+        });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -88,21 +159,62 @@ export const BillingSection = () => {
                     email,
                     machineNumber,
                     price,
-                    country
+                    country,
+                    qrcode
                 })
             }
         );
 
         if (res.ok) {
-            const { invoice_url } = await res.json();
-            if (invoice_url) {
-                toast.success("Invoice created successfully");
-                window.open(invoice_url);
+            const data = await res.json();
+            const { qrcode } = data;
+            if (qrcode) {
+                const { success, message } = data;
+                if (success) toast.success(message);
+                else toast.error(message);
             } else {
-                toast.error("Invalid invoice url");
+                const { invoice_url } = data;
+                if (invoice_url) {
+                    window.location.href = invoice_url;
+                } else {
+                    toast.error("Something went wrong");
+                }
             }
         } else {
             toast.error("Something went wrong");
+        }
+    };
+
+    const handleSubmitQRCode = async (e) => {
+        e.preventDefault();
+
+        if (qrcode) {
+            const res = await fetch(
+                `${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/validateQR`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        qrcode
+                    })
+                }
+            );
+
+            if (res.ok) {
+                const { success, message } = await res.json();
+                if (success) {
+                    toast.success(message);
+                    setVisible(false);
+                } else {
+                    toast.error(message);
+                }
+            } else {
+                toast.error("Something went wrong");
+            }
+        } else {
+            toast.error("Please scan or upload a QR Code");
         }
     };
 
@@ -219,8 +331,10 @@ export const BillingSection = () => {
                                     <CountrySelect
                                         label="Country"
                                         name="country"
+                                        className="w-full col-span-2 sm:col-span-1"
                                         handleChange={(e) => setCountry(e)}
                                     />
+                                    <div className="sm:hidden"></div>
                                     <Button
                                         type="button"
                                         onClick={handleSubmit}
@@ -229,6 +343,85 @@ export const BillingSection = () => {
                                         GET
                                     </Button>
                                 </div>
+                                <div className="w-full mt-8">
+                                    <p className="text-content text-sm text-white">
+                                        Do you have a QR code? -{" "}
+                                        <input
+                                            type="checkbox"
+                                            id="qrcode"
+                                            name="qrcode"
+                                            checked={!!qrcode}
+                                            className="cursor-pointer"
+                                            onClick={() =>
+                                                qrcode
+                                                    ? setQRCode(null)
+                                                    : setVisible(true)
+                                            }
+                                        />
+                                        <span
+                                            htmlFor="qrcode"
+                                            className="text-orange-400 underline select-none cursor-pointer"
+                                            onClick={() =>
+                                                qrcode
+                                                    ? setQRCode(null)
+                                                    : setVisible(true)
+                                            }
+                                        >
+                                            Scan it here
+                                        </span>
+                                    </p>
+                                </div>
+                                <Dialog
+                                    header={false}
+                                    visible={visible}
+                                    onHide={() => setVisible(false)}
+                                    className="xl:w-[35%] lg:w-[40%] md:w-[60%] sm:w-[80%] w-[95%]"
+                                    draggable={false}
+                                    resizable={false}
+                                >
+                                    <TabView>
+                                        <TabPanel
+                                            header="Scan QR Code"
+                                            className="p-0 text-sm flex flex-col justify-center items-center"
+                                            leftIcon="pi pi-camera mr-2"
+                                        >
+                                            <QrReader
+                                                delay={300}
+                                                onError={handleError}
+                                                onScan={handleScan}
+                                                className="w-full"
+                                            />
+                                            <Button
+                                                type="button"
+                                                onClick={handleSubmitQRCode}
+                                                className="btn btn--secondary mx-auto mt-4 text-white lemonsqueezy-button"
+                                            >
+                                                Confirm
+                                            </Button>
+                                        </TabPanel>
+                                        <TabPanel
+                                            header="Upload Image"
+                                            className="p-0 text-sm flex flex-col justify-center items-center"
+                                            leftIcon="pi pi-upload mr-2"
+                                        >
+                                            <ReactImagePickerEditor
+                                                config={config2}
+                                                imageSrcProp={initialImage}
+                                                imageChanged={(newDataUri) => {
+                                                    if (newDataUri)
+                                                        getQRCode(newDataUri);
+                                                }}
+                                            />
+                                            <Button
+                                                type="button"
+                                                onClick={handleSubmitQRCode}
+                                                className="btn btn--secondary mx-auto mt-4 text-white lemonsqueezy-button"
+                                            >
+                                                Confirm
+                                            </Button>
+                                        </TabPanel>
+                                    </TabView>
+                                </Dialog>
                             </div>
                         </div>
                     </MotionBTTContainer>

@@ -9,27 +9,47 @@ const ButtonVariant = {
     black: "btn--black"
 };
 
+// export const Button = ({
+//     children,
+//     icon,
+//     href = "",
+//     type = "",
+//     variant = "primary",
+//     onClick = () => {},
+//     className = ""
+// }) => {
+//     const variantClass = ButtonVariant[variant];
+//     const buttonClass = clsx("btn", variantClass, className);
+//     return (
+//         <Button onClick={onClick} type={type} className={buttonClass}>
+//             {children}
+//             {icon?.length && <Icon icon={icon} />}
+//         </Button>
+//     );
+// };
 export const Button = ({
+    type,
+    loading = false,
     children,
-    icon,
-    href = "",
-    type = "link",
-    variant = "primary",
-    onClick = () => {},
-    className = ""
+    className,
+    ...others
 }) => {
-    const Element = type === "button" ? "button" : Link;
-    const variantClass = ButtonVariant[variant];
-    const buttonClass = clsx("btn", variantClass, className);
+    const buttonClass = clsx("btn", className);
+
     return (
-        <Element
-            href={href}
-            onClick={onClick}
-            role="button"
+        <button
+            disabled={loading}
+            {...others}
+            type={type || "button"}
             className={buttonClass}
         >
             {children}
-            {icon?.length && <Icon icon={icon} />}
-        </Element>
+
+            {loading ? (
+                <span className="block w-6 h-6 rounded-full animate-spin border-4 border-r-transparent"></span>
+            ) : (
+                <></>
+            )}
+        </button>
     );
 };

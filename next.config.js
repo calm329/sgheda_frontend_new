@@ -14,7 +14,7 @@ const nextConfig = {
     },
     images: {
         formats: ["image/avif", "image/webp"],
-        domains: ["slinkyghxdesign.com"]
+        domains: ["slinkyghxdesign.com", "lh3.googleusercontent.com"]
     },
     env: {
         siteTitle: "SGHEDA",

@@ -38,7 +38,6 @@ export const DownloadSection = () => {
                                     width={640}
                                     height={40}
                                     alt="SGHEDA Software"
-                                    objectFit="cover"
                                     loading="lazy"
                                     className="rounded-lg w-full"
                                 />

@@ -114,7 +114,6 @@ export const SimAndVerifySection = () => {
                                             width={640}
                                             height={40}
                                             alt={`Image ${index}`}
-                                            objectFit="cover"
                                             loading="lazy"
                                             className="w-full"
                                         />

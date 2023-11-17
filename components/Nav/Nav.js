@@ -2,16 +2,21 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 const navigation = [
     { name: "Home", to: "/", href: "/" },
     { name: "Resource", to: "resource", href: "/resource" },
     { name: "Collective", to: "collective", href: "/collective" },
     { name: "License", to: "#license", href: "/#license" },
-    { name: "Contact Us", to: "#contact", href: "/#contact" }
+    { name: "Contact Us", to: "#contact", href: "/#contact" },
+    { name: "Sign In", to: "/auth/signin", href: "/auth/signin" }
 ];
 
 export const Nav = () => {
+    const { data: session, status } = useSession();
+    const loading = status === "loading";
+
     const router = useRouter();
     const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -48,23 +53,30 @@ export const Nav = () => {
                                 : ""
                         } border-0`}
                     >
-                        {navigation.map((item) => (
-                            <li
-                                key={item.name}
-                                className="header-nav--menu-item"
-                            >
-                                <Link
-                                    href={item.href}
-                                    className={`menu-item--link flex items-center hover:text-[#F98222] ${
-                                        router.asPath === item.href
-                                            ? "text-[#F98222]"
-                                            : "text-white"
-                                    }`}
+                        {navigation
+                            .slice(
+                                0,
+                                !loading && session
+                                    ? navigation.length - 1
+                                    : navigation.length
+                            )
+                            .map((item) => (
+                                <li
+                                    key={item.name}
+                                    className="header-nav--menu-item"
                                 >
-                                    {item.name}
-                                </Link>
-                            </li>
-                        ))}
+                                    <Link
+                                        href={item.href}
+                                        className={`menu-item--link flex items-center hover:text-[#F98222] ${
+                                            router.asPath === item.href
+                                                ? "text-[#F98222]"
+                                                : "text-white"
+                                        }`}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            ))}
                     </ul>
                 </div>
             </div>

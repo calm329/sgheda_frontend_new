@@ -67,7 +67,6 @@ export const TeamSection = () => {
                                             width={640}
                                             height={40}
                                             alt={item.name}
-                                            objectFit="cover"
                                             loading="lazy"
                                             className="rounded-3xl w-full max-w-[300px]"
                                         />

@@ -94,7 +94,6 @@ export const TestimonialSection = () => {
                                             width={20}
                                             height={20}
                                             alt="quota"
-                                            objectFit="cover"
                                             loading="lazy"
                                             className=""
                                         />
@@ -105,7 +104,6 @@ export const TestimonialSection = () => {
                                             width={60}
                                             height={60}
                                             alt="design capabilities"
-                                            objectFit="cover"
                                             loading="lazy"
                                             className=""
                                         />

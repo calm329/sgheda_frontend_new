@@ -6,8 +6,6 @@
 
 **/
 
-import { toast } from "react-hot-toast";
-
 export const parseError = (error) => {
     const message = error instanceof Error ? error.message : String(error);
     return message;
@@ -32,19 +30,4 @@ export const getTextAlign = (textAlign = "left ") => {
         center: "align--center"
     };
     return `${textAlignMap[textAlign] || ""}`;
-};
-
-export const handleCopy = (content) => {
-    navigator.clipboard.writeText(content);
-    toast.success("Copied content to the clipboard!");
-};
-
-export const handleDelete = (
-    setRewrittentContent,
-    rewrittenContent,
-    setGenerating
-) => {
-    setRewrittentContent("");
-    setGenerating(false);
-    toast.success("Deleted Content!");
 };

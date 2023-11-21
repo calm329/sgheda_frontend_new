@@ -63,7 +63,19 @@ export default function ForgotPassword() {
                             <MotionBTTContainer
                                 transition={{ delay: 0.6, duration: 0.5 }}
                             >
-                                <div className="w-full md:w-1/2 2xl:w-[35%] mx-auto flex flex-col gap-4 mt-4">
+                                <div className="w-full mx-auto flex flex-col gap-4 mt-4">
+                                    <div className="text-white text-center">
+                                        <p>
+                                            Enter the email address associated
+                                            with your account and we’ll send you
+                                            a link to reset your password.
+                                        </p>
+                                        <p>
+                                            Be sure to check your spam folder if
+                                            you can't find it in your primary
+                                            inbox.
+                                        </p>
+                                    </div>
                                     <form
                                         onSubmit={formik.handleSubmit}
                                         className="w-full space-y-4 md:space-y-6"
@@ -72,6 +84,7 @@ export default function ForgotPassword() {
                                             label="Email"
                                             name="email"
                                             placeholder="Email"
+                                            className="w-auto max-w-md mx-auto"
                                             {...formik.getFieldProps("email")}
                                             error={
                                                 formik.touched.email &&
@@ -83,7 +96,7 @@ export default function ForgotPassword() {
                                             <Button
                                                 type="submit"
                                                 loading={loading}
-                                                className="btn btn--secondary w-full mt-4 text-white lemonsqueezy-button"
+                                                className="btn btn--secondary w-auto mt-4 text-white lemonsqueezy-button"
                                             >
                                                 Reset Password
                                             </Button>

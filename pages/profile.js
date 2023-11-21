@@ -8,6 +8,7 @@ export default function Resource() {
             <SEO title="SGHEDA | My Profile" description="" />
             <div className="main-wrapper relative z-10">
                 <ProfileSection />
+                {/* <AccountCreditSection /> */}
             </div>
         </Layout>
     );

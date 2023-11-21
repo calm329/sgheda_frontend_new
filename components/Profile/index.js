@@ -7,3 +7,4 @@
 **/
 
 export * from "@components/Profile/ProfileSection";
+export * from "@components/Profile/AccountCreditSection";

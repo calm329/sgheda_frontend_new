@@ -27,11 +27,24 @@ export default NextAuth({
                 if (!exist_account)
                     await Account.create({ email, name, balance: 0 });
 
+                console.log({
+                    id: profile.sub,
+                    name,
+                    email,
+                    image: userImage,
+                    profile: {
+                        balance: exist_account ? exist_account.balance : 0
+                    }
+                });
+
                 return {
                     id: profile.sub,
                     name,
                     email,
-                    image: userImage
+                    image: userImage,
+                    profile: {
+                        balance: exist_account ? exist_account.balance : 0
+                    }
                 };
             }
         }),

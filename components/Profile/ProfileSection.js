@@ -1,20 +1,22 @@
 // import { Button } from "@components/Button";
-import { Button } from "primereact/button";
 import { Input } from "@components/Input";
 import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
 import { Icon } from "@iconify/react";
+import axios from "axios";
 import { useFormik } from "formik";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { useState } from "react";
-import * as Yup from "yup";
+import { Button } from "primereact/button";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 import { Slider } from "primereact/slider";
+import { useState } from "react";
+import * as Yup from "yup";
+import { useToasts } from "react-toast-notifications";
 
 export const ProfileSection = () => {
+    const { addToast } = useToasts();
     const { data: session, status } = useSession();
-    console.log(session);
     const loading = status === "loading";
 
     const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +43,33 @@ export const ProfileSection = () => {
 
     const handleChangePassword = (values) => {
         setIsLoading(true);
-        console.log(values);
+        axios
+            .post("/api/auth/changePassword", {
+                currentPassword: values.password,
+                newPassword: values.newPassword
+            })
+            .then((res) => {
+                if (res.status === 200) {
+                    setIsLoading(false);
+                    addToast("Password changed successfully", {
+                        appearance: "success",
+                        autoDismiss: true
+                    });
+                } else {
+                    setIsLoading(false);
+                    addToast("Password change failed", {
+                        appearance: "error",
+                        autoDismiss: true
+                    });
+                }
+            })
+            .catch((err) => {
+                addToast(err.message, {
+                    appearance: "error",
+                    autoDismiss: true
+                });
+                console.log(err);
+            });
     };
 
     const formik = useFormik({
@@ -53,6 +81,34 @@ export const ProfileSection = () => {
         validationSchema: validationSchema,
         onSubmit: PasswordChangeSubmit
     });
+
+    const addFunds = () => {
+        axios
+            .post("/api/addFund", {
+                fundAmount
+            })
+            .then((res) => {
+                const { data } = res;
+                const { success, error, invoice_url } = data;
+
+                if (success) {
+                    window.location.href = invoice_url;
+                } else {
+                    addToast(error, {
+                        appearance: "error",
+                        autoDismiss: true
+                    });
+                    console.log(error);
+                }
+            })
+            .catch((err) => {
+                addToast(err, {
+                    appearance: "error",
+                    autoDismiss: true
+                });
+                console.log(err);
+            });
+    };
 
     return !loading && session ? (
         <SectionContainer className="page-banner--container p-4 pb-0">
@@ -227,9 +283,10 @@ export const ProfileSection = () => {
                                             </div>
                                             <div className="flex justify-end">
                                                 <Button
-                                                    type="submit"
+                                                    type="button"
                                                     loading={loading}
                                                     className="btn btn--secondary w-auto mt-4 text-white lemonsqueezy-button"
+                                                    onClick={addFunds}
                                                 >
                                                     Add Funds
                                                 </Button>

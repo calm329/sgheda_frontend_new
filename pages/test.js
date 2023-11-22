@@ -24,7 +24,7 @@ export default function Test() {
     return (
         <div>
             <p>Welcome, {session.user.email}</p>
-            <button onClick={() => signOut()}>Sign out</button>
+            <button onClick={() => signOut({ redirect: "" })}>Sign out</button>
         </div>
     );
 }

@@ -1,3 +1,4 @@
+import jwt from "jsonwebtoken";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -7,81 +8,87 @@ import argon from "argon2";
 
 export default NextAuth({
     providers: [
-        // Google Provider
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET,
-
             async profile(profile) {
-                dbConnect();
+                await dbConnect();
 
                 const email = profile.email;
                 const name = profile.name;
 
-                // profile object will have data like email, name, and photo url
                 const userImage = profile.picture;
-
-                console.log(email, name);
 
                 const exist_account = await Account.findOne({ email });
                 if (!exist_account)
                     await Account.create({ email, name, balance: 0 });
-
-                console.log({
-                    id: profile.sub,
-                    name,
-                    email,
-                    image: userImage,
-                    profile: {
-                        balance: exist_account ? exist_account.balance : 0
-                    }
-                });
 
                 return {
                     id: profile.sub,
                     name,
                     email,
                     image: userImage,
-                    profile: {
-                        balance: exist_account ? exist_account.balance : 0
-                    }
+                    balance: exist_account ? exist_account.balance : 0
                 };
             }
         }),
-
-        // With CustomCredentials
         CredentialsProvider({
             name: "Credentials",
-            async authorize(credentials, req) {
+            async authorize(credentials) {
                 await dbConnect();
 
-                // check user existence
                 const account = await Account.findOne({
-                    email: credentials?.email
+                    email: credentials.email
                 });
 
-                // Check if the account exists
                 if (!account) throw Error("Email or Password doesn't match!");
 
-                // If the user doesn't have a password (meaning they registered with Google)
-                // throw an error directing them to login with Google instead
                 if (!account.password) {
                     throw Error("Please sign in with Google");
                 }
 
-                // If the user has a password, check if it matches
-                const matchedPassword = await argon.verify(
+                const isValid = await argon.verify(
                     account.password,
                     credentials.password
                 );
 
-                if (!matchedPassword || account.email !== credentials.email)
-                    throw Error("Email or Password doesn't match!");
+                if (!isValid) throw Error("Email or Password doesn't match!");
 
-                return account;
+                return {
+                    id: account._id,
+                    name: account.name,
+                    email: account.email,
+                    balance: account.balance
+                };
             }
         })
     ],
+    // JWT
+    callbacks: {
+        jwt: async ({ token, account, user }) => {
+            if (user) {
+                token.userId = user.id;
+            }
+            return token;
+        },
+        session: async ({ session, token, user }) => {
+            if (token) {
+                session.user.id = token.userId;
+                session.userId = token.userId;
+            }
+            return session;
+        }
+    },
 
-    secret: "NE6qyym4mH0hNJP7nAq+kNS6OGo0RUfXPkCWyYl46cA="
+    session: {
+        jwt: true,
+        secure: process.env.NODE_ENV && process.env.NODE_ENV === "production"
+    },
+    jwt: {
+        secret: process.env.NEXTAUTH_SECRET
+    },
+
+    site: process.env.NEXTAUTH_URL,
+    debug: process.env.NODE_ENV === "development",
+    secret: process.env.NEXTAUTH_SECRET
 });

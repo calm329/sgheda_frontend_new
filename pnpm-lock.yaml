@@ -30,7 +30,7 @@ dependencies:
     specifier: ^0.31.2
     version: 0.31.2
   axios:
-    specifier: ^1.6.0
+    specifier: ^1.6.2
     version: 1.6.2
   bcrypt:
     specifier: ^5.1.1

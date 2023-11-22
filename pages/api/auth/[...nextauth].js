@@ -63,6 +63,7 @@ export default NextAuth({
             }
         })
     ],
+
     // JWT
     callbacks: {
         jwt: async ({ token, account, user }) => {

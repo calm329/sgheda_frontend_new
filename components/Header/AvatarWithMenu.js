@@ -75,9 +75,11 @@ export const AvatarWithMenu = () => {
                 <div className="w-full h-[1px] bg-gray-500" />
                 <div
                     className={`rounded py-2 pl-3 pr-4 transition-colors duration-300 flex items-center hover:text-[#F98222] text-white cursor-pointer`}
-                    onClick={() => signOut({ redirect: "" })}
+                    onClick={() =>
+                        signOut({ callbackUrl: window.location.origin })
+                    }
                 >
-                    Logout
+                    SignOut
                 </div>
             </div>
         </div>

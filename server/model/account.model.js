@@ -15,6 +15,10 @@ const accountSchema = new mongoose.Schema(
         },
 
         verified: Boolean,
+        resendCount: {
+            type: Number,
+            default: 0
+        },
 
         password: String,
         balance: Number

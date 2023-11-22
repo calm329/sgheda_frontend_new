@@ -6,8 +6,8 @@ import SEO from "@components/SEO/SEO";
 import { SectionContainer } from "@components/Section";
 import { PageTitle } from "@components/Title";
 import { Icon } from "@iconify/react";
+import axios from "axios";
 import { useFormik } from "formik";
-import axiosInstance from "lib/axiosInstance";
 import signup_validation from "lib/formikValidation/signup_validation";
 import { getSession, signIn } from "next-auth/react";
 import Link from "next/link";
@@ -33,7 +33,7 @@ export default function SignUp() {
     function signup(values) {
         setLoading(true);
 
-        axiosInstance
+        axios
             .post(`/api/auth/signup`, values)
             .then((result) => {
                 signIn("credentials", {
@@ -54,7 +54,7 @@ export default function SignUp() {
                             appearance: "success",
                             autoDismiss: true
                         });
-                        router.push("/");
+                        router.push("/auth/verify-email");
                     }
                 });
             })
@@ -87,7 +87,7 @@ export default function SignUp() {
 
     return (
         <AuthLayout className="">
-            <SEO title="Signin | SGHEDA" description="" />
+            <SEO title="Signup | SGHEDA" description="" />
             <div className="main-wrapper relative z-10">
                 <SectionContainer className="page-banner--container h-screen relative p-4">
                     <SectionContainer

@@ -27,8 +27,7 @@ export default NextAuth({
                     id: profile.sub,
                     name,
                     email,
-                    image: userImage,
-                    balance: exist_account ? exist_account.balance : 0
+                    image: userImage
                 };
             }
         }),
@@ -57,8 +56,7 @@ export default NextAuth({
                 return {
                     id: account._id,
                     name: account.name,
-                    email: account.email,
-                    balance: account.balance
+                    email: account.email
                 };
             }
         })
@@ -74,7 +72,6 @@ export default NextAuth({
         },
         session: async ({ session, token, user }) => {
             if (token) {
-                session.user.id = token.userId;
                 session.userId = token.userId;
             }
             return session;

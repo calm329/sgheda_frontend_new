@@ -109,3 +109,15 @@ body {
         @apply text-lg;
     }
 }
+
+/* Hide the up and down arrows for Chrome, Safari, Edge (not Firefox)*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide the up and down arrows for Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}

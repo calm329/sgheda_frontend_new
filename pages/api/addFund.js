@@ -23,6 +23,18 @@ export default async function handler(req, res) {
                     email: session.user.email
                 });
 
+                if (!account) {
+                    return res
+                        .status(404)
+                        .json({ message: "Account not found!" });
+                }
+
+                if (!account.verified) {
+                    return res
+                        .status(403)
+                        .json({ message: "Account not verified!" });
+                }
+
                 // handle nowpayments
                 const uid = uuidv4();
 

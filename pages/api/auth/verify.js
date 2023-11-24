@@ -14,7 +14,10 @@ export default async function (req, res) {
         const { token } = req.query;
 
         try {
-            const { accountId } = jwt.verify(token, process.env.EMAIL_SECRET);
+            const { accountId } = jwt.verify(
+                token,
+                process.env.NEXTAUTH_SECRET
+            );
 
             const account = await Account.findById(accountId);
             if (!account) throw new Error("Account not found");
@@ -25,10 +28,8 @@ export default async function (req, res) {
             // Redirect user to login or wherever you like
             res.redirect("/auth/signin");
         } catch (e) {
-            // Handle token expiration and other errors
+            return res.status(500).json({ message: e.message });
         }
-
-        res.status(200).json({ account });
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }

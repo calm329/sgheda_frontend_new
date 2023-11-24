@@ -1,15 +1,16 @@
+import { CalculatorSection } from "@components/Calculator";
 import { Layout } from "@components/Layout";
-import { ProfileSection } from "@components/Profile";
 import SEO from "@components/SEO/SEO";
-import getBalance from "lib/getBalance";
+import { SGHEDA } from "@components/SGHEDA";
 import { getSession } from "next-auth/react";
 
 export default function Resource(props) {
     return (
         <Layout className="">
-            <SEO title="SGHEDA | My Profile" description="" />
+            <SEO title="SGHEDA | Online Calculator" description="" />
             <div className="main-wrapper relative z-10">
-                <ProfileSection balance={props.balance} />
+                <CalculatorSection />
+                <SGHEDA />
             </div>
         </Layout>
     );
@@ -27,11 +28,7 @@ export async function getServerSideProps(context) {
         };
     }
 
-    const balance = await getBalance(session.user.email);
-
     return {
-        props: {
-            balance
-        }
+        props: {}
     };
 }

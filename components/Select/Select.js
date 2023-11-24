@@ -1,16 +1,14 @@
+import React from "react";
 import clsx from "clsx";
-// existing code...
+import { Icon } from "@iconify/react";
 
-export const Input = ({
+export const Select = ({
     label = "",
     name = "",
-    type = "text",
-    placeholder = "",
+    options = [],
     error = false,
-    badge = null, // new prop
     errorText = "",
     className = "",
-    others,
     onChange = () => {}
 }) => {
     return (
@@ -19,22 +17,23 @@ export const Input = ({
                 {label}
             </label>
             <div class="relative">
-                <input
-                    type={type}
+                <select
                     name={name}
-                    placeholder={placeholder}
                     onChange={onChange}
-                    {...others}
                     className={clsx(
                         "shadow appearance-none border text-content rounded w-full py-2 px-3 text-white bg-[#09112D] leading-tight focus:outline-none focus:shadow-outline",
                         { "border-red-500": error, "border-[#17234F]": !error }
                     )}
-                />
-                {badge && (
-                    <span className="absolute inset-y-0 right-0 flex items-center px-4 py-2 text-sm font-medium leading-5 text-white/80 bg-transparent rounded-r-md">
-                        {badge}
-                    </span>
-                )}
+                >
+                    {options.map((option, index) => (
+                        <option value={option.value} key={index}>
+                            {option.label}
+                        </option>
+                    ))}
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white/80">
+                    <Icon icon="tabler:chevron-down" />
+                </div>
             </div>
             {error && <div className="text-red-500">{errorText}</div>}
         </div>

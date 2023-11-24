@@ -13,8 +13,9 @@ import { Slider } from "primereact/slider";
 import { useState } from "react";
 import * as Yup from "yup";
 import { useToasts } from "react-toast-notifications";
+import { getServerSideProps } from "pages/auth/signup";
 
-export const ProfileSection = () => {
+export const ProfileSection = (props) => {
     const { addToast } = useToasts();
     const { data: session, status } = useSession();
     const loading = status === "loading";
@@ -102,7 +103,7 @@ export const ProfileSection = () => {
                 }
             })
             .catch((err) => {
-                addToast(err, {
+                addToast(err.response.data.message, {
                     appearance: "error",
                     autoDismiss: true
                 });
@@ -245,7 +246,7 @@ export const ProfileSection = () => {
                                     <div className="flex flex-col justify-center items-center">
                                         <div className="w-full text-white text-title text-3xl mb-8">
                                             Your account credit balance is $
-                                            {session.user.balance}
+                                            {props.balance}
                                         </div>
                                         <form
                                             className="w-full grid grid-cols-3 items-center bg-white/10 p-4 rounded-xl"

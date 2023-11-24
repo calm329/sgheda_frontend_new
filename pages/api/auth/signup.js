@@ -35,24 +35,39 @@ export default async function (req, res) {
 
         const emailToken = jwt.sign(
             { accountId: account._id },
-            process.env.EMAIL_SECRET,
+            process.env.NEXTAUTH_SECRET,
             { expiresIn: "1d" }
         );
 
         const url = `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/verify/?token=${emailToken}`;
 
-        const mailOptions = {
-            from: process.env.EMAIL_FROM,
-            to: account.email,
-            subject: "Confirm Email",
-            html: `Please click this email to confirm your email: <a href="${url}">${url}</a>`
-        };
-
         sendMail(
             account.email,
-            "Confirm Email",
-            `Please click this email to confirm your email: <a href="${url}">${url}</a>`,
-            `Please click this email to confirm your email: <a href="${url}">${url}</a>`
+            "Activate your Account For SGHEDA",
+            `Dear ${account.name},
+
+Thank you for registering an account on our platform.
+
+To activate your account, please click on the following link or copy-paste it in your browser:
+
+${url}
+
+If you did not register this account, please ignore this email.
+
+Best regards,
+SGHEDA`,
+            `<p>Dear ${account.name},</p>
+
+<p>Thank you for registering an account on our platform.</p>
+
+<p>To activate your account, please click on the following link or copy-paste it in your browser:</p>
+
+<a href="${url}" target="_blank">Click Here</a>
+
+<p>If you did not register this account, please ignore this email.</p>
+
+<p>Best regards,</p>
+<p>SGHEDA</p>`
         );
 
         res.status(200).json({ account });

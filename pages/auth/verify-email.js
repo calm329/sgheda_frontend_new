@@ -6,16 +6,40 @@ import { SectionContainer } from "@components/Section";
 import { PageTitle } from "@components/Title";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import axios from "axios";
+import { useToasts } from "react-toast-notifications";
 
 export default function VerifyEmail() {
     const router = useRouter();
+    const { addToast } = useToasts();
     const [loading, setLoading] = useState(false);
-    const { token } = router.query; // Extract token from query parameters
 
     async function handleResend() {
         setLoading(true);
-        // Insert the function to resend the verification email here
-        // ...
+        axios
+            .post("/api/auth/resend-email")
+            .then((result) => {
+                if (result.status === 200) {
+                    setLoading(false);
+                    addToast(result.data.message, {
+                        appearance: "success",
+                        autoDismiss: true
+                    });
+                } else {
+                    setLoading(false);
+                    addToast(result.data.message, {
+                        appearance: "error",
+                        autoDismiss: true
+                    });
+                }
+            })
+            .catch((error) => {
+                setLoading(false);
+                addToast(error.response.data.message, {
+                    appearance: "error",
+                    autoDismiss: true
+                });
+            });
         setLoading(false);
     }
 

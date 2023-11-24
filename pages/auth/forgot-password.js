@@ -5,14 +5,17 @@ import { MotionBTTContainer } from "@components/Motion";
 import SEO from "@components/SEO/SEO";
 import { SectionContainer } from "@components/Section";
 import { PageTitle } from "@components/Title";
+import axios from "axios";
 import { useFormik } from "formik";
 import forgotpassword_validation from "lib/formikValidation/forgotpassword_validation";
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useToasts } from "react-toast-notifications";
 
 export default function ForgotPassword() {
     const router = useRouter();
+    const { addToast } = useToasts();
     const [loading, setLoading] = useState(false);
     const formik = useFormik({
         initialValues: { email: "" },
@@ -22,8 +25,30 @@ export default function ForgotPassword() {
 
     async function PasswordResetSubmit(values) {
         setLoading(true);
-        // Insert the function to reset the password here
-        // ...
+        axios
+            .post("/api/auth/forgot-password", values)
+            .then((result) => {
+                if (result.status === 200) {
+                    setLoading(false);
+                    addToast(result.data.message, {
+                        appearance: "success",
+                        autoDismiss: true
+                    });
+                } else {
+                    setLoading(false);
+                    addToast(result.data.message, {
+                        appearance: "error",
+                        autoDismiss: true
+                    });
+                }
+            })
+            .catch((error) => {
+                setLoading(false);
+                addToast(error.response.data.message, {
+                    appearance: "error",
+                    autoDismiss: true
+                });
+            });
         setLoading(false);
     }
 

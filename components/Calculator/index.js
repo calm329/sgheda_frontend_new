@@ -6,4 +6,6 @@
 
 **/
 
-export * from "@components/Calculator/CalculatorSection";
+export * from "@components/Calculator/SGHEDACalculatorSection";
+export * from "@components/Calculator/CalculatorHeaderSection";
+export * from "@components/Calculator/CalculatorBodySection";

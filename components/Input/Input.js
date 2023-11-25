@@ -10,6 +10,7 @@ export const Input = ({
     badge = null, // new prop
     errorText = "",
     className = "",
+    value = "",
     others,
     onChange = () => {}
 }) => {
@@ -24,6 +25,7 @@ export const Input = ({
                     name={name}
                     placeholder={placeholder}
                     onChange={onChange}
+                    value={value}
                     {...others}
                     className={clsx(
                         "shadow appearance-none border text-content rounded w-full py-2 px-3 text-white bg-[#09112D] leading-tight focus:outline-none focus:shadow-outline",

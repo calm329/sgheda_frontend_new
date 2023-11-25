@@ -1,4 +1,5 @@
-import { SGHEDACalculatorSection } from "@components/Calculator";
+import { CalculatorHeaderSection } from "@components/Calculator";
+import { CalculatorBodySection } from "@components/Calculator";
 import { Layout } from "@components/Layout";
 import SEO from "@components/SEO/SEO";
 import { SGHEDA } from "@components/Calculator/SGHEDA";
@@ -9,8 +10,8 @@ export default function Resource(props) {
         <Layout className="">
             <SEO title="SGHEDA | Online Calculator" description="" />
             <div className="main-wrapper relative z-10">
-                <SGHEDACalculatorSection />
-                <SGHEDA />
+                <CalculatorHeaderSection />
+                <CalculatorBodySection />
             </div>
         </Layout>
     );

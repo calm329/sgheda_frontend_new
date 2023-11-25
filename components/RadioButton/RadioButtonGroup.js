@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { Field, useFormikContext } from "formik";
+import React from "react";
 
-const RadioButtonGroup = ({ options }) => {
-    const [selected, setSelected] = useState(options[0].value);
-
+const RadioButtonGroup = ({ options, name }) => {
+    const { setFieldValue } = useFormikContext();
     return (
         <div className="inline-flex items-center">
             {options.map(({ value, label }) => (
@@ -11,13 +11,13 @@ const RadioButtonGroup = ({ options }) => {
                         className="relative flex cursor-pointer items-center rounded-full p-3"
                         data-ripple-dark="true"
                     >
-                        <input
+                        <Field
                             id={value}
-                            name="ripple"
+                            name={name}
                             type="radio"
+                            value={value}
                             className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-white-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-white-500 checked:before:bg-white-500 hover:before:opacity-10"
-                            checked={selected === value}
-                            onChange={() => setSelected(value)}
+                            onChange={() => setFieldValue(name, value)}
                         />
                         <div className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white-500 opacity-0 transition-opacity peer-checked:opacity-100">
                             <svg

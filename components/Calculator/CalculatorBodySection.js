@@ -1,32 +1,64 @@
+import { Button } from "@components/Button";
 import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 const links = [
     {
         name: "Room Load Calculator",
+        credits: 30,
         description:
             "Optimize your Roam experience with our Roam Load Calculator. Streamline your load management effortlessly, ensuring efficient usage tailored to your needs.",
         link: "/calculator/rlc"
     },
     {
         name: "SGHEDA",
+        credits: 50,
         description:
             "Enhance geothermal efficiency with our Slinky Ground Heat Exchanger tool, optimizing heat exchange through innovative coil designs for sustainable heating and cooling.",
         link: "/calculator/sgheda"
     },
     {
         name: "EAHED",
+        credits: 70,
         description:
             "Enhance geothermal efficiency with our Slinky Ground Heat Exchanger tool, optimizing heat exchange through innovative coil designs for sustainable heating and cooling.",
         link: "/calculator/eahed"
     },
     {
         name: "Interior Finish Selection",
+        credits: 70,
         description:
             "Simplify your design journey with our Interior Finish Selection service. Explore curated options to effortlessly elevate your space, ensuring a harmonious blend of style and functionality.",
         link: "/calculator/ifs"
+    }
+];
+
+const calculateHistory = [
+    {
+        type: "Roam Load Calculator",
+        usedCredit: 30,
+        date: "2022-01-01",
+        downloadLink: "/calculator/rlc"
+    },
+    {
+        type: "SGHEDA",
+        usedCredit: 50,
+        date: "2022-01-01",
+        downloadLink: "/calculator/rlc"
+    },
+    {
+        type: "EAHED",
+        usedCredit: 70,
+        date: "2022-01-01",
+        downloadLink: "/calculator/rlc"
+    },
+    {
+        type: "Interior Finish Selection",
+        usedCredit: 70,
+        date: "2022-01-01",
+        downloadLink: "/calculator/rlc"
     }
 ];
 
@@ -66,21 +98,31 @@ export const CalculatorBodySection = () => {
                         transition={{ delay: 0.4, duration: 0.5 }}
                         className="w-full"
                     >
-                        <div className="w-full grid lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 grid-flow-row gap-12">
+                        <div className="w-full grid xl:grid-cols-4 grid-cols-1 lg:grid-cols-2 grid-flow-row gap-12">
                             {links.map((link) => (
                                 <Link
                                     key={link.name}
                                     href={link.link}
                                     className="rounded-lg flex flex-col bg-white/10 p-8 gap-4 select-none cursor-pointer transition-all hover:bg-[#F98222]/40 hover:scale-105"
                                 >
-                                    <Image
-                                        src="/images/calculator/calculator.svg"
-                                        width={40}
-                                        height={40}
-                                        alt="performance analysis"
-                                        loading="lazy"
-                                        className="p-2 bg-[#F98222]/40 rounded-xl"
-                                    />
+                                    <div className="flex justify-between items-end gap-2">
+                                        <Image
+                                            src="/images/calculator/calculator.svg"
+                                            width={40}
+                                            height={40}
+                                            alt="performance analysis"
+                                            loading="lazy"
+                                            className="p-2 bg-[#F98222]/40 rounded-xl"
+                                        />
+                                        <div className="text-white/50">
+                                            <span className="text-xl text-title font-bold">
+                                                {link.credits}
+                                            </span>{" "}
+                                            <span className="text-sm text-content">
+                                                Credits
+                                            </span>
+                                        </div>
+                                    </div>
                                     <div className="text-content text-white text-lg font-bold">
                                         {link.name}
                                     </div>
@@ -101,6 +143,48 @@ export const CalculatorBodySection = () => {
                                     HISTORY
                                 </div>
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
+                            </div>
+                            <div className="w-full overflow-hidden overflow-x-auto">
+                                <table className="w-full whitespace-nowrap">
+                                    <thead className="text-title text-white text-left">
+                                        <tr>
+                                            <th>Calculation</th>
+                                            <th>Credits</th>
+                                            <th>Date</th>
+                                            <th>See Calculations</th>
+                                            <th>Design Result</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-content text-gray-300">
+                                        {calculateHistory.map((history) => (
+                                            <tr key={history.type}>
+                                                <td>{history.type}</td>
+                                                <td>{history.usedCredit}</td>
+                                                <td>{history.date}</td>
+                                                <td>View</td>
+                                                <td>
+                                                    <Link
+                                                        href={
+                                                            history.downloadLink
+                                                        }
+                                                        className="text-orange-400 underline font-bold text-content"
+                                                    >
+                                                        Download Now
+                                                    </Link>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div className="w-full flex justify-center items-center">
+                                <Button
+                                    type="button"
+                                    href={`${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/download?type=software`}
+                                    className="btn btn--secondary mx-auto my-4 text-white lemonsqueezy-button"
+                                >
+                                    See more
+                                </Button>
                             </div>
                         </div>
                     </MotionBTTContainer>

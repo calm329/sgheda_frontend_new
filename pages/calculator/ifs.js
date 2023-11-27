@@ -17,7 +17,8 @@ export default function ComingSoon() {
 
             <h1 style={{ fontSize: "50px", color: "#333" }}>Coming Soon</h1>
             <p>
-                We're currently working to bring you something new. Stay tuned!
+                We&apos;re currently working to bring you something new. Stay
+                tuned!
             </p>
         </div>
     );

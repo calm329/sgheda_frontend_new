@@ -11,7 +11,6 @@ import { TestimonialSection } from "@components/Testimonial";
 import { useEffect } from "react";
 
 export default function Home() {
-
     useEffect(() => {
         const sendData = async () => {
             try {
@@ -20,14 +19,12 @@ export default function Home() {
                     {
                         method: "POST",
                         headers: {
-                            "Content-Type": "application/json",
+                            "Content-Type": "application/json"
                         },
-                        body: JSON.stringify({}), // Replace with the request body if needed
+                        body: JSON.stringify({}) // Replace with the request body if needed
                     }
                 );
                 const data = await response.json();
-
-                console.log(data, "I am here", divRef.current)
             } catch (error) {
                 console.error(error);
             }

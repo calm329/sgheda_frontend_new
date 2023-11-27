@@ -6,15 +6,12 @@ const fs = require("fs");
 
 const nextConfig = {
     reactStrictMode: true,
-    experimental: {
-        appDir: true
-    },
     sassOptions: {
         includePaths: [path.join(__dirname, "styles")]
     },
     images: {
         formats: ["image/avif", "image/webp"],
-        domains: ["slinkyghxdesign.com"]
+        domains: ["slinkyghxdesign.com", "lh3.googleusercontent.com"]
     },
     env: {
         siteTitle: "SGHEDA",

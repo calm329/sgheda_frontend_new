@@ -14,13 +14,13 @@
         @apply bg-primary-500;
     }
     .btn--secondary {
-        background-color: #F98222;
+        background-color: #f98222;
     }
     .btn--outline {
         @apply border border-[1px] border-black bg-white text-black hover:text-white;
     }
     .btn--black {
-        @apply bg-black-500;
+        @apply bg-[#526781]/10;
     }
 
     /**

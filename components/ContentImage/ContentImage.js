@@ -40,7 +40,6 @@ export const ContentImage = () => {
                             src={item.image}
                             width={512}
                             height={512}
-                            objectFit="cover"
                             alt="Process Banner 1"
                             className="drop-shadow-xl w-full offset-y-0 offset-x-8 blur-16"
                         />

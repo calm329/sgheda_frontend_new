@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { SectionContainer } from "@components/Section";
 import { Nav } from "@components/Nav";
+import { Icon } from "@iconify/react";
+import { AvatarWithMenu } from "./AvatarWithMenu";
 
 export const Header = () => {
     const [isScrollTop, setIsScrollTop] = useState(true);
@@ -55,6 +57,7 @@ export const Header = () => {
                     </div>
                     <SectionContainer className="flex items-center ml-auto">
                         <Nav />
+                        <AvatarWithMenu />
                     </SectionContainer>
                 </SectionContainer>
             </SectionContainer>

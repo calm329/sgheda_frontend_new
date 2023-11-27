@@ -71,7 +71,6 @@ export const AboutSection = () => {
                                     width={640}
                                     height={40}
                                     alt="Our mission"
-                                    objectFit="cover"
                                     loading="lazy"
                                     className="bg-[#111A32] m-auto rounded-md bg-opacity-30 p-2 w-full"
                                 />
@@ -89,7 +88,6 @@ export const AboutSection = () => {
                                     width={640}
                                     height={40}
                                     alt="About SGHEDA"
-                                    objectFit="cover"
                                     loading="lazy"
                                     className="bg-[#111A32] m-auto rounded-md bg-opacity-30 p-2 w-full"
                                 />

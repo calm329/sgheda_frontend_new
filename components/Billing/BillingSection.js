@@ -4,12 +4,11 @@ import { Input } from "@components/Input";
 import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
 import { Icon } from "@iconify/react";
-import { Dialog } from "primereact/dialog";
-import { TabView, TabPanel } from "primereact/tabview";
-import { QrReader } from "react-qr-reader";
 import { createCanvas, loadImage } from "canvas";
-// import ReactImagePickerEditor from "react-image-picker-editor";
 import dynamic from "next/dynamic";
+import { Dialog } from "primereact/dialog";
+import { TabPanel, TabView } from "primereact/tabview";
+import { QrReader } from "react-qr-reader";
 
 const ReactImagePickerEditor = dynamic(
     () => import("react-image-picker-editor"),
@@ -20,8 +19,8 @@ import jsQR from "jsqr";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import toast from "react-hot-toast";
 import "react-image-picker-editor/dist/index.css";
+import { useToasts } from "react-toast-notifications";
 
 const cardData = [
     {
@@ -61,6 +60,7 @@ const cardData = [
 
 export const BillingSection = () => {
     const router = useRouter();
+    const { addToast } = useToasts();
     let { price } = router.query;
 
     if (!price) price = "150";
@@ -79,7 +79,6 @@ export const BillingSection = () => {
         language: "en",
         width: "330px",
         height: "250px",
-        objectFit: "contain",
         compressInitial: null,
         hideDeleteBtn: true,
         hideDownloadBtn: true,
@@ -95,7 +94,10 @@ export const BillingSection = () => {
     const handleScan = (data) => {
         if (data) {
             setQRCode(data);
-            toast.success("QR Code decoded successfully.");
+            addToast("QR Code decoded successfully.", {
+                appearance: "success",
+                autoDismiss: true
+            });
         }
     };
 
@@ -124,10 +126,16 @@ export const BillingSection = () => {
             if (code) {
                 console.log(`Decoded QR Code: ${code.data}`);
                 setQRCode(code.data);
-                toast.success("QR Code decoded successfully.");
+                addToast("QR Code decoded successfully.", {
+                    appearance: "success",
+                    autoDismiss: true
+                });
             } else {
                 console.log("Unable to decode the QR Code.");
-                toast.error("Unable to decode the QR Code.");
+                addToast("Unable to decode the QR Code.", {
+                    appearance: "error",
+                    autoDismiss: true
+                });
             }
         });
     };
@@ -136,15 +144,30 @@ export const BillingSection = () => {
         e.preventDefault();
 
         if (name === null || name.trim() === "") {
-            return toast.error("Please enter your name");
+            return addToast("Please enter your name", {
+                appearance: "error",
+                autoDismiss: true
+            });
         } else if (email === null || email.trim() === "") {
-            return toast.error("Please enter your email");
+            return addToast("Please enter your email", {
+                appearance: "error",
+                autoDismiss: true
+            });
         } else if (!emailPattern.test(email)) {
-            return toast.error("Please enter a valid email");
+            return addToast("Please enter a valid email", {
+                appearance: "error",
+                autoDismiss: true
+            });
         } else if (machineNumber === null || machineNumber.trim() === "") {
-            return toast.error("Please enter your machine number");
+            return addToast("Please enter your machine number", {
+                appearance: "error",
+                autoDismiss: true
+            });
         } else if (country === null || country.trim() === "") {
-            return toast.error("Please select your country");
+            return addToast("Please select your country", {
+                appearance: "error",
+                autoDismiss: true
+            });
         }
 
         const res = await fetch(
@@ -170,18 +193,32 @@ export const BillingSection = () => {
             const { qrcode } = data;
             if (qrcode) {
                 const { success, message } = data;
-                if (success) toast.success(message);
-                else toast.error(message);
+                if (success)
+                    addToast(message, {
+                        appearance: "success",
+                        autoDismiss: true
+                    });
+                else
+                    addToast(message, {
+                        appearance: "error",
+                        autoDismiss: true
+                    });
             } else {
                 const { invoice_url } = data;
                 if (invoice_url) {
                     window.location.href = invoice_url;
                 } else {
-                    toast.error("Something went wrong");
+                    addToast("Something went wrong", {
+                        appearance: "error",
+                        autoDismiss: true
+                    });
                 }
             }
         } else {
-            toast.error("Something went wrong");
+            addToast("Something went wrong", {
+                appearance: "error",
+                autoDismiss: true
+            });
         }
     };
 
@@ -205,16 +242,28 @@ export const BillingSection = () => {
             if (res.ok) {
                 const { success, message } = await res.json();
                 if (success) {
-                    toast.success(message);
+                    addToast(message, {
+                        appearance: "success",
+                        autoDismiss: true
+                    });
                     setVisible(false);
                 } else {
-                    toast.error(message);
+                    addToast(message, {
+                        appearance: "error",
+                        autoDismiss: true
+                    });
                 }
             } else {
-                toast.error("Something went wrong");
+                addToast("Something went wrong", {
+                    appearance: "error",
+                    autoDismiss: true
+                });
             }
         } else {
-            toast.error("Please scan or upload a QR Code");
+            addToast("Please scan or upload a QR Code", {
+                appearance: "error",
+                autoDismiss: true
+            });
         }
     };
 
@@ -233,7 +282,6 @@ export const BillingSection = () => {
                                     width={35}
                                     height={35}
                                     alt="small sgheda logo"
-                                    objectFit="cover"
                                     loading="lazy"
                                     className="mb-4"
                                 />

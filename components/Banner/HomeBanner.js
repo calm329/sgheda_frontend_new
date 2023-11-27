@@ -44,7 +44,6 @@ export const HomeBanner = () => {
                                     width={40}
                                     height={40}
                                     alt="Commercial"
-                                    objectFit="cover"
                                     loading="lazy"
                                     className="bg-[#004D9833] rounded-md bg-opacity-30 p-2"
                                 />
@@ -56,7 +55,6 @@ export const HomeBanner = () => {
                                     width={40}
                                     height={40}
                                     alt="Geothermal"
-                                    objectFit="cover"
                                     loading="lazy"
                                     className="bg-[#004D9833] rounded-md bg-opacity-30 p-2"
                                 />
@@ -68,7 +66,6 @@ export const HomeBanner = () => {
                                     width={40}
                                     height={40}
                                     alt="Better design"
-                                    objectFit="cover"
                                     loading="lazy"
                                     className="bg-[#004D9833] rounded-md bg-opacity-30 p-2"
                                 />

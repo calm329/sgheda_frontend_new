@@ -11,7 +11,7 @@
         @apply w-full;
 
         thead {
-            @apply border-b border-t border-neutral-300;
+            @apply border-b border-gray-400;
 
             th {
                 @apply pr-4;
@@ -26,7 +26,7 @@
 
         td,
         th {
-            @apply py-4 text-left;
+            @apply py-4 text-left px-2;
         }
     }
 }

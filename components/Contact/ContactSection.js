@@ -4,9 +4,10 @@ import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
 import { Textarea } from "@components/Textarea";
 import { useState } from "react";
-import toast from "react-hot-toast";
+import { useToasts } from "react-toast-notifications";
 
 export const ContactSection = () => {
+    const { addToast } = useToasts();
     const [name, setName] = useState(null);
     const [email, setEmail] = useState(null);
     const [message, setMessage] = useState(null);
@@ -18,13 +19,25 @@ export const ContactSection = () => {
         event.preventDefault();
 
         if (name === null || name.trim() === "") {
-            return toast.error("Please enter your name");
+            return addToast("Please enter your name", {
+                appearance: "error",
+                autoDismiss: true
+            });
         } else if (email === null || email.trim() === "") {
-            return toast.error("Please enter your email");
+            return addToast("Please enter your email", {
+                appearance: "error",
+                autoDismiss: true
+            });
         } else if (!emailPattern.test(email)) {
-            return toast.error("Please enter a valid email");
+            return addToast("Please enter a valid email", {
+                appearance: "error",
+                autoDismiss: true
+            });
         } else if (message === null || message.trim() === "") {
-            return toast.error("Please enter a message");
+            return addToast("Please enter a message", {
+                appearance: "error",
+                autoDismiss: true
+            });
         }
 
         const response = await fetch(
@@ -39,9 +52,15 @@ export const ContactSection = () => {
         );
 
         if (response.ok) {
-            toast.success("Message sent successfully");
+            addToast("Message sent successfully", {
+                appearance: "success",
+                autoDismiss: true
+            });
         } else {
-            toast.error("Something went wrong");
+            addToast("Something went wrong", {
+                appearance: "error",
+                autoDismiss: true
+            });
         }
     };
 

@@ -13,6 +13,10 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+@import 'primereact/resources/themes/lara-light-indigo/theme.css';   // theme
+@import 'primeicons/primeicons.css';
+@import 'primereact/resources/primereact.css';                       // core css
+
 // Core CSS Reset/MISCS
 @import "core/misc";
 
@@ -38,5 +42,3 @@
 // @import "plugins/plugin-tailwind";
 
 @import "react-image-gallery/styles/css/image-gallery.css";
-@import "primereact/resources/themes/lara-light-indigo/theme.css";
-@import "primeicons/primeicons.css";

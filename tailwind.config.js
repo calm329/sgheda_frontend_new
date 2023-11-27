@@ -3,7 +3,8 @@ module.exports = {
     content: [
         "./pages/**/*.{js,jsx}",
         "./components/**/*.{js,jsx}",
-        "./utils/**/*.{js,jsx}"
+        "./utils/**/*.{js,jsx}",
+        "./node_modules/primereact/**/*.{js,ts,jsx,tsx}"
     ],
     theme: {
         extend: {

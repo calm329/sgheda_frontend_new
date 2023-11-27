@@ -37,7 +37,6 @@ export const FeatureSection = () => {
                                     width={50}
                                     height={50}
                                     alt="design capabilities"
-                                    objectFit="cover"
                                     loading="lazy"
                                     className=""
                                 />
@@ -57,7 +56,6 @@ export const FeatureSection = () => {
                                     width={50}
                                     height={50}
                                     alt="performance analysis"
-                                    objectFit="cover"
                                     loading="lazy"
                                     className=""
                                 />
@@ -80,7 +78,6 @@ export const FeatureSection = () => {
                                     width={50}
                                     height={50}
                                     alt="user-friendly interface"
-                                    objectFit="cover"
                                     loading="lazy"
                                     className=""
                                 />

@@ -171,6 +171,7 @@ export const ProfileSection = (props) => {
                                                 name="password"
                                                 placeholder="Password"
                                                 type="password"
+                                                readOnly={session.user.image}
                                                 {...formik.getFieldProps(
                                                     "password"
                                                 )}
@@ -186,6 +187,7 @@ export const ProfileSection = (props) => {
                                             <Input
                                                 label="New Password"
                                                 name="newPassword"
+                                                readOnly={session.user.image}
                                                 placeholder="New Password"
                                                 type="password"
                                                 {...formik.getFieldProps(
@@ -204,6 +206,7 @@ export const ProfileSection = (props) => {
                                             <Input
                                                 label="Confirm Password"
                                                 name="confirmPassword"
+                                                readOnly={session.user.image}
                                                 placeholder="Confirm Password"
                                                 type="password"
                                                 {...formik.getFieldProps(
@@ -225,6 +228,9 @@ export const ProfileSection = (props) => {
                                                 <Button
                                                     type="submit"
                                                     loading={loading}
+                                                    disabled={
+                                                        session.user.image
+                                                    }
                                                     className="btn btn--secondary w-auto mt-4 text-white lemonsqueezy-button"
                                                 >
                                                     Change Password

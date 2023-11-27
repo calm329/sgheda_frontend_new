@@ -1,12 +1,14 @@
 import { Button } from "@components/Button";
 import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const links = [
     {
-        name: "Room Load Calculator",
+        name: "Roam Load Calculator",
         credits: 30,
         description:
             "Optimize your Roam experience with our Roam Load Calculator. Streamline your load management effortlessly, ensuring efficient usage tailored to your needs.",
@@ -35,34 +37,45 @@ const links = [
     }
 ];
 
-const calculateHistory = [
-    {
-        type: "Roam Load Calculator",
-        usedCredit: 30,
-        date: "2022-01-01",
-        downloadLink: "/calculator/rlc"
-    },
-    {
-        type: "SGHEDA",
-        usedCredit: 50,
-        date: "2022-01-01",
-        downloadLink: "/calculator/rlc"
-    },
-    {
-        type: "EAHED",
-        usedCredit: 70,
-        date: "2022-01-01",
-        downloadLink: "/calculator/rlc"
-    },
-    {
-        type: "Interior Finish Selection",
-        usedCredit: 70,
-        date: "2022-01-01",
-        downloadLink: "/calculator/rlc"
-    }
-];
+export const CalculatorBodySection = (props) => {
+    const itemsPerPage = 5;
+    const [historyData, setHistoryData] = useState([]);
+    const [page, setPage] = useState(2);
+    const [hasMore, setHasMore] = useState(true);
 
-export const CalculatorBodySection = () => {
+    useEffect(() => {
+        const fetchInitialData = async () => {
+            const res = await axios.get(
+                `/api/calculator/history?page=1&limit=${itemsPerPage + 1}`
+            );
+            setHasMore(res.data.length > itemsPerPage);
+            setHistoryData([...res.data.slice(0, itemsPerPage)]);
+        };
+        fetchInitialData();
+    }, []);
+
+    const getHistory = async () => {
+        const res = await axios.get(
+            `/api/calculator/history?page=${page}&limit=${itemsPerPage + 1}`
+        );
+        setHasMore(res.data.length > itemsPerPage);
+        setHistoryData((prevData) => [
+            ...prevData,
+            ...res.data.slice(0, itemsPerPage)
+        ]);
+        setPage(page + 1);
+    };
+
+    const downloadHistory = async () => {
+        const res = await axios.get(`/api/calculator/history/download`);
+        const url = window.URL.createObjectURL(new Blob([res.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "history.csv");
+        document.body.appendChild(link);
+        link.click();
+    };
+
     return (
         <SectionContainer
             id={"sgheda"}
@@ -156,32 +169,39 @@ export const CalculatorBodySection = () => {
                                         </tr>
                                     </thead>
                                     <tbody className="text-content text-gray-300">
-                                        {calculateHistory.map((history) => (
-                                            <tr key={history.type}>
+                                        {historyData.map((history) => (
+                                            <tr key={history.id}>
                                                 <td>{history.type}</td>
-                                                <td>{history.usedCredit}</td>
+                                                <td>{history.amount}</td>
                                                 <td>{history.date}</td>
                                                 <td>View</td>
                                                 <td>
-                                                    <Link
-                                                        href={
-                                                            history.downloadLink
-                                                        }
+                                                    <a
+                                                        href={`api/calculator/history/${history.id}`}
+                                                        download={`${history.id}.json`}
                                                         className="text-orange-400 underline font-bold text-content"
                                                     >
                                                         Download Now
-                                                    </Link>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         ))}
                                     </tbody>
                                 </table>
                             </div>
+                            {historyData.length === 0 && (
+                                <div className="w-full flex justify-center items-center p-4 bg-white/10 text-white rounded-lg my-2 text-content">
+                                    There is no history
+                                </div>
+                            )}
                             <div className="w-full flex justify-center items-center">
                                 <Button
                                     type="button"
                                     href={`${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/download?type=software`}
-                                    className="btn btn--secondary mx-auto my-4 text-white lemonsqueezy-button"
+                                    className={`btn btn--secondary mx-auto my-4 text-white lemonsqueezy-button ${
+                                        hasMore ? "" : "hidden"
+                                    }`}
+                                    onClick={getHistory}
                                 >
                                     See more
                                 </Button>

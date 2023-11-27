@@ -11,6 +11,7 @@ export const Input = ({
     errorText = "",
     className = "",
     value = "",
+    readOnly = false,
     others,
     onChange = () => {}
 }) => {
@@ -26,6 +27,7 @@ export const Input = ({
                     placeholder={placeholder}
                     onChange={onChange}
                     value={value}
+                    readOnly={readOnly}
                     {...others}
                     className={clsx(
                         "shadow appearance-none border text-content rounded w-full py-2 px-3 text-white bg-[#09112D] leading-tight focus:outline-none focus:shadow-outline",

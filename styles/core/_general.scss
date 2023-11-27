@@ -143,3 +143,11 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     @apply bg-gray-500;
 }
+
+.p-confirm-dialog-accept {
+    @apply p-4 py-2 bg-orange-400 text-white;
+}
+
+.p-confirm-dialog-reject {
+    @apply p-4 py-2;
+}

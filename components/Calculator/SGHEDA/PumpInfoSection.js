@@ -103,7 +103,7 @@ export const PumpInfoSection = ({ footer }) => {
                     and Cost
                 </div>
                 <div className="overflow-hidden overflow-x-auto">
-                    <table className="w-full whitespace-nowrap">
+                    <table className="w-full whitespace-nowrap bg-[#111A32] rounded-xl">
                         <thead>
                             <tr className="text-white">
                                 <th>Fluid Type</th>

@@ -20,7 +20,7 @@ const toggleLinks = [
         link: "/calculator/rlc"
     },
     {
-        name: "SGHEDA",
+        name: "EAHED",
         link: "/calculator/sgheda"
     },
     {
@@ -35,28 +35,8 @@ const toggleLinks = [
 
 const steps = [
     {
-        name: "System Design",
+        name: "EAHED",
         icon: "/images/calculator/sgheda/system_design.svg"
-    },
-    {
-        name: "Fluid Properties",
-        icon: "/images/calculator/sgheda/fluid_properties.svg"
-    },
-    {
-        name: "Soil Properties",
-        icon: "/images/calculator/sgheda/soil_properties.svg"
-    },
-    {
-        name: "Pipe Design",
-        icon: "/images/calculator/sgheda/pipe_design.svg"
-    },
-    {
-        name: "Pump Info",
-        icon: "/images/calculator/sgheda/pump_info.svg"
-    },
-    {
-        name: "Design Result",
-        icon: "/images/calculator/sgheda/design_result.svg"
     },
     {
         name: "Analysis",
@@ -64,7 +44,7 @@ const steps = [
     }
 ];
 
-export const SGHEDA = () => {
+export const EAHED = () => {
     const [currentStep, setCurrentStep] = useState(-1);
     const [result, setResult] = useState(null);
     const [maxStep, setMaxStep] = useState(0);
@@ -198,113 +178,63 @@ export const SGHEDA = () => {
     let initialValues = {};
 
     try {
-        if (localStorage.getItem("SGHEDA"))
-            initialValues = JSON.parse(localStorage.getItem("SGHEDA"));
+        if (localStorage.getItem("EAHED"))
+            initialValues = JSON.parse(localStorage.getItem("EAHED"));
         else throw new Error();
     } catch (error) {
         initialValues = {
-            system: {
+            design: {
                 heatLoad: null,
-                inputFluidTemperature: null,
-                type: 0
-            },
-            fluid: {
-                fluidType: "Water",
-                viscosity: null,
-                specificHeat: null,
-                density: null
-            },
-            soil: {
-                thermalConductivity: null,
-                thermalDiffusivity: null,
-                groundTemperature: null
-            },
-            pipe: {
-                outerDiameter: null,
-                innerDiameter: null,
-                pipeConductivity: null,
-                buriedDepth: null
-            },
-            pump: {
-                requiredPower: null,
-                fluidVelocity: null,
-                pumpMotorEfficiency: null
+                groundTemp: null,
+                RoomTemp: null,
+                pipeInnerDiameter: null,
+                pipeOuterDiameter: null,
+                pipeMaterial: null,
+                buriedDepth: null,
+                fanVelocity: null
             }
         };
     }
 
     function handleSubmit(values, actions) {
+        console.log("SDFSDF", currentStep);
         if (currentStep === 4) {
             confirmDialog({
-                message: `This will use ${process.env.NEXT_PUBLIC_SGHEDA_CREDIT_AMOUNT} credits. \n Are you sure you want to submit?`,
+                message: "Are you sure you want to submit?",
                 header: "Confirmation",
                 icon: "pi pi-exclamation-triangle",
                 accept: () => {
                     axios
-                        .post("/api/calculator/sgheda/calculate", {
-                            inputData: values
-                        })
-                        .then((result) => {
-                            if (result.status === 200) {
-                                localStorage.setItem(
-                                    "SGHEDA",
-                                    JSON.stringify(values)
-                                );
-                                localStorage.setItem(
-                                    "currentStep",
-                                    Math.max(maxStep, currentStep + 1)
-                                );
-
-                                setResult(result.data.data);
+                        .post("http://localhost:8000/sgheda", values)
+                        .then((res) => {
+                            if (res.status === 200) {
+                                setResult(res.data);
                                 localStorage.setItem(
                                     "designResult",
-                                    JSON.stringify(result.data.data)
+                                    JSON.stringify(res.data)
                                 );
 
                                 setMaxStep(Math.max(maxStep, currentStep + 1));
                                 setCurrentStep(currentStep + 1);
+
+                                const inputData = JSON.stringify(values);
+                                const outputData = JSON.stringify(result);
+                                const amount = 30;
+
+                                axios
+                                    .post("/api/calculator/saveHistory", {
+                                        inputData,
+                                        outputData,
+                                        type: "EAHED",
+                                        amount
+                                    })
+                                    .then((result) => {
+                                        if (result.status === 200) {
+                                            console.log(result.data);
+                                        }
+                                    });
                             }
                         });
-                    // axios
-                    //     .post("http://localhost:8000/sgheda", values)
-                    //     .then((res) => {
-                    //         if (res.status === 200) {
-                    //             localStorage.setItem(
-                    //                 "SGHEDA",
-                    //                 JSON.stringify(values)
-                    //             );
-                    //             localStorage.setItem(
-                    //                 "currentStep",
-                    //                 Math.max(maxStep, currentStep + 1)
-                    //             );
-
-                    //             setResult(res.data);
-                    //             localStorage.setItem(
-                    //                 "designResult",
-                    //                 JSON.stringify(res.data)
-                    //             );
-
-                    //             setMaxStep(Math.max(maxStep, currentStep + 1));
-                    //             setCurrentStep(currentStep + 1);
-
-                    //             const inputData = JSON.stringify(values);
-                    //             const outputData = JSON.stringify(result);
-                    //             const amount = 30;
-
-                    //             axios
-                    //                 .post("/api/calculator/saveHistory", {
-                    //                     inputData,
-                    //                     outputData,
-                    //                     type: "SGHEDA",
-                    //                     amount
-                    //                 })
-                    //                 .then((result) => {
-                    //                     if (result.status === 200) {
-                    //                         console.log(result.data);
-                    //                     }
-                    //                 });
-                    //         }
-                    //     });
                 },
                 reject: () => {}
             });
@@ -313,7 +243,7 @@ export const SGHEDA = () => {
             setCurrentStep(0);
             setResult(null);
             setMaxStep(0);
-            localStorage.removeItem("SGHEDA");
+            localStorage.removeItem("EAHED");
             localStorage.removeItem("currentStep");
             localStorage.removeItem("designResult");
             actions.resetForm({
@@ -348,7 +278,7 @@ export const SGHEDA = () => {
                 }
             });
         } else {
-            localStorage.setItem("SGHEDA", JSON.stringify(values));
+            localStorage.setItem("EAHED", JSON.stringify(values));
             localStorage.setItem(
                 "currentStep",
                 Math.max(maxStep, currentStep + 1)

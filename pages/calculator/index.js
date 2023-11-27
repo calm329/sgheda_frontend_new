@@ -1,8 +1,9 @@
-import { CalculatorHeaderSection } from "@components/Calculator";
-import { CalculatorBodySection } from "@components/Calculator";
+import {
+    CalculatorBodySection,
+    CalculatorHeaderSection
+} from "@components/Calculator";
 import { Layout } from "@components/Layout";
 import SEO from "@components/SEO/SEO";
-import { SGHEDA } from "@components/Calculator/SGHEDA";
 import { getSession } from "next-auth/react";
 
 export default function Resource(props) {

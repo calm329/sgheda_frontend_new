@@ -152,7 +152,8 @@ export const EAHED = () => {
         if (currentStep === 0) {
             console.log(values);
             confirmDialog({
-                message: "Are you sure you want to submit?",
+                message:
+                    "This will use ${process.env.NEXT_PUBLIC_EAHED_CREDIT_AMOUNT} credits. \n Are you sure you want to submit?",
                 header: "Confirmation",
                 icon: "pi pi-exclamation-triangle",
                 accept: () => {

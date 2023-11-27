@@ -20,6 +20,8 @@ export const ProfileSection = (props) => {
     const { data: session, status } = useSession();
     const loading = status === "loading";
 
+    console.log(session);
+
     const [isLoading, setIsLoading] = useState(false);
     const [fundAmount, setFundAmount] = useState(300);
 
@@ -111,38 +113,82 @@ export const ProfileSection = (props) => {
             });
     };
 
+    async function handleResend() {
+        axios
+            .post("/api/auth/resend-email")
+            .then((result) => {
+                if (result.status === 200) {
+                    addToast(result.data.message, {
+                        appearance: "success",
+                        autoDismiss: true
+                    });
+                } else {
+                    setLoading(false);
+                    addToast(result.data.message, {
+                        appearance: "error",
+                        autoDismiss: true
+                    });
+                }
+            })
+            .catch((error) => {
+                addToast(error.response.data.message, {
+                    appearance: "error",
+                    autoDismiss: true
+                });
+            });
+    }
+
     return !loading && session ? (
         <SectionContainer className="page-banner--container p-4 pb-0">
             <SectionContainer className="page-banner--inner-container w-full h-full z-10 flex lg:flex-row flex-col rounded-lg gap-4 bg-[url('/images/background/resource.png')] bg-center bg-cover no-repeat">
-                <SectionContainer className="w-full h-full p-4 pt-24 flex gap-12 justify-center flex-col rounded-lg">
+                <SectionContainer className="w-full h-full p-4 pt-24 flex gap-4 justify-center flex-col rounded-lg">
                     <ConfirmDialog />
                     <MotionBTTContainer
                         transition={{ delay: 0.4, duration: 0.5 }}
                         className="w-full"
                     >
-                        <div className="w-full grid grid-cols-2 gap-4">
+                        {!session.verified && (
+                            <div className="w-full text-content flex flex-col lg:flex-row justify-between gap-2 text-gray-300 bg-green-500/50 rounded-xl p-4 mb-2 text-md">
+                                <span className="flex justify-start items-center gap-2">
+                                    <Icon
+                                        icon="fxemoji:warningsign"
+                                        className="min-w-[20px] min-h-[20px]"
+                                    />
+                                    Your account has not been verified. Please
+                                    verify your account.{" "}
+                                </span>
+                                <div
+                                    loading={loading}
+                                    className="w-auto text-white lemonsqueezy-button bg-transparent underline cursor-pointer hover:text-orange-400 transition-all"
+                                    onClick={handleResend}
+                                >
+                                    Resend Verification Email
+                                </div>
+                            </div>
+                        )}
+                        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
                             <div className="w-full mx-auto bg-[#1C2743]/40 rounded-xl p-8 flex gap-8">
                                 <div className="">
                                     {session.user.image ? (
                                         <Image
                                             src={session.user.image}
                                             alt="User avatar"
-                                            className="rounded-full"
+                                            className="min-w-[80px] min-h-[80px] rounded-full"
                                             width={80} // specify a size (replace these with the desired dimensions)
                                             height={80} // specify a size
                                         />
                                     ) : (
                                         <Icon
                                             icon="mingcute:user-4-fill"
-                                            className="w-[80px] h-[80px] text-white"
+                                            className="min-w-[80px] min-h-[80px] text-white"
                                         />
                                     )}
                                 </div>
-                                <div className="text-content">
-                                    <div className="text-white font-semibold text-3xl">
+                                <div className="text-content overflow-hidden">
+                                    <div className="text-white font-semibold text-3xl whitespace-nowrap text-ellipsis overflow-hidden">
                                         {session.user.name}
                                     </div>
-                                    <div className="text-gray-300 font-semibold text-2xl whitespace-nowrap text-ellipsis overflow-hidden max-w-fit">
+                                    <div className="text-gray-300 font-semibold text-2xl whitespace-nowrap text-ellipsis overflow-hidden">
                                         {session.user.email}
                                     </div>
                                     {/* <div className="text-gray-300 mt-4 flex gap-4 justify-start items-center text-3xl">
@@ -250,15 +296,15 @@ export const ProfileSection = (props) => {
                             <div className="w-full mx-auto bg-[#1C2743]/40 rounded-xl p-8 flex flex-col gap-8">
                                 <div className="w-full rounded-xl">
                                     <div className="flex flex-col justify-center items-center">
-                                        <div className="w-full text-white text-title text-3xl mb-8">
+                                        <div className="w-full text-white text-title text-xl md:text-2xl lg:text-3xl mb-8">
                                             Your account credit balance is $
                                             {props.balance}
                                         </div>
                                         <form
-                                            className="w-full grid grid-cols-3 items-center bg-white/10 p-4 rounded-xl"
+                                            className="w-full grid grid-cols-1 sm:grid-cols-3 items-center bg-white/10 p-4 rounded-xl"
                                             onSubmit={formik.handleSubmit}
                                         >
-                                            <div className="flex flex-col gap-2 items-center">
+                                            <div className="flex sm:flex-col gap-2 justify-center items-center">
                                                 <span className="text-white text-content text-xl">
                                                     Amount
                                                 </span>
@@ -288,7 +334,7 @@ export const ProfileSection = (props) => {
                                                     <span>$1000</span>
                                                 </div>
                                             </div>
-                                            <div className="flex justify-end">
+                                            <div className="flex justify-center sm:justify-end">
                                                 <Button
                                                     type="button"
                                                     loading={loading}

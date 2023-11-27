@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useSession } from "next-auth/react";
 
 const navigation = [
@@ -20,12 +20,22 @@ export const Nav = () => {
 
     const router = useRouter();
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const ref = useRef(null);
 
-    const closeNav = () => {
-        setIsNavOpen(false);
+    const handleClickOutside = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+            setIsNavOpen(false);
+        }
     };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    });
     return (
-        <nav className="header-nav">
+        <nav className="header-nav" ref={ref}>
             <div className="header-nav--container">
                 <button
                     onClick={() => setIsNavOpen(!isNavOpen)}

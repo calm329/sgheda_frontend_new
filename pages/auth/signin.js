@@ -190,7 +190,7 @@ export default function SignIn() {
                                         </div>
                                         <div className="text-white text-center">
                                             <span>
-                                                You don't have account?{" "}
+                                                You don&apos;t have account?{" "}
                                             </span>
                                             <Link
                                                 href={"/auth/signup"}

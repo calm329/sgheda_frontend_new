@@ -131,8 +131,8 @@ export const PumpInfoSection = ({ footer }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {pumpInfoTableData.map((info) => (
-                                <tr>
+                            {pumpInfoTableData.map((info, index) => (
+                                <tr key={index}>
                                     <td className="text-white">
                                         {info.fluidType}
                                     </td>

@@ -146,8 +146,8 @@ export const FluidPropSection = ({ footer }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {fluidsTableData.map((fluid) => (
-                                <tr className="border-none">
+                            {fluidsTableData.map((fluid, index) => (
+                                <tr className="border-none" key={index}>
                                     <td className="text-white pl-2">
                                         {fluid.fluidType}
                                     </td>
@@ -171,7 +171,7 @@ export const FluidPropSection = ({ footer }) => {
                 <div className="w-full my-4 text-white/60 text-content">
                     <li>
                         1988. and Perry, RobertH. and Chilton, Cecil H. Chemical
-                        Engineer's Handbook, 5thNew York, McGraw Hill
+                        Engineer&apos;s Handbook, 5thNew York, McGraw Hill
                         BookCompany, 1973.
                     </li>
                     <li>

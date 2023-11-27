@@ -88,10 +88,10 @@ export default function VerifyEmail() {
                                             verify your email address.
                                         </p>
                                         <p>
-                                            If you can't find the email in your
-                                            inbox, check your spam folder or
-                                            click the button below to resend the
-                                            verification email.
+                                            If you can&apos;t find the email in
+                                            your inbox, check your spam folder
+                                            or click the button below to resend
+                                            the verification email.
                                         </p>
                                     </div>
                                     <div className="w-full flex justify-center items-center">

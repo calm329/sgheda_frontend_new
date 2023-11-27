@@ -13,6 +13,7 @@ import { PipeDesignSection } from "./PipeDesignSection";
 import { PumpInfoSection } from "./PumpInfoSection";
 import { SoilPropSection } from "./SoilPropSection";
 import { SystemDesignSection } from "./SystemDesignSection";
+import { useToasts } from "react-toast-notifications";
 
 const toggleLinks = [
     {
@@ -65,6 +66,7 @@ const steps = [
 ];
 
 export const SGHEDA = () => {
+    const { addToast } = useToasts();
     const [currentStep, setCurrentStep] = useState(-1);
     const [result, setResult] = useState(null);
     const [maxStep, setMaxStep] = useState(0);
@@ -263,7 +265,18 @@ export const SGHEDA = () => {
 
                                 setMaxStep(Math.max(maxStep, currentStep + 1));
                                 setCurrentStep(currentStep + 1);
+                            } else {
+                                addToast(result.data.message, {
+                                    appearance: "error",
+                                    autoDismiss: true
+                                });
                             }
+                        })
+                        .catch((err) => {
+                            addToast(err.response.data.message, {
+                                appearance: "error",
+                                autoDismiss: true
+                            });
                         });
                     // axios
                     //     .post("http://localhost:8000/sgheda", values)

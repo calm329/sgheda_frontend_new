@@ -63,6 +63,7 @@ export const PumpInfoSection = ({ footer }) => {
                     label="Required Power"
                     type="number"
                     placeholder="600"
+                    autoFocus
                     {...getFieldProps("pump.requiredPower")}
                     error={
                         touched.pump?.requiredPower &&

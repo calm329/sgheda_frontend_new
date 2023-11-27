@@ -79,6 +79,7 @@ export const SoilPropSection = ({ footer }) => {
                     label="Thermal Conductivity"
                     type="number"
                     placeholder="2.07"
+                    autoFocus
                     {...getFieldProps("soil.thermalConductivity")}
                     error={
                         touched.soil?.thermalConductivity &&

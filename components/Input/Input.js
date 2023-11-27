@@ -11,6 +11,7 @@ export const Input = ({
     errorText = "",
     className = "",
     value = "",
+    autoFocus = false,
     readOnly = false,
     others,
     onChange = () => {}
@@ -24,6 +25,7 @@ export const Input = ({
                 <input
                     type={type}
                     name={name}
+                    autoFocus={autoFocus}
                     placeholder={placeholder}
                     onChange={onChange}
                     value={value}

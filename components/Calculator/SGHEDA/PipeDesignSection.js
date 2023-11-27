@@ -12,6 +12,7 @@ export const PipeDesignSection = ({ footer }) => {
                     label="Outer Diameter"
                     type="number"
                     placeholder="0.026"
+                    autoFocus
                     {...getFieldProps("pipe.outerDiameter")}
                     error={
                         touched.pipe?.outerDiameter &&

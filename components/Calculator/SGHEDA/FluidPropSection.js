@@ -81,6 +81,7 @@ export const FluidPropSection = ({ footer }) => {
                     label="Viscosity"
                     type="number"
                     placeholder="0.001"
+                    autoFocus
                     {...getFieldProps("fluid.viscosity")}
                     badge="Pa*s"
                     error={touched.fluid?.viscosity && errors.fluid?.viscosity}

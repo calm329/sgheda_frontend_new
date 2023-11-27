@@ -21,7 +21,7 @@ export const CalculatorHeaderSection = () => {
                                 <h2 className="text-content text-gray-300 text-sm my-4 text-center">
                                     Empower your calculations with our advanced
                                     calculator, designed for accuracy and ease
-                                    of use. Whether you're solving complex
+                                    of use. Whether you&apos;re solving complex
                                     equations, managing finances, or planning
                                     projects, our versatile calculator provides
                                     the precision you need.

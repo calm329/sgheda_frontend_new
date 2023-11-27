@@ -437,7 +437,7 @@ export const SGHEDA = () => {
                     : 0
             );
         }
-    });
+    }, [currentStep]);
 
     return (
         <SectionContainer

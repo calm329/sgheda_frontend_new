@@ -98,11 +98,11 @@ export const CalculatorBodySection = (props) => {
                                 <div className="h-1 w-16 mb-2 bg-orange-400"></div>
                                 <div className="text-content text-gray-300 text-center text-lg">
                                     Our design tool is your gateway to
-                                    creativity and innovation. Whether you're a
-                                    seasoned professional or a beginner, our
-                                    intuitive platform simplifies the design
-                                    process, making it accessible to all. Here's
-                                    how it works:
+                                    creativity and innovation. Whether
+                                    you&apos;re a seasoned professional or a
+                                    beginner, our intuitive platform simplifies
+                                    the design process, making it accessible to
+                                    all. Here&apos;s how it works:
                                 </div>
                             </div>
                         </div>

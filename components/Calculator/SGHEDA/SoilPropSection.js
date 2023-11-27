@@ -252,10 +252,10 @@ export const SoilPropSection = ({ footer }) => {
                 </div>
                 <div className="w-full my-4 text-white/60 text-content">
                     <li>
-                        O.T. Farouki, "Evaluation of Methods for Calculating
-                        Soil Thermal Conductivity," U.S. Army Cold Regions
-                        Research and Engineering Laboratory Report 82-8,
-                        Hanover, NH, 1982.
+                        O.T. Farouki, &quot;Evaluation of Methods for
+                        Calculating Soil Thermal Conductivity,&quot; U.S. Army
+                        Cold Regions Research and Engineering Laboratory Report
+                        82-8, Hanover, NH, 1982.
                     </li>
                 </div>
             </div>

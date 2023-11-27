@@ -97,8 +97,8 @@ export default function ForgotPassword() {
                                         </p>
                                         <p>
                                             Be sure to check your spam folder if
-                                            you can't find it in your primary
-                                            inbox.
+                                            you can&apos;t find it in your
+                                            primary inbox.
                                         </p>
                                     </div>
                                     <form

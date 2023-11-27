@@ -64,6 +64,11 @@ export default async function handler(req, res) {
                         .json({ success: false, error: response.data.error });
                 }
 
+                account.balance -=
+                    process.env.NEXT_PUBLIC_SGHEDA_CREDIT_AMOUNT || 30;
+
+                await account.save();
+
                 const history = await History.create({
                     user: account._id,
                     inputData: JSON.stringify(inputData),

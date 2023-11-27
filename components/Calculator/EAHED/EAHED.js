@@ -16,7 +16,7 @@ import { SystemDesignSection } from "./SystemDesignSection";
 
 const toggleLinks = [
     {
-        name: "Roam Load Calculator",
+        name: "Room Load Calculator",
         link: "/calculator/rlc"
     },
     {

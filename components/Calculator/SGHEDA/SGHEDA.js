@@ -17,7 +17,7 @@ import { useToasts } from "react-toast-notifications";
 
 const toggleLinks = [
     {
-        name: "Roam Load Calculator",
+        name: "Room Load Calculator",
         link: "/calculator/rlc"
     },
     {

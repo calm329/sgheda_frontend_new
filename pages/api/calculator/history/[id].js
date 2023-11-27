@@ -52,7 +52,9 @@ export default async function handler(req, res) {
             // set Header
             res.setHeader(
                 "Content-disposition",
-                `attachment; filename=${history._id.toString()}.json`
+                `attachment; filename=${history._id.toString()}.${
+                    history.type
+                }.gld`
             );
             res.setHeader("Content-type", "application/json");
 

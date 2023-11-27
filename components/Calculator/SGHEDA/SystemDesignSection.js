@@ -13,6 +13,7 @@ export const SystemDesignSection = ({ footer }) => {
                     type="number"
                     label="Heat Load"
                     placeholder="64000"
+                    autoFocus
                     badge="W"
                     {...getFieldProps("system.heatLoad")}
                     error={touched.system?.heatLoad && errors.system?.heatLoad}

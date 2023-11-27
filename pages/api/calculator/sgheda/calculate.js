@@ -31,7 +31,22 @@ export default async function handler(req, res) {
                     });
                 }
 
-                console.log(inputData);
+                if (!account.verified) {
+                    return res.status(403).json({
+                        success: false,
+                        message: "Account not verified!"
+                    });
+                }
+
+                if (
+                    account.balance <
+                    (process.env.NEXT_PUBLIC_SGHEDA_CREDIT_AMOUNT || 30)
+                ) {
+                    return res.status(403).json({
+                        success: false,
+                        message: "You don't have enough balance!"
+                    });
+                }
 
                 const response = await axios.post(
                     "http://slinkyghxdesign.com:8000/sgheda",

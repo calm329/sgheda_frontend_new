@@ -27,6 +27,7 @@ export default NextAuth({
                     id: profile.sub,
                     name,
                     email,
+                    verified: exist_account ? exist_account.verified : false,
                     image: userImage
                 };
             }
@@ -56,7 +57,8 @@ export default NextAuth({
                 return {
                     id: account._id,
                     name: account.name,
-                    email: account.email
+                    email: account.email,
+                    verified: account.verified
                 };
             }
         })
@@ -67,12 +69,14 @@ export default NextAuth({
         jwt: async ({ token, account, user }) => {
             if (user) {
                 token.userId = user.id;
+                token.verified = user.verified;
             }
             return token;
         },
         session: async ({ session, token, user }) => {
             if (token) {
                 session.userId = token.userId;
+                session.verified = token.verified;
             }
             return session;
         }

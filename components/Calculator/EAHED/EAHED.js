@@ -7,16 +7,13 @@ import { Form, Formik } from "formik";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
-import { DesignResultSection } from "./DesignResultSection";
-import { FluidPropSection } from "./FluidPropSection";
-import { PipeDesignSection } from "./PipeDesignSection";
-import { PumpInfoSection } from "./PumpInfoSection";
-import { SoilPropSection } from "./SoilPropSection";
+import { Input } from "@components/Input";
 import { SystemDesignSection } from "./SystemDesignSection";
+import { useToasts } from "react-toast-notifications";
 
 const toggleLinks = [
     {
-        name: "Roam Load Calculator",
+        name: "Room Load Calculator",
         link: "/calculator/rlc"
     },
     {
@@ -35,8 +32,12 @@ const toggleLinks = [
 
 const steps = [
     {
-        name: "EAHED",
+        name: "System Design",
         icon: "/images/calculator/sgheda/system_design.svg"
+    },
+    {
+        name: "Design Result",
+        icon: "/images/calculator/sgheda/design_result.svg"
     },
     {
         name: "Analysis",
@@ -45,135 +46,85 @@ const steps = [
 ];
 
 export const EAHED = () => {
+    const { addToast } = useToasts();
     const [currentStep, setCurrentStep] = useState(-1);
     const [result, setResult] = useState(null);
     const [maxStep, setMaxStep] = useState(0);
 
-    const validationSchema = [
-        Yup.object().shape({
-            system: Yup.object().shape({
-                heatLoad: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Heat Load is required"),
-                inputFluidTemperature: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Input Fluid Temperature is required"),
-                type: Yup.number().required("Ring Type is required")
-            })
-        }),
-        Yup.object().shape({
-            fluid: Yup.object().shape({
-                fluidType: Yup.string().required("Fluid Type is required"),
-                viscosity: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Viscosity is required"),
-                specificHeat: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Specific Heat is required"),
-                density: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Density is required")
-            })
-        }),
-        Yup.object().shape({
-            soil: Yup.object().shape({
-                thermalConductivity: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Thermal Conductivity is required"),
-                thermalDiffusivity: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Thermal Diffusivity is required"),
-                groundTemperature: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Ground Temperature is required")
-            })
-        }),
-        Yup.object().shape({
-            pipe: Yup.object().shape({
-                outerDiameter: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Outer Diameter is required"),
-                innerDiameter: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Inner Diameter is required"),
-                pipeConductivity: Yup.number().required(
-                    "Pipe Conductivity is required"
-                ),
-                buriedDepth: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Buried Depth is required")
-            })
-        }),
-        Yup.object().shape({
-            pump: Yup.object().shape({
-                requiredPower: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Required Power is required"),
-                fluidVelocity: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Fluid Velocity is required"),
-                pumpMotorEfficiency: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Pump Motor Efficiency is required")
-            })
-        })
-    ];
+    const validationSchema = Yup.object().shape({
+        loopType: Yup.number().nullable().required("Loop Type is required"),
+        heatLoad: Yup.number()
+            .nullable()
+            .test(
+                "gt-zero",
+                "Value must be greater than zero",
+                (val) => val > 0
+            )
+            .required("Heat Load is required"),
+        groundTemp: Yup.number()
+            .nullable()
+            .test(
+                "gt-zero",
+                "Value must be greater than zero",
+                (val) => val > 0
+            )
+            .required("Ground Temperature is required"),
+        roomTemp: Yup.number()
+            .nullable()
+            .test(
+                "gt-zero",
+                "Value must be greater than zero",
+                (val) => val > 0
+            )
+            .required("Room Temperature is required"),
+        outsideTemp: Yup.number()
+            .nullable()
+            .test({
+                name: "outsideTemp",
+                message:
+                    "Outside Temp is required and must be greater than zero",
+                test: function (val) {
+                    const { loopType } = this.parent;
+                    if (loopType === 0) {
+                        return val !== null && val > 0;
+                    }
+                    return true;
+                }
+            }),
+        pipeInnerDiameter: Yup.number()
+            .nullable()
+            .test(
+                "gt-zero",
+                "Value must be greater than zero",
+                (val) => val > 0
+            )
+            .required("Pipe Inner Diameter is required"),
+        pipeOuterDiameter: Yup.number()
+            .nullable()
+            .test(
+                "gt-zero",
+                "Value must be greater than zero",
+                (val) => val > 0
+            )
+            .required("Pipe Outer Diameter is required"),
+        pipeMaterial: Yup.string().required("Pipe Material is required"),
+        buriedDepth: Yup.number()
+            .nullable()
+            .test(
+                "gt-zero",
+                "Value must be greater than zero",
+                (val) => val > 0
+            )
+            .required("Buried Depth is required"),
+        fanVelocity: Yup.number()
+            .nullable()
+            .test(
+                "gt-zero",
+                "Value must be greater than zero",
+                (val) => val > 0
+            )
+            .required("Fan Velocity is required")
+    });
 
     let initialValues = {};
 
@@ -183,110 +134,89 @@ export const EAHED = () => {
         else throw new Error();
     } catch (error) {
         initialValues = {
-            design: {
-                heatLoad: null,
-                groundTemp: null,
-                RoomTemp: null,
-                pipeInnerDiameter: null,
-                pipeOuterDiameter: null,
-                pipeMaterial: null,
-                buriedDepth: null,
-                fanVelocity: null
-            }
+            loopType: 0,
+            heatLoad: null,
+            groundTemp: null,
+            roomTemp: null,
+            pipeInnerDiameter: null,
+            pipeOuterDiameter: null,
+            pipeMaterial: "Clay",
+            outsideTemp: null,
+            buriedDepth: null,
+            fanVelocity: null
         };
     }
 
     function handleSubmit(values, actions) {
         console.log("SDFSDF", currentStep);
-        if (currentStep === 4) {
+        if (currentStep === 0) {
+            console.log(values);
             confirmDialog({
                 message: "Are you sure you want to submit?",
                 header: "Confirmation",
                 icon: "pi pi-exclamation-triangle",
                 accept: () => {
                     axios
-                        .post("http://localhost:8000/sgheda", values)
-                        .then((res) => {
-                            if (res.status === 200) {
-                                setResult(res.data);
+                        .post("/api/calculator/eahed/calculate", {
+                            inputData: values
+                        })
+                        .then((result) => {
+                            if (result.status === 200) {
                                 localStorage.setItem(
-                                    "designResult",
-                                    JSON.stringify(res.data)
+                                    "EAHED",
+                                    JSON.stringify(values)
+                                );
+                                localStorage.setItem(
+                                    "EAHED.currentStep",
+                                    Math.max(maxStep, currentStep + 1)
+                                );
+
+                                setResult(result.data.data);
+                                localStorage.setItem(
+                                    "EAHED.designResult",
+                                    JSON.stringify(result.data.data)
                                 );
 
                                 setMaxStep(Math.max(maxStep, currentStep + 1));
                                 setCurrentStep(currentStep + 1);
-
-                                const inputData = JSON.stringify(values);
-                                const outputData = JSON.stringify(result);
-                                const amount = 30;
-
-                                axios
-                                    .post("/api/calculator/saveHistory", {
-                                        inputData,
-                                        outputData,
-                                        type: "EAHED",
-                                        amount
-                                    })
-                                    .then((result) => {
-                                        if (result.status === 200) {
-                                            console.log(result.data);
-                                        }
-                                    });
+                            } else {
+                                addToast(result.data.message, {
+                                    appearance: "error",
+                                    autoDismiss: true
+                                });
                             }
+                        })
+                        .catch((err) => {
+                            addToast(err.response.data.message, {
+                                appearance: "error",
+                                autoDismiss: true
+                            });
                         });
                 },
                 reject: () => {}
             });
             // actions.setSubmitting(false);
-        } else if (currentStep === 5) {
+        } else if (currentStep === 1) {
             setCurrentStep(0);
             setResult(null);
             setMaxStep(0);
             localStorage.removeItem("EAHED");
-            localStorage.removeItem("currentStep");
-            localStorage.removeItem("designResult");
+            localStorage.removeItem("EAHED.currentStep");
+            localStorage.removeItem("EAHED.designResult");
             actions.resetForm({
                 values: {
-                    system: {
-                        heatLoad: null,
-                        inputFluidTemperature: null,
-                        type: 0
-                    },
-                    fluid: {
-                        fluidType: "Water",
-                        viscosity: null,
-                        specificHeat: null,
-                        density: null
-                    },
-                    soil: {
-                        thermalConductivity: null,
-                        thermalDiffusivity: null,
-                        groundTemperature: null
-                    },
-                    pipe: {
-                        outerDiameter: null,
-                        innerDiameter: null,
-                        pipeConductivity: null,
-                        buriedDepth: null
-                    },
-                    pump: {
-                        requiredPower: null,
-                        fluidVelocity: null,
-                        pumpMotorEfficiency: null
-                    }
+                    loopType: 0,
+                    heatLoad: 0,
+                    groundTemp: 0,
+                    roomTemp: 0,
+                    pipeInnerDiameter: 0,
+                    pipeOuterDiameter: 0,
+                    pipeMaterial: "Clay",
+                    outsideTemp: 0,
+                    buriedDepth: 0,
+                    fanVelocity: 0
                 }
             });
-        } else {
-            localStorage.setItem("EAHED", JSON.stringify(values));
-            localStorage.setItem(
-                "currentStep",
-                Math.max(maxStep, currentStep + 1)
-            );
-
-            setMaxStep(Math.max(maxStep, currentStep + 1));
-            setCurrentStep(currentStep + 1);
-            actions.setSubmitting(false);
         }
     }
 
@@ -297,34 +227,15 @@ export const EAHED = () => {
     const footer = (className) => {
         return (
             <div className={`w-full flex ${className} justify-between`}>
-                {currentStep > 0 && currentStep < 5 && (
-                    <Button
-                        type="button"
-                        className="btn btn--black w-auto mt-4 text-white flex flex-row"
-                        onClick={handleBack}
-                    >
-                        <span>Previous</span>
-                    </Button>
-                )}
-
-                {currentStep === 5 && (
+                {currentStep === 0 && (
                     <Button
                         type="submit"
-                        className="btn btn--black w-auto mt-4 text-white flex flex-row"
+                        className="btn btn--secondary w-auto ml-auto mt-4 text-white flex flex-row"
                     >
-                        <span>Save Design</span>
+                        <span>Calculate</span>
                     </Button>
                 )}
-
-                {currentStep < 5 && (
-                    <Button
-                        type="submit"
-                        className="btn btn--secondary w-auto ml-auto mt-4 text-white lemonsqueezy-button flex flex-row"
-                    >
-                        {currentStep === 4 ? "Calculate" : "Next"}
-                    </Button>
-                )}
-                {currentStep === 5 && (
+                {currentStep === 1 && (
                     <>
                         <Button
                             type="submit"
@@ -335,9 +246,7 @@ export const EAHED = () => {
                         <Button
                             type="button"
                             className="btn btn--black w-auto mt-4 text-white flex flex-row"
-                            onClick={() => {
-                                setCurrentStep(currentStep - 1);
-                            }}
+                            onClick={() => {}}
                         >
                             <span>Go to Analysis</span>
                         </Button>
@@ -350,20 +259,20 @@ export const EAHED = () => {
     useEffect(() => {
         if (currentStep === -1) {
             setCurrentStep(
-                localStorage.getItem("currentStep")
-                    ? parseInt(localStorage.getItem("currentStep"))
+                localStorage.getItem("EAHED.currentStep")
+                    ? parseInt(localStorage.getItem("EAHED.currentStep"))
                     : 0
             );
 
             setResult(
-                localStorage.getItem("designResult")
-                    ? JSON.parse(localStorage.getItem("designResult"))
+                localStorage.getItem("EAHED.designResult")
+                    ? JSON.parse(localStorage.getItem("EAHED.designResult"))
                     : null
             );
 
             setMaxStep(
-                localStorage.getItem("currentStep")
-                    ? parseInt(localStorage.getItem("currentStep"))
+                localStorage.getItem("EAHED.currentStep")
+                    ? parseInt(localStorage.getItem("EAHED.currentStep"))
                     : 0
             );
         }
@@ -392,33 +301,36 @@ export const EAHED = () => {
 
                             <Formik
                                 initialValues={initialValues}
-                                validationSchema={validationSchema[currentStep]}
+                                validationSchema={validationSchema}
                                 onSubmit={handleSubmit}
                             >
                                 <Form>
-                                    {currentStep === 0 && (
+                                    {[0, 1].includes(currentStep) && (
                                         <SystemDesignSection footer={footer} />
-                                    )}
-                                    {currentStep === 1 && (
-                                        <FluidPropSection footer={footer} />
-                                    )}
-                                    {currentStep === 2 && (
-                                        <SoilPropSection footer={footer} />
-                                    )}
-                                    {currentStep === 3 && (
-                                        <PipeDesignSection footer={footer} />
-                                    )}
-                                    {currentStep === 4 && (
-                                        <PumpInfoSection footer={footer} />
-                                    )}
-                                    {currentStep === 5 && (
-                                        <DesignResultSection
-                                            footer={footer}
-                                            data={result}
-                                        />
                                     )}
                                 </Form>
                             </Formik>
+                            {result?.pipeLength && (
+                                <div>
+                                    <div className="w-full flex justify-center items-center">
+                                        <span className="w-full bg-white backdrop-filter backdrop-blur-md bg-opacity-10  h-[2px] rounded-xl"></span>
+                                        <span className="text-white font-semibold text-lg text-title whitespace-nowrap mx-2">
+                                            Design Result
+                                        </span>
+                                        <span className="w-full bg-white backdrop-filter backdrop-blur-md bg-opacity-10  h-[2px] rounded-xl"></span>
+                                    </div>
+                                    <div>
+                                        <Input
+                                            type="number"
+                                            label="Pipe Length"
+                                            readOnly
+                                            value={result?.pipeLength}
+                                            className="max-w-[300px]"
+                                            badge="m"
+                                        />
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </MotionBTTContainer>
                 </SectionContainer>

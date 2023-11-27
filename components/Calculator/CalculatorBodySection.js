@@ -8,10 +8,10 @@ import { useEffect, useState } from "react";
 
 const links = [
     {
-        name: "Roam Load Calculator",
+        name: "Room Load Calculator",
         credits: 30,
         description:
-            "Optimize your Roam experience with our Roam Load Calculator. Streamline your load management effortlessly, ensuring efficient usage tailored to your needs.",
+            "Optimize your Room experience with our Room Load Calculator. Streamline your load management effortlessly, ensuring efficient usage tailored to your needs.",
         link: "/calculator/rlc"
     },
     {
@@ -178,7 +178,7 @@ export const CalculatorBodySection = (props) => {
                                                 <td>
                                                     <a
                                                         href={`api/calculator/history/${history.id}`}
-                                                        download={`${history.id}.json`}
+                                                        download={`${history.id}.${history.type}.gld`}
                                                         className="text-orange-400 underline font-bold text-content"
                                                     >
                                                         Download Now

@@ -7,5 +7,6 @@
 **/
 
 export * from "@components/Calculator/SGHEDACalculatorSection";
+export * from "@components/Calculator/EAHEDCalculatorSection";
 export * from "@components/Calculator/CalculatorHeaderSection";
 export * from "@components/Calculator/CalculatorBodySection";

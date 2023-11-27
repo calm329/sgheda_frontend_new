@@ -253,13 +253,13 @@ export const SGHEDA = () => {
                                     JSON.stringify(values)
                                 );
                                 localStorage.setItem(
-                                    "currentStep",
+                                    "SGHEDA.currentStep",
                                     Math.max(maxStep, currentStep + 1)
                                 );
 
                                 setResult(result.data.data);
                                 localStorage.setItem(
-                                    "designResult",
+                                    "SGHEDA.designResult",
                                     JSON.stringify(result.data.data)
                                 );
 
@@ -327,8 +327,8 @@ export const SGHEDA = () => {
             setResult(null);
             setMaxStep(0);
             localStorage.removeItem("SGHEDA");
-            localStorage.removeItem("currentStep");
-            localStorage.removeItem("designResult");
+            localStorage.removeItem("SGHEDA.currentStep");
+            localStorage.removeItem("SGHEDA.designResult");
             actions.resetForm({
                 values: {
                     system: {
@@ -363,7 +363,7 @@ export const SGHEDA = () => {
         } else {
             localStorage.setItem("SGHEDA", JSON.stringify(values));
             localStorage.setItem(
-                "currentStep",
+                "SGHEDA.currentStep",
                 Math.max(maxStep, currentStep + 1)
             );
 
@@ -433,20 +433,20 @@ export const SGHEDA = () => {
     useEffect(() => {
         if (currentStep === -1) {
             setCurrentStep(
-                localStorage.getItem("currentStep")
-                    ? parseInt(localStorage.getItem("currentStep"))
+                localStorage.getItem("SGHEDA.currentStep")
+                    ? parseInt(localStorage.getItem("SGHEDA.currentStep"))
                     : 0
             );
 
             setResult(
                 localStorage.getItem("designResult")
-                    ? JSON.parse(localStorage.getItem("designResult"))
+                    ? JSON.parse(localStorage.getItem("SGHEDA.designResult"))
                     : null
             );
 
             setMaxStep(
                 localStorage.getItem("currentStep")
-                    ? parseInt(localStorage.getItem("currentStep"))
+                    ? parseInt(localStorage.getItem("SGHEDA.currentStep"))
                     : 0
             );
         }

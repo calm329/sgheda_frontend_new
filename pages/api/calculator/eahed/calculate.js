@@ -40,7 +40,7 @@ export default async function handler(req, res) {
 
                 if (
                     account.balance <
-                    (process.env.NEXT_PUBLIC_SGHEDA_CREDIT_AMOUNT || 30)
+                    (process.env.NEXT_PUBLIC_EAHED_CREDIT_AMOUNT || 30)
                 ) {
                     return res.status(403).json({
                         success: false,
@@ -48,15 +48,16 @@ export default async function handler(req, res) {
                     });
                 }
 
-                const response = await axios.post(
-                    "http://slinkyghxdesign.com:8000/sgheda",
-                    inputData,
-                    {
-                        headers: {
-                            "Content-Type": "application/json"
-                        }
+                const url =
+                    inputData.loopType === 0
+                        ? "http://slinkyghxdesign.com:8000/openeahe"
+                        : "http://slinkyghxdesign.com:8000/closedeahe";
+
+                const response = await axios.post(url, inputData, {
+                    headers: {
+                        "Content-Type": "application/json"
                     }
-                );
+                });
 
                 if (response.status !== 200) {
                     return res
@@ -69,11 +70,13 @@ export default async function handler(req, res) {
 
                 await account.save();
 
+                console.log(response.data);
+
                 const history = await History.create({
                     user: account._id,
                     inputData: JSON.stringify(inputData),
                     outputData: JSON.stringify(response.data),
-                    type: "SGHEDA",
+                    type: "EAHED",
                     amount: process.env.NEXT_PUBLIC_SGHEDA_CREDIT_AMOUNT || 30
                 });
 

@@ -20,8 +20,6 @@ export const ProfileSection = (props) => {
     const { data: session, status } = useSession();
     const loading = status === "loading";
 
-    console.log(session);
-
     const [isLoading, setIsLoading] = useState(false);
     const [fundAmount, setFundAmount] = useState(300);
 
@@ -147,7 +145,7 @@ export const ProfileSection = (props) => {
                         transition={{ delay: 0.4, duration: 0.5 }}
                         className="w-full"
                     >
-                        {!session.verified && (
+                        {!props.userInfo.verified && (
                             <div className="w-full text-content flex flex-col lg:flex-row justify-between gap-2 text-gray-300 bg-green-500/50 rounded-xl p-4 mb-2 text-md">
                                 <span className="flex justify-start items-center gap-2">
                                     <Icon
@@ -298,7 +296,7 @@ export const ProfileSection = (props) => {
                                     <div className="flex flex-col justify-center items-center">
                                         <div className="w-full text-white text-title text-xl md:text-2xl lg:text-3xl mb-8">
                                             Your account credit balance is $
-                                            {props.balance}
+                                            {props.userInfo.balance}
                                         </div>
                                         <form
                                             className="w-full grid grid-cols-1 sm:grid-cols-3 items-center bg-white/10 p-4 rounded-xl"

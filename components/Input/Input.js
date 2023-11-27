@@ -1,5 +1,4 @@
 import clsx from "clsx";
-// existing code...
 
 export const Input = ({
     label = "",
@@ -11,6 +10,7 @@ export const Input = ({
     errorText = "",
     className = "",
     value = "",
+    step = 1,
     autoFocus = false,
     readOnly = false,
     others,
@@ -30,6 +30,7 @@ export const Input = ({
                     onChange={onChange}
                     value={value}
                     readOnly={readOnly}
+                    step={step}
                     {...others}
                     className={clsx(
                         "shadow appearance-none border text-content rounded w-full py-2 px-3 text-white bg-[#09112D] leading-tight focus:outline-none focus:shadow-outline",

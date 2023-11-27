@@ -45,7 +45,7 @@ export const ProfileSection = (props) => {
     const handleChangePassword = (values) => {
         setIsLoading(true);
         axios
-            .post("/api/auth/changePassword", {
+            .post("/api/auth/change-password", {
                 currentPassword: values.password,
                 newPassword: values.newPassword
             })

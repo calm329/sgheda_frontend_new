@@ -149,7 +149,7 @@ export const ProfileSection = (props) => {
                             <div className="w-full text-content flex flex-col lg:flex-row justify-between gap-2 text-gray-300 bg-green-500/50 rounded-xl p-4 mb-2 text-md">
                                 <span className="flex justify-start items-center gap-2">
                                     <Icon
-                                        icon="fxemoji:warningsign"
+                                        icon="emojione-v1:warning"
                                         className="min-w-[20px] min-h-[20px]"
                                     />
                                     Your account has not been verified. Please

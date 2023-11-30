@@ -7,6 +7,7 @@ export const Select = ({
     name = "",
     options = [],
     error = false,
+    readOnly = false,
     errorText = "",
     className = "",
     onChange = () => {}
@@ -20,6 +21,7 @@ export const Select = ({
                 <select
                     name={name}
                     onChange={onChange}
+                    disabled={readOnly}
                     className={clsx(
                         "shadow appearance-none border text-content rounded w-full py-2 px-3 text-white bg-[#09112D] leading-tight focus:outline-none focus:shadow-outline",
                         { "border-red-500": error, "border-[#17234F]": !error }

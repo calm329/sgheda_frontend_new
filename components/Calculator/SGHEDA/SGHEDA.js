@@ -37,31 +37,38 @@ const toggleLinks = [
 const steps = [
     {
         name: "System Design",
-        icon: "/images/calculator/sgheda/system_design.svg"
+        origin_icon: "/images/calculator/sgheda/system_design_white.svg",
+        active_icon: "/images/calculator/sgheda/system_design_orange.svg"
     },
     {
         name: "Fluid Properties",
-        icon: "/images/calculator/sgheda/fluid_properties.svg"
+        origin_icon: "/images/calculator/sgheda/fluid_properties_white.svg",
+        active_icon: "/images/calculator/sgheda/fluid_properties_orange.svg"
     },
     {
         name: "Soil Properties",
-        icon: "/images/calculator/sgheda/soil_properties.svg"
+        origin_icon: "/images/calculator/sgheda/soil_properties_white.svg",
+        active_icon: "/images/calculator/sgheda/soil_properties_orange.svg"
     },
     {
         name: "Pipe Design",
-        icon: "/images/calculator/sgheda/pipe_design.svg"
+        origin_icon: "/images/calculator/sgheda/pipe_design_white.svg",
+        active_icon: "/images/calculator/sgheda/pipe_design_orange.svg"
     },
     {
         name: "Pump Info",
-        icon: "/images/calculator/sgheda/pump_info.svg"
+        origin_icon: "/images/calculator/sgheda/pump_info_white.svg",
+        active_icon: "/images/calculator/sgheda/pump_info_orange.svg"
     },
     {
         name: "Design Result",
-        icon: "/images/calculator/sgheda/design_result.svg"
+        origin_icon: "/images/calculator/sgheda/design_result_white.svg",
+        active_icon: "/images/calculator/sgheda/design_result_orange.svg"
     },
     {
         name: "Analysis",
-        icon: "/images/calculator/sgheda/analysis.svg"
+        origin_icon: "/images/calculator/sgheda/analysis_white.svg",
+        active_icon: "/images/calculator/sgheda/analysis_orange.svg"
     }
 ];
 

@@ -51,16 +51,16 @@ export const StepperComponent = ({
                                 }`}
                             >
                                 <Image
-                                    src={step.icon}
+                                    src={
+                                        index > currentStep
+                                            ? step.origin_icon
+                                            : step.active_icon
+                                    }
                                     width={40}
                                     height={40}
                                     alt="Commercial"
                                     loading="lazy"
-                                    className={`w-8 h-8  ${
-                                        index > currentStep
-                                            ? "text-white"
-                                            : "text-[#F98222]"
-                                    }`}
+                                    className={`w-8 h-8`}
                                 />
                             </div>
                             <span

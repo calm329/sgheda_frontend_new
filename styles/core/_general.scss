@@ -151,3 +151,13 @@ html {
 .p-confirm-dialog-reject {
     @apply p-4 py-2;
 }
+
+.dark-modal-view {
+    .p-dialog-header {
+        background-color: #09112d !important;
+    }
+
+    .p-dialog-content {
+        background-color: #09112d !important;
+    }
+}

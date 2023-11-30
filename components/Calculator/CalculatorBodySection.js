@@ -5,6 +5,8 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { DesignResultModal as SGHEDAResultModal } from "@components/Calculator/SGHEDA";
+import { DesignResultModal as EAHEDResultModal } from "@components/Calculator/EAHED";
 
 const links = [
     {
@@ -42,6 +44,10 @@ export const CalculatorBodySection = (props) => {
     const [historyData, setHistoryData] = useState([]);
     const [page, setPage] = useState(2);
     const [hasMore, setHasMore] = useState(true);
+    const [showSGHEDAModal, setShowSGHEDAModal] = useState(false);
+    const [SGHEDAData, setSGHEDAData] = useState(null);
+    const [showEAHEDModal, setShowEAHEDModal] = useState(false);
+    const [EAHEDData, setEAHEDData] = useState(null);
 
     useEffect(() => {
         const fetchInitialData = async () => {
@@ -174,7 +180,50 @@ export const CalculatorBodySection = (props) => {
                                                 <td>{history.type}</td>
                                                 <td>{history.amount}</td>
                                                 <td>{history.date}</td>
-                                                <td>View</td>
+                                                <td>
+                                                    <div
+                                                        onClick={() => {
+                                                            if (
+                                                                history.type ===
+                                                                "SGHEDA"
+                                                            ) {
+                                                                setShowSGHEDAModal(
+                                                                    true
+                                                                );
+                                                                setSGHEDAData({
+                                                                    inputData:
+                                                                        JSON.parse(
+                                                                            history.inputData
+                                                                        ),
+                                                                    outputData:
+                                                                        JSON.parse(
+                                                                            history.outputData
+                                                                        )
+                                                                });
+                                                            } else if (
+                                                                history.type ===
+                                                                "EAHED"
+                                                            ) {
+                                                                setShowEAHEDModal(
+                                                                    true
+                                                                );
+                                                                setEAHEDData({
+                                                                    inputData:
+                                                                        JSON.parse(
+                                                                            history.inputData
+                                                                        ),
+                                                                    outputData:
+                                                                        JSON.parse(
+                                                                            history.outputData
+                                                                        )
+                                                                });
+                                                            }
+                                                        }}
+                                                        className="w-auto text-white/80 transition-all hover:text-orange-400 underline font-bold text-content cursor-pointer"
+                                                    >
+                                                        View
+                                                    </div>
+                                                </td>
                                                 <td>
                                                     <a
                                                         href={`api/calculator/history/${history.id}`}
@@ -208,6 +257,16 @@ export const CalculatorBodySection = (props) => {
                             </div>
                         </div>
                     </MotionBTTContainer>
+                    <SGHEDAResultModal
+                        data={SGHEDAData}
+                        visible={showSGHEDAModal}
+                        onHide={() => setShowSGHEDAModal(false)}
+                    />
+                    <EAHEDResultModal
+                        data={EAHEDData}
+                        visible={showEAHEDModal}
+                        onHide={() => setShowEAHEDModal(false)}
+                    />
                 </SectionContainer>
             </SectionContainer>
         </SectionContainer>

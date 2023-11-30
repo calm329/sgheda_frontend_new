@@ -11,31 +11,24 @@ import { DesignResultModal as EAHEDResultModal } from "@components/Calculator/EA
 const links = [
     {
         name: "Room Load Calculator",
-        credits: 30,
+        credits: 5,
         description:
             "Optimize your Room experience with our Room Load Calculator. Streamline your load management effortlessly, ensuring efficient usage tailored to your needs.",
         link: "/calculator/rlc"
     },
     {
-        name: "SGHEDA",
-        credits: 50,
-        description:
-            "Enhance geothermal efficiency with our Slinky Ground Heat Exchanger tool, optimizing heat exchange through innovative coil designs for sustainable heating and cooling.",
-        link: "/calculator/sgheda"
-    },
-    {
         name: "EAHED",
-        credits: 70,
+        credits: 10,
         description:
             "Enhance geothermal efficiency with our Slinky Ground Heat Exchanger tool, optimizing heat exchange through innovative coil designs for sustainable heating and cooling.",
         link: "/calculator/eahed"
     },
     {
-        name: "Interior Finish Selection",
-        credits: 70,
+        name: "SGHEDA",
+        credits: 10,
         description:
-            "Simplify your design journey with our Interior Finish Selection service. Explore curated options to effortlessly elevate your space, ensuring a harmonious blend of style and functionality.",
-        link: "/calculator/ifs"
+            "Enhance geothermal efficiency with our Slinky Ground Heat Exchanger tool, optimizing heat exchange through innovative coil designs for sustainable heating and cooling.",
+        link: "/calculator/sgheda"
     }
 ];
 
@@ -117,7 +110,7 @@ export const CalculatorBodySection = (props) => {
                         transition={{ delay: 0.4, duration: 0.5 }}
                         className="w-full"
                     >
-                        <div className="w-full grid xl:grid-cols-4 grid-cols-1 lg:grid-cols-2 grid-flow-row gap-12">
+                        <div className="w-full grid xl:grid-cols-3 grid-cols-1 lg:grid-cols-2 grid-flow-row gap-12">
                             {links.map((link) => (
                                 <Link
                                     key={link.name}
@@ -138,7 +131,7 @@ export const CalculatorBodySection = (props) => {
                                                 {link.credits}
                                             </span>{" "}
                                             <span className="text-sm text-content">
-                                                Credits
+                                                USD
                                             </span>
                                         </div>
                                     </div>

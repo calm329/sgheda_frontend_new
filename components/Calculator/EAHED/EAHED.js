@@ -1,15 +1,16 @@
-import { Button } from "@components/Button";
+import { Button, ButtonGroup } from "@components/Button";
+import { Input } from "@components/Input";
 import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
 import { StepperComponent } from "@components/Stepper";
+import { Icon } from "@iconify/react";
 import axios from "axios";
 import { Form, Formik } from "formik";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
-import { useEffect, useState } from "react";
-import * as Yup from "yup";
-import { Input } from "@components/Input";
-import { SystemDesignSection } from "./SystemDesignSection";
+import { useEffect, useRef, useState } from "react";
 import { useToasts } from "react-toast-notifications";
+import * as Yup from "yup";
+import { SystemDesignSection } from "./SystemDesignSection";
 
 const toggleLinks = [
     {
@@ -33,20 +34,26 @@ const toggleLinks = [
 const steps = [
     {
         name: "System Design",
-        icon: "/images/calculator/sgheda/system_design.svg"
+        origin_icon: "/images/calculator/sgheda/system_design_white.svg",
+        active_icon: "/images/calculator/sgheda/system_design_orange.svg"
     },
     {
         name: "Design Result",
-        icon: "/images/calculator/sgheda/design_result.svg"
+        origin_icon: "/images/calculator/sgheda/design_result_white.svg",
+        active_icon: "/images/calculator/sgheda/design_result_orange.svg"
     },
     {
         name: "Analysis",
-        icon: "/images/calculator/sgheda/analysis.svg"
+        origin_icon: "/images/calculator/sgheda/analysis_white.svg",
+        active_icon: "/images/calculator/sgheda/analysis_orange.svg"
     }
 ];
 
 export const EAHED = () => {
     const { addToast } = useToasts();
+    const inputRef = useRef(null);
+    const resetRef = useRef(null);
+    const exportRef = useRef(null);
     const [currentStep, setCurrentStep] = useState(-1);
     const [result, setResult] = useState(null);
     const [maxStep, setMaxStep] = useState(0);
@@ -147,13 +154,110 @@ export const EAHED = () => {
         };
     }
 
+    // Function to handle file
+    const handleImportDesignFile = (e, formikProps) => {
+        let file = e.target.files[0];
+
+        // Ensure a file was selected
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = async (event) => {
+                const fileContent = event.target.result;
+
+                try {
+                    const importedData = JSON.parse(fileContent);
+                    console.log(importedData);
+
+                    // Validate imported data
+                    try {
+                        await validationSchema.validate(importedData.inputData);
+                    } catch (error) {
+                        addToast(error.message, {
+                            appearance: "error",
+                            autoDismiss: true
+                        });
+                        return;
+                    }
+
+                    formikProps.setValues(importedData?.inputData); // Update the form data here
+
+                    localStorage.setItem(
+                        "EAHED",
+                        JSON.stringify(importedData?.inputData)
+                    );
+                    localStorage.setItem("EAHED.currentStep", 1);
+
+                    setResult(importedData?.outputData);
+                    localStorage.setItem(
+                        "EAHED.designResult",
+                        JSON.stringify(importedData?.outputData)
+                    );
+
+                    setMaxStep(1);
+                    setCurrentStep(1);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+
+            // Read the file as text
+            reader.readAsText(file);
+
+            // Clear the selected files
+            e.target.value = "";
+        }
+    };
+
+    // Clear and export functions
+    const handleClearForm = (props) => {
+        setCurrentStep(0);
+        setResult(null);
+        setMaxStep(0);
+        localStorage.removeItem("EAHED");
+        localStorage.removeItem("EAHED.currentStep");
+        localStorage.removeItem("EAHED.designResult");
+
+        props.resetForm({
+            values: {
+                loopType: 0,
+                heatLoad: 0,
+                groundTemp: 0,
+                roomTemp: 0,
+                pipeInnerDiameter: 0,
+                pipeOuterDiameter: 0,
+                pipeMaterial: "Clay",
+                outsideTemp: 0,
+                buriedDepth: 0,
+                fanVelocity: 0
+            }
+        });
+    };
+
+    const handleExportForm = (props) => {
+        const data = {
+            inputData: props.values,
+            outputData: result
+        };
+        const dataStr = JSON.stringify(data);
+        const dataUri =
+            "data:application/json;charset=utf-8," +
+            encodeURIComponent(dataStr);
+
+        let exportFileDefaultName = `${Date.now()}.EAHED.gld`;
+
+        let linkElement = document.createElement("a");
+        linkElement.setAttribute("href", dataUri);
+        linkElement.setAttribute("download", exportFileDefaultName);
+        linkElement.click();
+    };
+
     function handleSubmit(values, actions) {
         console.log("SDFSDF", currentStep);
         if (currentStep === 0) {
             console.log(values);
             confirmDialog({
-                message:
-                    "This will use ${process.env.NEXT_PUBLIC_EAHED_CREDIT_AMOUNT} credits. \n Are you sure you want to submit?",
+                message: `This will use ${process.env.NEXT_PUBLIC_EAHED_CREDIT_AMOUNT} credits. \n Are you sure you want to submit?`,
                 header: "Confirmation",
                 icon: "pi pi-exclamation-triangle",
                 accept: () => {
@@ -291,6 +395,45 @@ export const EAHED = () => {
                         transition={{ delay: 0.4, duration: 0.5 }}
                         className="w-full"
                     >
+                        <div className="relative w-[95%] flex justify-end gap-4 p-4 mx-auto">
+                            <Button
+                                type="submit"
+                                className="btn btn--black w-auto text-white lemonsqueezy-button flex flex-row"
+                                onClick={() => {
+                                    resetRef.current?.click();
+                                }}
+                            >
+                                Clear
+                            </Button>
+                            <ButtonGroup alignment={"center"} className="gap-0">
+                                <Button
+                                    type="submit"
+                                    className="btn btn--secondary w-auto text-white lemonsqueezy-button flex flex-row p-2 rounded-r-none"
+                                    onClick={() => {
+                                        inputRef.current?.click();
+                                    }}
+                                >
+                                    <Icon
+                                        icon="bx:import"
+                                        className="w-6 h-6"
+                                    />
+                                </Button>
+                                <div className="w-[1px] h-10 my-auto bg-white/30"></div>
+                                <Button
+                                    type="submit"
+                                    disabled={maxStep < 1}
+                                    className="btn btn--secondary w-auto text-white lemonsqueezy-button flex flex-row p-2 rounded-l-none"
+                                    onClick={() => {
+                                        exportRef.current?.click();
+                                    }}
+                                >
+                                    <Icon
+                                        icon="bx:export"
+                                        className="w-6 h-6"
+                                    />
+                                </Button>
+                            </ButtonGroup>
+                        </div>
                         <div className="relative w-[95%] h-full bg-[#09112D] mx-auto p-4 py-8 rounded-3xl overflow-hidden">
                             <StepperComponent
                                 steps={steps}
@@ -305,11 +448,50 @@ export const EAHED = () => {
                                 validationSchema={validationSchema}
                                 onSubmit={handleSubmit}
                             >
-                                <Form>
-                                    {[0, 1].includes(currentStep) && (
-                                        <SystemDesignSection footer={footer} />
-                                    )}
-                                </Form>
+                                {(props) => (
+                                    <Form>
+                                        {[0, 1].includes(currentStep) && (
+                                            <SystemDesignSection
+                                                footer={footer}
+                                            />
+                                        )}
+                                        <div>
+                                            <input
+                                                type="file"
+                                                id="jsonFile"
+                                                accept=".gld"
+                                                className="hidden"
+                                                ref={inputRef}
+                                                onChange={(e) =>
+                                                    handleImportDesignFile(
+                                                        e,
+                                                        props
+                                                    )
+                                                } // Pass props to the function here
+                                            />
+                                            <button
+                                                type="button"
+                                                className="hidden"
+                                                onClick={() =>
+                                                    handleClearForm(props)
+                                                }
+                                                ref={resetRef}
+                                            >
+                                                Clear Form
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className="hidden"
+                                                onClick={() =>
+                                                    handleExportForm(props)
+                                                }
+                                                ref={exportRef}
+                                            >
+                                                Export Form
+                                            </button>
+                                        </div>
+                                    </Form>
+                                )}
                             </Formik>
                             {result?.pipeLength && (
                                 <div>

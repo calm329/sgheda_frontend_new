@@ -5,35 +5,31 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { DesignResultModal as SGHEDAResultModal } from "@components/Calculator/SGHEDA";
+import { DesignResultModal as EAHEDResultModal } from "@components/Calculator/EAHED";
+import { DesignResultModal as RLCResultModal } from "@components/Calculator/RLC";
 
 const links = [
     {
         name: "Room Load Calculator",
-        credits: 30,
+        credits: 5,
         description:
             "Optimize your Room experience with our Room Load Calculator. Streamline your load management effortlessly, ensuring efficient usage tailored to your needs.",
         link: "/calculator/rlc"
     },
     {
-        name: "SGHEDA",
-        credits: 50,
-        description:
-            "Enhance geothermal efficiency with our Slinky Ground Heat Exchanger tool, optimizing heat exchange through innovative coil designs for sustainable heating and cooling.",
-        link: "/calculator/sgheda"
-    },
-    {
         name: "EAHED",
-        credits: 70,
+        credits: 10,
         description:
             "Enhance geothermal efficiency with our Slinky Ground Heat Exchanger tool, optimizing heat exchange through innovative coil designs for sustainable heating and cooling.",
         link: "/calculator/eahed"
     },
     {
-        name: "Interior Finish Selection",
-        credits: 70,
+        name: "SGHEDA",
+        credits: 10,
         description:
-            "Simplify your design journey with our Interior Finish Selection service. Explore curated options to effortlessly elevate your space, ensuring a harmonious blend of style and functionality.",
-        link: "/calculator/ifs"
+            "Enhance geothermal efficiency with our Slinky Ground Heat Exchanger tool, optimizing heat exchange through innovative coil designs for sustainable heating and cooling.",
+        link: "/calculator/sgheda"
     }
 ];
 
@@ -42,6 +38,12 @@ export const CalculatorBodySection = (props) => {
     const [historyData, setHistoryData] = useState([]);
     const [page, setPage] = useState(2);
     const [hasMore, setHasMore] = useState(true);
+    const [showSGHEDAModal, setShowSGHEDAModal] = useState(false);
+    const [SGHEDAData, setSGHEDAData] = useState(null);
+    const [showEAHEDModal, setShowEAHEDModal] = useState(false);
+    const [EAHEDData, setEAHEDData] = useState(null);
+    const [showRLCModal, setShowRLCModal] = useState(false);
+    const [RLCData, setRLCData] = useState(null);
 
     useEffect(() => {
         const fetchInitialData = async () => {
@@ -111,7 +113,7 @@ export const CalculatorBodySection = (props) => {
                         transition={{ delay: 0.4, duration: 0.5 }}
                         className="w-full"
                     >
-                        <div className="w-full grid xl:grid-cols-4 grid-cols-1 lg:grid-cols-2 grid-flow-row gap-12">
+                        <div className="w-full grid xl:grid-cols-3 grid-cols-1 lg:grid-cols-2 grid-flow-row gap-12">
                             {links.map((link) => (
                                 <Link
                                     key={link.name}
@@ -132,7 +134,7 @@ export const CalculatorBodySection = (props) => {
                                                 {link.credits}
                                             </span>{" "}
                                             <span className="text-sm text-content">
-                                                Credits
+                                                USD
                                             </span>
                                         </div>
                                     </div>
@@ -162,7 +164,7 @@ export const CalculatorBodySection = (props) => {
                                     <thead className="text-title text-white text-left">
                                         <tr>
                                             <th>Calculation</th>
-                                            <th>Credits</th>
+                                            <th>Amount</th>
                                             <th>Date</th>
                                             <th>See Calculations</th>
                                             <th>Design Result</th>
@@ -174,7 +176,67 @@ export const CalculatorBodySection = (props) => {
                                                 <td>{history.type}</td>
                                                 <td>{history.amount}</td>
                                                 <td>{history.date}</td>
-                                                <td>View</td>
+                                                <td>
+                                                    <div
+                                                        onClick={() => {
+                                                            if (
+                                                                history.type ===
+                                                                "SGHEDA"
+                                                            ) {
+                                                                setShowSGHEDAModal(
+                                                                    true
+                                                                );
+                                                                setSGHEDAData({
+                                                                    inputData:
+                                                                        JSON.parse(
+                                                                            history.inputData
+                                                                        ),
+                                                                    outputData:
+                                                                        JSON.parse(
+                                                                            history.outputData
+                                                                        )
+                                                                });
+                                                            } else if (
+                                                                history.type ===
+                                                                "EAHED"
+                                                            ) {
+                                                                setShowEAHEDModal(
+                                                                    true
+                                                                );
+                                                                setEAHEDData({
+                                                                    inputData:
+                                                                        JSON.parse(
+                                                                            history.inputData
+                                                                        ),
+                                                                    outputData:
+                                                                        JSON.parse(
+                                                                            history.outputData
+                                                                        )
+                                                                });
+                                                            } else if (
+                                                                history.type ===
+                                                                "RLC"
+                                                            ) {
+                                                                setShowRLCModal(
+                                                                    true
+                                                                );
+                                                                setRLCData({
+                                                                    inputData:
+                                                                        JSON.parse(
+                                                                            history.inputData
+                                                                        ),
+                                                                    outputData:
+                                                                        JSON.parse(
+                                                                            history.outputData
+                                                                        )
+                                                                });
+                                                            }
+                                                        }}
+                                                        className="w-auto text-white/80 transition-all hover:text-orange-400 underline font-bold text-content cursor-pointer"
+                                                    >
+                                                        View
+                                                    </div>
+                                                </td>
                                                 <td>
                                                     <a
                                                         href={`api/calculator/history/${history.id}`}
@@ -208,6 +270,21 @@ export const CalculatorBodySection = (props) => {
                             </div>
                         </div>
                     </MotionBTTContainer>
+                    <SGHEDAResultModal
+                        data={SGHEDAData}
+                        visible={showSGHEDAModal}
+                        onHide={() => setShowSGHEDAModal(false)}
+                    />
+                    <EAHEDResultModal
+                        data={EAHEDData}
+                        visible={showEAHEDModal}
+                        onHide={() => setShowEAHEDModal(false)}
+                    />
+                    <RLCResultModal
+                        data={RLCData}
+                        visible={showRLCModal}
+                        onHide={() => setShowRLCModal(false)}
+                    />
                 </SectionContainer>
             </SectionContainer>
         </SectionContainer>

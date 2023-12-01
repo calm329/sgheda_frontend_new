@@ -44,23 +44,23 @@ export const StepperComponent = ({
                             }}
                         >
                             <div
-                                className={`w-14 h-14 rounded-lg flex justify-center items-center ${
+                                className={`w-14 h-14 rounded-lg flex justify-center items-center hover:scale-110 transition-all duration-300 ${
                                     index > currentStep
                                         ? "bg-white/10 text-white"
                                         : "bg-[#F98222]/20 text-[#F98222]"
                                 }`}
                             >
                                 <Image
-                                    src={step.icon}
+                                    src={
+                                        index > currentStep
+                                            ? step.origin_icon
+                                            : step.active_icon
+                                    }
                                     width={40}
                                     height={40}
                                     alt="Commercial"
                                     loading="lazy"
-                                    className={`w-8 h-8  ${
-                                        index > currentStep
-                                            ? "text-white"
-                                            : "text-[#F98222]"
-                                    }`}
+                                    className={`w-8 h-8`}
                                 />
                             </div>
                             <span

@@ -3,15 +3,19 @@ import clsx from "clsx";
 export const Button = ({
     type,
     loading = false,
+    disabled = false,
     children,
     className,
     ...others
 }) => {
-    const buttonClass = clsx("btn", className);
+    const buttonClass = clsx(
+        "btn disabled:cursor-not-allowed disabled:!opacity-50",
+        className
+    );
 
     return (
         <button
-            disabled={loading}
+            disabled={loading || disabled}
             {...others}
             type={type || "button"}
             className={buttonClass}

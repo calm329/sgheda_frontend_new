@@ -1,25 +1,34 @@
-import Head from "next/head";
+import { RLCCalculatorSection } from "@components/Calculator";
+import { Layout } from "@components/Layout";
+import SEO from "@components/SEO/SEO";
+import { RLC } from "@components/Calculator/RLC";
+import { getSession } from "next-auth/react";
 
-export default function ComingSoon() {
+export default function Resource(props) {
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "100vh"
-            }}
-        >
-            <Head>
-                <title>Coming Soon</title>
-            </Head>
-
-            <h1 style={{ fontSize: "50px", color: "#333" }}>Coming Soon</h1>
-            <p>
-                We&apos;re currently working to bring you something new. Stay
-                tuned!
-            </p>
-        </div>
+        <Layout className="">
+            <SEO title="RLC | Online Calculator" description="" />
+            <div className="main-wrapper relative z-10">
+                <RLCCalculatorSection />
+                <RLC />
+            </div>
+        </Layout>
     );
+}
+
+export async function getServerSideProps(context) {
+    const session = await getSession({ req: context.req });
+
+    if (!session) {
+        return {
+            redirect: {
+                destination: "/auth/signin",
+                permanent: false
+            }
+        };
+    }
+
+    return {
+        props: {}
+    };
 }

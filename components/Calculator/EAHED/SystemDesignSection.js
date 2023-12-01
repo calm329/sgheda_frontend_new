@@ -5,7 +5,8 @@ import { useFormikContext } from "formik";
 
 export const SystemDesignSection = ({ footer }) => {
     // use useFormikContext to gain access to Formik state and helper methods
-    const { getFieldProps, values, touched, errors } = useFormikContext();
+    const { setFieldValue, getFieldProps, values, touched, errors } =
+        useFormikContext();
 
     return (
         <div className="w-full h-full flex flex-col gap-8 my-8">
@@ -16,7 +17,10 @@ export const SystemDesignSection = ({ footer }) => {
                         { value: 0, label: "Open Loop" },
                         { value: 1, label: "Closed Loop" }
                     ]}
-                    {...getFieldProps("loopType")}
+                    selectedValue={values.loopType}
+                    setValue={(value) => {
+                        setFieldValue("loopType", value);
+                    }}
                     error={touched.loopType && errors.loopType}
                 />
             </div>

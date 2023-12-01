@@ -67,7 +67,7 @@ export const AccountCreditSection = () => {
                                 <div className="w-full rounded-xl">
                                     <div className="flex flex-col justify-center items-center">
                                         <div className="w-full text-white text-title text-3xl mb-8">
-                                            Your account credit balance is $100
+                                            Your account balance is $100
                                         </div>
                                         <form
                                             className="w-full grid grid-cols-3 items-center bg-white/10 p-4 rounded-xl"

@@ -4,7 +4,7 @@ import { useFormikContext } from "formik";
 
 export const SystemDesignSection = ({ footer }) => {
     // use useFormikContext to gain access to Formik state and helper methods
-    const { getFieldProps, touched, errors } = useFormikContext();
+    const { getFieldProps, values, touched, errors } = useFormikContext();
 
     return (
         <div className="w-full h-full grid md:grid-cols-1 lg:grid-cols-2 gap-8 my-8">
@@ -43,9 +43,10 @@ export const SystemDesignSection = ({ footer }) => {
                         { value: 1, label: "Vertical Slinky" },
                         { value: 2, label: "Earth Basket" }
                     ]}
-                    // Here you set the error text if there's an error related to this field
-                    // and this field was touched.
-                    {...getFieldProps("system.type")}
+                    selectedValue={values.system.type}
+                    setValue={(value) => {
+                        setFieldValue("system.type", value);
+                    }}
                     error={touched.system?.type && errors.system?.type}
                 />
             </div>

@@ -10,8 +10,6 @@ export const AvatarWithMenu = () => {
     const { data: session, status } = useSession();
     const loading = status === "loading";
 
-    console.log(session);
-
     const router = useRouter();
 
     const [menuOpen, setMenuOpen] = useState(false);

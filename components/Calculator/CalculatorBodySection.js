@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { DesignResultModal as SGHEDAResultModal } from "@components/Calculator/SGHEDA";
 import { DesignResultModal as EAHEDResultModal } from "@components/Calculator/EAHED";
+import { DesignResultModal as RLCResultModal } from "@components/Calculator/RLC";
 
 const links = [
     {
@@ -41,6 +42,8 @@ export const CalculatorBodySection = (props) => {
     const [SGHEDAData, setSGHEDAData] = useState(null);
     const [showEAHEDModal, setShowEAHEDModal] = useState(false);
     const [EAHEDData, setEAHEDData] = useState(null);
+    const [showRLCModal, setShowRLCModal] = useState(false);
+    const [RLCData, setRLCData] = useState(null);
 
     useEffect(() => {
         const fetchInitialData = async () => {
@@ -161,7 +164,7 @@ export const CalculatorBodySection = (props) => {
                                     <thead className="text-title text-white text-left">
                                         <tr>
                                             <th>Calculation</th>
-                                            <th>Credits</th>
+                                            <th>Amount</th>
                                             <th>Date</th>
                                             <th>See Calculations</th>
                                             <th>Design Result</th>
@@ -201,6 +204,23 @@ export const CalculatorBodySection = (props) => {
                                                                     true
                                                                 );
                                                                 setEAHEDData({
+                                                                    inputData:
+                                                                        JSON.parse(
+                                                                            history.inputData
+                                                                        ),
+                                                                    outputData:
+                                                                        JSON.parse(
+                                                                            history.outputData
+                                                                        )
+                                                                });
+                                                            } else if (
+                                                                history.type ===
+                                                                "RLC"
+                                                            ) {
+                                                                setShowRLCModal(
+                                                                    true
+                                                                );
+                                                                setRLCData({
                                                                     inputData:
                                                                         JSON.parse(
                                                                             history.inputData
@@ -259,6 +279,11 @@ export const CalculatorBodySection = (props) => {
                         data={EAHEDData}
                         visible={showEAHEDModal}
                         onHide={() => setShowEAHEDModal(false)}
+                    />
+                    <RLCResultModal
+                        data={RLCData}
+                        visible={showRLCModal}
+                        onHide={() => setShowRLCModal(false)}
                     />
                 </SectionContainer>
             </SectionContainer>

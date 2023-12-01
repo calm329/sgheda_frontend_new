@@ -8,57 +8,38 @@ import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 import { useEffect, useRef, useState } from "react";
 import * as Yup from "yup";
 import { DesignResultSection } from "./DesignResultSection";
-import { FluidPropSection } from "./FluidPropSection";
-import { PipeDesignSection } from "./PipeDesignSection";
-import { PumpInfoSection } from "./PumpInfoSection";
-import { SoilPropSection } from "./SoilPropSection";
-import { SystemDesignSection } from "./SystemDesignSection";
-import { AnalysisSection } from "./AnalysisSection";
+import { GroundFloorSection } from "./GroundFloorSection";
+import { WindowsSection } from "./WindowsSection";
+import { TempSection } from "./TempSection";
+import { RoofSection } from "./RoofSection";
+import { ExternalWallsSection } from "./ExternalWallsSection";
+// import { AnalysisSection } from "./AnalysisSection";
 import { useToasts } from "react-toast-notifications";
 import { Icon } from "@iconify/react";
 
-const toggleLinks = [
-    {
-        name: "Room Load Calculator",
-        link: "/calculator/rlc"
-    },
-    {
-        name: "SGHEDA",
-        link: "/calculator/sgheda"
-    },
-    {
-        name: "EAHED",
-        link: "/calculator/eahed"
-    },
-    {
-        name: "Interior Finish Selection",
-        link: "/calculator/ifs"
-    }
-];
-
 const steps = [
     {
-        name: "System Design",
+        name: "External Walls",
         origin_icon: "/images/calculator/sgheda/system_design_white.svg",
         active_icon: "/images/calculator/sgheda/system_design_orange.svg"
     },
     {
-        name: "Fluid Properties",
+        name: "Ground Floor",
         origin_icon: "/images/calculator/sgheda/fluid_properties_white.svg",
         active_icon: "/images/calculator/sgheda/fluid_properties_orange.svg"
     },
     {
-        name: "Soil Properties",
+        name: "Roof",
         origin_icon: "/images/calculator/sgheda/soil_properties_white.svg",
         active_icon: "/images/calculator/sgheda/soil_properties_orange.svg"
     },
     {
-        name: "Pipe Design",
+        name: "Windows",
         origin_icon: "/images/calculator/sgheda/pipe_design_white.svg",
         active_icon: "/images/calculator/sgheda/pipe_design_orange.svg"
     },
     {
-        name: "Pump Info",
+        name: "Temperature",
         origin_icon: "/images/calculator/sgheda/pump_info_white.svg",
         active_icon: "/images/calculator/sgheda/pump_info_orange.svg"
     },
@@ -66,15 +47,10 @@ const steps = [
         name: "Design Result",
         origin_icon: "/images/calculator/sgheda/design_result_white.svg",
         active_icon: "/images/calculator/sgheda/design_result_orange.svg"
-    },
-    {
-        name: "Analysis",
-        origin_icon: "/images/calculator/sgheda/analysis_white.svg",
-        active_icon: "/images/calculator/sgheda/analysis_orange.svg"
     }
 ];
 
-export const SGHEDA = () => {
+export const RLC = () => {
     const { addToast } = useToasts();
     const inputRef = useRef(null);
     const resetRef = useRef(null);
@@ -88,126 +64,130 @@ export const SGHEDA = () => {
 
     const validationSchema = [
         Yup.object().shape({
-            system: Yup.object().shape({
-                heatLoad: Yup.number()
+            externalWalls: Yup.object().shape({
+                materials: Yup.array().of(
+                    Yup.object().shape({
+                        material: Yup.string().required("Material is required"),
+                        thickness: Yup.number()
+                            .test(
+                                "gt-zero",
+                                "Value must be greater than zero",
+                                (val) => val > 0
+                            )
+                            .required("Thickness is required"),
+                        thermalConductivity: Yup.number()
+                            .test(
+                                "gt-zero",
+                                "Value must be greater than zero",
+                                (val) => val > 0
+                            )
+                            .required("Thermal Conductivity is required")
+                    })
+                ),
+                area: Yup.number()
                     .test(
                         "gt-zero",
                         "Value must be greater than zero",
                         (val) => val > 0
                     )
-                    .required("Heat Load is required"),
-                inputFluidTemperature: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Input Fluid Temperature is required"),
-                type: Yup.number().required("Ring Type is required")
+                    .required("Area is required")
             })
         }),
         Yup.object().shape({
-            fluid: Yup.object().shape({
-                fluidType: Yup.string().required("Fluid Type is required"),
-                viscosity: Yup.number()
+            groundFloor: Yup.object().shape({
+                materials: Yup.array().of(
+                    Yup.object().shape({
+                        material: Yup.string().required("Material is required"),
+                        thickness: Yup.number()
+                            .test(
+                                "gt-zero",
+                                "Value must be greater than zero",
+                                (val) => val > 0
+                            )
+                            .required("Thickness is required"),
+                        thermalConductivity: Yup.number()
+                            .test(
+                                "gt-zero",
+                                "Value must be greater than zero",
+                                (val) => val > 0
+                            )
+                            .required("Thermal Conductivity is required")
+                    })
+                ),
+                area: Yup.number()
                     .test(
                         "gt-zero",
                         "Value must be greater than zero",
                         (val) => val > 0
                     )
-                    .required("Viscosity is required"),
-                specificHeat: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Specific Heat is required"),
-                density: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Density is required")
+                    .required("Area is required")
             })
         }),
         Yup.object().shape({
-            soil: Yup.object().shape({
-                thermalConductivity: Yup.number()
+            roof: Yup.object().shape({
+                materials: Yup.array().of(
+                    Yup.object().shape({
+                        material: Yup.string().required("Material is required"),
+                        thickness: Yup.number()
+                            .test(
+                                "gt-zero",
+                                "Value must be greater than zero",
+                                (val) => val > 0
+                            )
+                            .required("Thickness is required"),
+                        thermalConductivity: Yup.number()
+                            .test(
+                                "gt-zero",
+                                "Value must be greater than zero",
+                                (val) => val > 0
+                            )
+                            .required("Thermal Conductivity is required")
+                    })
+                ),
+                area: Yup.number()
                     .test(
                         "gt-zero",
                         "Value must be greater than zero",
                         (val) => val > 0
                     )
-                    .required("Thermal Conductivity is required"),
-                thermalDiffusivity: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Thermal Diffusivity is required"),
-                groundTemperature: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Ground Temperature is required")
+                    .required("Area is required")
             })
         }),
         Yup.object().shape({
-            pipe: Yup.object().shape({
-                outerDiameter: Yup.number()
+            windows: Yup.object().shape({
+                window: Yup.string().required("Window is required"),
+                rValue: Yup.number()
                     .test(
                         "gt-zero",
                         "Value must be greater than zero",
                         (val) => val > 0
                     )
                     .required("Outer Diameter is required"),
-                innerDiameter: Yup.number()
+                area: Yup.number()
                     .test(
                         "gt-zero",
                         "Value must be greater than zero",
                         (val) => val > 0
                     )
-                    .required("Inner Diameter is required"),
-                pipeConductivity: Yup.number().required(
-                    "Pipe Conductivity is required"
-                ),
-                buriedDepth: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Buried Depth is required")
+                    .required("Inner Diameter is required")
             })
         }),
         Yup.object().shape({
-            pump: Yup.object().shape({
-                requiredPower: Yup.number()
+            temp: Yup.object().shape({
+                innerTemp: Yup.number()
                     .test(
                         "gt-zero",
                         "Value must be greater than zero",
                         (val) => val > 0
                     )
                     .required("Required Power is required"),
-                fluidVelocity: Yup.number()
+                outerTemp: Yup.number()
                     .test(
                         "gt-zero",
                         "Value must be greater than zero",
                         (val) => val > 0
                     )
-                    .required("Fluid Velocity is required"),
-                pumpMotorEfficiency: Yup.number()
-                    .test(
-                        "gt-zero",
-                        "Value must be greater than zero",
-                        (val) => val > 0
-                    )
-                    .required("Pump Motor Efficiency is required")
+                    .required("Fluid Velocity is required")
             })
         })
     ];
@@ -215,37 +195,49 @@ export const SGHEDA = () => {
     let initialValues = {};
 
     try {
-        if (localStorage.getItem("SGHEDA"))
-            initialValues = JSON.parse(localStorage.getItem("SGHEDA"));
+        if (localStorage.getItem("RLC"))
+            initialValues = JSON.parse(localStorage.getItem("RLC"));
         else throw new Error();
     } catch (error) {
         initialValues = {
-            system: {
-                heatLoad: null,
-                inputFluidTemperature: null,
-                type: 0
+            externalWalls: {
+                materials: [
+                    {
+                        material: "",
+                        thickness: 0,
+                        thermalConductivity: 0
+                    }
+                ],
+                area: 0
             },
-            fluid: {
-                fluidType: "Water",
-                viscosity: null,
-                specificHeat: null,
-                density: null
+            groundFloor: {
+                materials: [
+                    {
+                        material: "",
+                        thickness: 0,
+                        thermalConductivity: 0
+                    }
+                ],
+                area: 0
             },
-            soil: {
-                thermalConductivity: null,
-                thermalDiffusivity: null,
-                groundTemperature: null
+            roof: {
+                materials: [
+                    {
+                        material: "",
+                        thickness: 0,
+                        thermalConductivity: 0
+                    }
+                ],
+                area: 0
             },
-            pipe: {
-                outerDiameter: null,
-                innerDiameter: null,
-                pipeConductivity: null,
-                buriedDepth: null
+            windows: {
+                window: "",
+                rValue: 0,
+                area: 0
             },
-            pump: {
-                requiredPower: null,
-                fluidVelocity: null,
-                pumpMotorEfficiency: null
+            temp: {
+                innerTemp: 0,
+                outerTemp: 0
             }
         };
     }
@@ -281,14 +273,14 @@ export const SGHEDA = () => {
                     formikProps.setValues(importedData?.inputData); // Update the form data here
 
                     localStorage.setItem(
-                        "SGHEDA",
+                        "RLC",
                         JSON.stringify(importedData?.inputData)
                     );
-                    localStorage.setItem("SGHEDA.currentStep", 5);
+                    localStorage.setItem("RLC.currentStep", 5);
 
                     setResult(importedData?.outputData);
                     localStorage.setItem(
-                        "SGHEDA.designResult",
+                        "RLC.designResult",
                         JSON.stringify(importedData?.outputData)
                     );
 
@@ -312,38 +304,50 @@ export const SGHEDA = () => {
         setCurrentStep(0);
         setResult(null);
         setMaxStep(0);
-        localStorage.removeItem("SGHEDA");
-        localStorage.removeItem("SGHEDA.currentStep");
-        localStorage.removeItem("SGHEDA.designResult");
+        localStorage.removeItem("RLC");
+        localStorage.removeItem("RLC.currentStep");
+        localStorage.removeItem("RLC.designResult");
 
         props.resetForm({
             values: {
-                system: {
-                    heatLoad: null,
-                    inputFluidTemperature: null,
-                    type: 0
+                externalWalls: {
+                    materials: [
+                        {
+                            material: "",
+                            thickness: 0,
+                            thermalConductivity: 0
+                        }
+                    ],
+                    area: 0
                 },
-                fluid: {
-                    fluidType: "Water",
-                    viscosity: null,
-                    specificHeat: null,
-                    density: null
+                groundFloor: {
+                    materials: [
+                        {
+                            material: "",
+                            thickness: 0,
+                            thermalConductivity: 0
+                        }
+                    ],
+                    area: 0
                 },
-                soil: {
-                    thermalConductivity: null,
-                    thermalDiffusivity: null,
-                    groundTemperature: null
+                roof: {
+                    materials: [
+                        {
+                            material: "",
+                            thickness: 0,
+                            thermalConductivity: 0
+                        }
+                    ],
+                    area: 0
                 },
-                pipe: {
-                    outerDiameter: null,
-                    innerDiameter: null,
-                    pipeConductivity: null,
-                    buriedDepth: null
+                windows: {
+                    window: "",
+                    rValue: 0,
+                    area: 0
                 },
-                pump: {
-                    requiredPower: null,
-                    fluidVelocity: null,
-                    pumpMotorEfficiency: null
+                temp: {
+                    innerTemp: 0,
+                    outerTemp: 0
                 }
             }
         });
@@ -359,7 +363,7 @@ export const SGHEDA = () => {
             "data:application/json;charset=utf-8," +
             encodeURIComponent(dataStr);
 
-        let exportFileDefaultName = `${Date.now()}.SGHEDA.gld`;
+        let exportFileDefaultName = `${Date.now()}.RLC.gld`;
 
         let linkElement = document.createElement("a");
         linkElement.setAttribute("href", dataUri);
@@ -370,28 +374,28 @@ export const SGHEDA = () => {
     function handleSubmit(values, actions) {
         if (currentStep === 4) {
             confirmDialog({
-                message: `This will use ${process.env.NEXT_PUBLIC_SGHEDA_CREDIT_AMOUNT} credits. \n Are you sure you want to submit?`,
+                message: `This will use ${process.env.NEXT_PUBLIC_RLC_CREDIT_AMOUNT} USD. \n Are you sure you want to submit?`,
                 header: "Confirmation",
                 icon: "pi pi-exclamation-triangle",
                 accept: () => {
                     axios
-                        .post("/api/calculator/sgheda/calculate", {
+                        .post("/api/calculator/rlc/calculate", {
                             inputData: values
                         })
                         .then((result) => {
                             if (result.status === 200) {
                                 localStorage.setItem(
-                                    "SGHEDA",
+                                    "RLC",
                                     JSON.stringify(values)
                                 );
                                 localStorage.setItem(
-                                    "SGHEDA.currentStep",
+                                    "RLC.currentStep",
                                     Math.max(maxStep, currentStep + 1)
                                 );
 
                                 setResult(result.data.data);
                                 localStorage.setItem(
-                                    "SGHEDA.designResult",
+                                    "RLC.designResult",
                                     JSON.stringify(result.data.data)
                                 );
 
@@ -418,44 +422,56 @@ export const SGHEDA = () => {
             setCurrentStep(0);
             setResult(null);
             setMaxStep(0);
-            localStorage.removeItem("SGHEDA");
-            localStorage.removeItem("SGHEDA.currentStep");
-            localStorage.removeItem("SGHEDA.designResult");
+            localStorage.removeItem("RLC");
+            localStorage.removeItem("RLC.currentStep");
+            localStorage.removeItem("RLC.designResult");
             actions.resetForm({
                 values: {
-                    system: {
-                        heatLoad: null,
-                        inputFluidTemperature: null,
-                        type: 0
+                    externalWalls: {
+                        materials: [
+                            {
+                                material: "",
+                                thickness: 0,
+                                thermalConductivity: 0
+                            }
+                        ],
+                        area: 0
                     },
-                    fluid: {
-                        fluidType: "Water",
-                        viscosity: null,
-                        specificHeat: null,
-                        density: null
+                    groundFloor: {
+                        materials: [
+                            {
+                                material: "",
+                                thickness: 0,
+                                thermalConductivity: 0
+                            }
+                        ],
+                        area: 0
                     },
-                    soil: {
-                        thermalConductivity: null,
-                        thermalDiffusivity: null,
-                        groundTemperature: null
+                    roof: {
+                        materials: [
+                            {
+                                material: "",
+                                thickness: 0,
+                                thermalConductivity: 0
+                            }
+                        ],
+                        area: 0
                     },
-                    pipe: {
-                        outerDiameter: null,
-                        innerDiameter: null,
-                        pipeConductivity: null,
-                        buriedDepth: null
+                    windows: {
+                        window: "",
+                        rValue: 0,
+                        area: 0
                     },
-                    pump: {
-                        requiredPower: null,
-                        fluidVelocity: null,
-                        pumpMotorEfficiency: null
+                    temp: {
+                        innerTemp: 0,
+                        outerTemp: 0
                     }
                 }
             });
         } else {
-            localStorage.setItem("SGHEDA", JSON.stringify(values));
+            localStorage.setItem("RLC", JSON.stringify(values));
             localStorage.setItem(
-                "SGHEDA.currentStep",
+                "RLC.currentStep",
                 Math.max(maxStep, currentStep + 1)
             );
 
@@ -472,7 +488,7 @@ export const SGHEDA = () => {
     function handleAnalysis(props) {
         if (currentStep === 5) {
             confirmDialog({
-                message: `This will use ${process.env.NEXT_PUBLIC_SGHEDA_CREDIT_AMOUNT} USD. \n Are you sure you want to analysis?`,
+                message: `This will use ${process.env.NEXT_PUBLIC_RLC_CREDIT_AMOUNT} USD. \n Are you sure you want to analysis?`,
                 header: "Confirmation",
                 icon: "pi pi-exclamation-triangle",
                 accept: () => {
@@ -501,15 +517,15 @@ export const SGHEDA = () => {
                                     return;
                                 }
                                 console.log(result.data.data);
-                                // localStorage.setItem("SGHEDA", JSON.stringify(values));
+                                // localStorage.setItem("RLC", JSON.stringify(values));
                                 localStorage.setItem(
-                                    "SGHEDA.currentStep",
+                                    "RLC.currentStep",
                                     Math.max(maxStep, currentStep + 1)
                                 );
 
                                 // setResult(result.data.data);
                                 localStorage.setItem(
-                                    "SGHEDA.analysisResult",
+                                    "RLC.analysisResult",
                                     JSON.stringify(result.data.data)
                                 );
 
@@ -579,13 +595,13 @@ export const SGHEDA = () => {
                         >
                             Redesign
                         </Button>
-                        <Button
+                        {/* <Button
                             type="button"
                             className="btn btn--black w-auto mt-4 text-white flex flex-row"
                             onClick={() => analysisRef.current?.click()}
                         >
                             <span>Go to Analysis</span>
-                        </Button>
+                        </Button> */}
                     </>
                 )}
             </div>
@@ -595,26 +611,26 @@ export const SGHEDA = () => {
     useEffect(() => {
         if (currentStep === -1) {
             setCurrentStep(
-                localStorage.getItem("SGHEDA.currentStep")
-                    ? parseInt(localStorage.getItem("SGHEDA.currentStep"))
+                localStorage.getItem("RLC.currentStep")
+                    ? parseInt(localStorage.getItem("RLC.currentStep"))
                     : 0
             );
 
             setResult(
-                localStorage.getItem("SGHEDA.designResult")
-                    ? JSON.parse(localStorage.getItem("SGHEDA.designResult"))
+                localStorage.getItem("RLC.designResult")
+                    ? JSON.parse(localStorage.getItem("RLC.designResult"))
                     : null
             );
 
             setMaxStep(
-                localStorage.getItem("SGHEDA.currentStep")
-                    ? parseInt(localStorage.getItem("SGHEDA.currentStep"))
+                localStorage.getItem("RLC.currentStep")
+                    ? parseInt(localStorage.getItem("RLC.currentStep"))
                     : 0
             );
 
             setAnalysisData(
-                localStorage.getItem("SGHEDA.analysisResult")
-                    ? JSON.parse(localStorage.getItem("SGHEDA.analysisResult"))
+                localStorage.getItem("RLC.analysisResult")
+                    ? JSON.parse(localStorage.getItem("RLC.analysisResult"))
                     : null
             );
         }
@@ -671,7 +687,7 @@ export const SGHEDA = () => {
                                 </Button>
                             </ButtonGroup>
                         </div>
-                        <div className="relative w-[95%] h-full bg-[#09112D] mx-auto p-4 py-8 rounded-3xl overflow-hidden">
+                        <div className="relative w-[95%] h-full bg-[#09112D] mx-auto p-4 py-8 rounded-3xl">
                             {analyzing && (
                                 <div className="absolute flex items-center justify-center left-0 top-0 right-0 bottom-0 bg-black/75 z-10">
                                     <div
@@ -712,23 +728,23 @@ export const SGHEDA = () => {
                                 {(props) => (
                                     <Form>
                                         {currentStep === 0 && (
-                                            <SystemDesignSection
+                                            <ExternalWallsSection
                                                 footer={footer}
                                             />
                                         )}
                                         {currentStep === 1 && (
-                                            <FluidPropSection footer={footer} />
-                                        )}
-                                        {currentStep === 2 && (
-                                            <SoilPropSection footer={footer} />
-                                        )}
-                                        {currentStep === 3 && (
-                                            <PipeDesignSection
+                                            <GroundFloorSection
                                                 footer={footer}
                                             />
                                         )}
+                                        {currentStep === 2 && (
+                                            <RoofSection footer={footer} />
+                                        )}
+                                        {currentStep === 3 && (
+                                            <WindowsSection footer={footer} />
+                                        )}
                                         {currentStep === 4 && (
-                                            <PumpInfoSection footer={footer} />
+                                            <TempSection footer={footer} />
                                         )}
                                         {currentStep === 5 && (
                                             <DesignResultSection
@@ -736,12 +752,12 @@ export const SGHEDA = () => {
                                                 data={result}
                                             />
                                         )}
-                                        {currentStep === 6 && (
+                                        {/* {currentStep === 6 && (
                                             <AnalysisSection
                                                 footer={footer}
                                                 data={analysisData}
                                             />
-                                        )}
+                                        )} */}
                                         <div>
                                             <input
                                                 type="file"

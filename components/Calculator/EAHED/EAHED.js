@@ -257,7 +257,7 @@ export const EAHED = () => {
         if (currentStep === 0) {
             console.log(values);
             confirmDialog({
-                message: `This will use ${process.env.NEXT_PUBLIC_EAHED_CREDIT_AMOUNT} credits. \n Are you sure you want to submit?`,
+                message: `This will use ${process.env.NEXT_PUBLIC_EAHED_CREDIT_AMOUNT} USD. \n Are you sure you want to submit?`,
                 header: "Confirmation",
                 icon: "pi pi-exclamation-triangle",
                 accept: () => {
@@ -435,12 +435,14 @@ export const EAHED = () => {
                             </ButtonGroup>
                         </div>
                         <div className="relative w-[95%] h-full bg-[#09112D] mx-auto p-4 py-8 rounded-3xl overflow-hidden">
-                            <StepperComponent
-                                steps={steps}
-                                currentStep={currentStep}
-                                maxStep={maxStep}
-                                setCurrentStep={setCurrentStep}
-                            />
+                            <div className="w-full py-2 overflow-hidden">
+                                <StepperComponent
+                                    steps={steps}
+                                    currentStep={currentStep}
+                                    maxStep={maxStep}
+                                    setCurrentStep={setCurrentStep}
+                                />
+                            </div>
                             <div className="w-full bg-white backdrop-filter backdrop-blur-md bg-opacity-10 h-1 rounded-xl my-4"></div>
 
                             <Formik

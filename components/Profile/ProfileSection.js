@@ -295,7 +295,7 @@ export const ProfileSection = (props) => {
                                 <div className="w-full rounded-xl">
                                     <div className="flex flex-col justify-center items-center">
                                         <div className="w-full text-white text-title text-xl md:text-2xl lg:text-3xl mb-8">
-                                            Your account credit balance is $
+                                            Your account balance is $
                                             {props.userInfo.balance}
                                         </div>
                                         <form

@@ -28,7 +28,8 @@ export default NextAuth({
                     name,
                     email,
                     verified: exist_account ? exist_account.verified : false,
-                    image: userImage
+                    image: userImage,
+                    balance: exist_account ? exist_account.balance : 0
                 };
             }
         }),
@@ -58,7 +59,8 @@ export default NextAuth({
                     id: account._id,
                     name: account.name,
                     email: account.email,
-                    verified: account.verified
+                    verified: account.verified,
+                    balance: account.balance
                 };
             }
         })
@@ -70,6 +72,7 @@ export default NextAuth({
             if (user) {
                 token.userId = user.id;
                 token.verified = user.verified;
+                token.balance = user.balance;
             }
             return token;
         },
@@ -77,6 +80,7 @@ export default NextAuth({
             if (token) {
                 session.userId = token.userId;
                 session.verified = token.verified;
+                session.balance = token.balance;
             }
             return session;
         }

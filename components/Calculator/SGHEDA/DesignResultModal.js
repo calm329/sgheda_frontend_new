@@ -216,7 +216,7 @@ export const DesignResultModal = ({ data, visible, onHide }) => {
                     </label>
                     <div className="w-full h-[2px] bg-white/30 my-4 rounded-xl"></div>
                     <div className="w-full h-full grid grid-cols-1 gap-8">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             <Input
                                 label="Ring Diameter"
                                 readOnly
@@ -238,6 +238,8 @@ export const DesignResultModal = ({ data, visible, onHide }) => {
                                 value={data?.outputData?.numberOfRing}
                                 badge="n"
                             />
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             <Input
                                 label="Pipe Length"
                                 readOnly
@@ -245,20 +247,11 @@ export const DesignResultModal = ({ data, visible, onHide }) => {
                                 value={data?.outputData?.pipeLength}
                                 badge="m"
                             />
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             <Input
                                 label="Inlet Temperature"
                                 readOnly
                                 name="inletTemperature"
                                 value={data?.outputData?.inletTemperature}
-                                badge="C"
-                            />
-                            <Input
-                                label="Diff Temperature"
-                                readOnly
-                                name="diffTemperature"
-                                value={data?.outputData?.diffTemperature}
                                 badge="C"
                             />
                             <Input

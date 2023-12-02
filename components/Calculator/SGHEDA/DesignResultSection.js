@@ -5,7 +5,7 @@ import { Textarea } from "@components/Textarea";
 export const DesignResultSection = ({ footer, data }) => {
     return (
         <div className="w-full h-full grid grid-cols-1 gap-8 my-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <Input
                     label="Ring Diameter"
                     readOnly
@@ -27,6 +27,8 @@ export const DesignResultSection = ({ footer, data }) => {
                     value={data?.numberOfRing}
                     badge="n"
                 />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <Input
                     label="Pipe Length"
                     readOnly
@@ -34,20 +36,11 @@ export const DesignResultSection = ({ footer, data }) => {
                     value={data?.pipeLength}
                     badge="m"
                 />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <Input
                     label="Inlet Temperature"
                     readOnly
                     name="inletTemperature"
                     value={data?.inletTemperature}
-                    badge="C"
-                />
-                <Input
-                    label="Diff Temperature"
-                    readOnly
-                    name="diffTemperature"
-                    value={data?.diffTemperature}
                     badge="C"
                 />
                 <Input
@@ -58,15 +51,6 @@ export const DesignResultSection = ({ footer, data }) => {
                     badge="m/s"
                 />
             </div>
-            {/* <div>
-                <Textarea
-                    label="Description"
-                    name="name"
-                    value={data?.description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="Write your description for this design"
-                />
-            </div> */}
             {footer("")}
         </div>
     );

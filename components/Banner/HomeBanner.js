@@ -81,9 +81,23 @@ export const HomeBanner = () => {
                                 </div>
                             </div>
                             <div className="w-full sm:w-1/2 lg:w-1/3 text-center ml-auto -mb-8 flex flex-col items-end justify-end">
-                                <div className="text-white text-xl text-content lg:block hidden">
+                                {/* <div className="text-white text-xl text-content lg:block hidden">
                                     Get Your Software Now And Make Wonders Now
-                                </div>
+                                </div> */}
+                                <Link
+                                    href="/calculator"
+                                    className="btn btn--secondary w-full my-2 whitespace-nowrap text-white !text-lg lemonsqueezy-button"
+                                >
+                                    {/* <Image
+                                        src="/images/calculator/calculator.svg"
+                                        width={40}
+                                        height={40}
+                                        alt="performance analysis"
+                                        loading="lazy"
+                                        className="p-2 bg-[#F98222]/40 rounded-xl"
+                                    /> */}
+                                    Online Calculator
+                                </Link>
                                 <Button
                                     type="link"
                                     href={`${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/download?type=software`}
@@ -91,20 +105,6 @@ export const HomeBanner = () => {
                                 >
                                     Download Now
                                 </Button>
-                                <Link
-                                    href="/calculator"
-                                    className="btn btn--secondary w-full my-2 whitespace-nowrap bg-orange-500/30 text-white !text-lg lemonsqueezy-button"
-                                >
-                                    <Image
-                                        src="/images/calculator/calculator.svg"
-                                        width={40}
-                                        height={40}
-                                        alt="performance analysis"
-                                        loading="lazy"
-                                        className="p-2 bg-[#F98222]/40 rounded-xl"
-                                    />
-                                    Online Calculator
-                                </Link>
                             </div>
                         </div>
                     </MotionBTTContainer>

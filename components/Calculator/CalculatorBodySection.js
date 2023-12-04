@@ -129,13 +129,31 @@ export const CalculatorBodySection = (props) => {
                                             loading="lazy"
                                             className="p-2 bg-[#F98222]/40 rounded-xl"
                                         />
-                                        <div className="text-white/50">
-                                            <span className="text-xl text-title font-bold">
-                                                {link.credits}
-                                            </span>{" "}
-                                            <span className="text-sm text-content">
-                                                USD
-                                            </span>
+                                        <div>
+                                            <div className="text-white/50 text-right">
+                                                <span className="text-md uppercase text-content">
+                                                    Design{" - "}
+                                                </span>
+                                                <span className="text-xl text-title font-bold">
+                                                    {link.credits}
+                                                </span>{" "}
+                                                <span className="text-sm text-content">
+                                                    USD
+                                                </span>
+                                            </div>
+                                            {link.name === "SGHEDA" && (
+                                                <div className="text-white/50 text-right">
+                                                    <span className="text-md uppercase text-content">
+                                                        Analysis{" - "}
+                                                    </span>
+                                                    <span className="text-xl text-title font-bold">
+                                                        {link.credits}
+                                                    </span>{" "}
+                                                    <span className="text-sm text-content">
+                                                        USD
+                                                    </span>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                     <div className="text-content text-white text-lg font-bold">

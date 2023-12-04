@@ -20,33 +20,33 @@ import { Icon } from "@iconify/react";
 const steps = [
     {
         name: "External Walls",
-        origin_icon: "/images/calculator/sgheda/system_design_white.svg",
-        active_icon: "/images/calculator/sgheda/system_design_orange.svg"
+        origin_icon: "/images/calculator/rlc/external_walls_white.svg",
+        active_icon: "/images/calculator/rlc/external_walls_orange.svg"
     },
     {
         name: "Ground Floor",
-        origin_icon: "/images/calculator/sgheda/fluid_properties_white.svg",
-        active_icon: "/images/calculator/sgheda/fluid_properties_orange.svg"
+        origin_icon: "/images/calculator/rlc/ground_floor_white.svg",
+        active_icon: "/images/calculator/rlc/ground_floor_orange.svg"
     },
     {
         name: "Roof",
-        origin_icon: "/images/calculator/sgheda/soil_properties_white.svg",
-        active_icon: "/images/calculator/sgheda/soil_properties_orange.svg"
+        origin_icon: "/images/calculator/rlc/roof_white.svg",
+        active_icon: "/images/calculator/rlc/roof_orange.svg"
     },
     {
         name: "Windows",
-        origin_icon: "/images/calculator/sgheda/pipe_design_white.svg",
-        active_icon: "/images/calculator/sgheda/pipe_design_orange.svg"
+        origin_icon: "/images/calculator/rlc/window_white.svg",
+        active_icon: "/images/calculator/rlc/window_orange.svg"
     },
     {
         name: "Temperature",
-        origin_icon: "/images/calculator/sgheda/pump_info_white.svg",
-        active_icon: "/images/calculator/sgheda/pump_info_orange.svg"
+        origin_icon: "/images/calculator/rlc/temperature_white.svg",
+        active_icon: "/images/calculator/rlc/temperature_orange.svg"
     },
     {
         name: "Design Result",
-        origin_icon: "/images/calculator/sgheda/design_result_white.svg",
-        active_icon: "/images/calculator/sgheda/design_result_orange.svg"
+        origin_icon: "/images/calculator/rlc/design_result_white.svg",
+        active_icon: "/images/calculator/rlc/design_result_orange.svg"
     }
 ];
 
@@ -500,7 +500,7 @@ export const RLC = () => {
                     setAnalyzing(true);
 
                     axios
-                        .post("/api/calculator/sgheda/analysis", {
+                        .post("/api/calculator/rlc/analysis", {
                             data
                         })
                         .then((result) => {

@@ -506,15 +506,10 @@ export const RLC = () => {
                         .then((result) => {
                             if (result.status === 200) {
                                 if (!analyzing) {
-                                    addToast(
-                                        "Analysis request has been canceled successfully",
-                                        {
-                                            appearance: "info",
-                                            autoDismiss: true
-                                        }
-                                    );
-
-                                    return;
+                                    addToast("Analyzed successfully", {
+                                        appearance: "info",
+                                        autoDismiss: true
+                                    });
                                 }
                                 console.log(result.data.data);
                                 // localStorage.setItem("RLC", JSON.stringify(values));

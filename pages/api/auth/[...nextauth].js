@@ -4,7 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import dbConnect from "server/dbConnect";
 import Account from "server/model/account.model";
-import argon from "argon2";
+import bcrypt from "bcryptjs";
 
 export default NextAuth({
     providers: [
@@ -48,9 +48,9 @@ export default NextAuth({
                     throw Error("Please sign in with Google");
                 }
 
-                const isValid = await argon.verify(
-                    account.password,
-                    credentials.password
+                const isValid = await bcrypt.compare(
+                    credentials.password,
+                    account.password
                 );
 
                 if (!isValid) throw Error("Email or Password doesn't match!");

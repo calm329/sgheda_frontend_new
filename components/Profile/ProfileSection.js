@@ -22,6 +22,7 @@ import jsQR from "jsqr";
 import dynamic from "next/dynamic.js";
 
 import "react-image-picker-editor/dist/index.css";
+import { useRouter } from "next/router.js";
 
 const ReactImagePickerEditor = dynamic(
     () => import("react-image-picker-editor"),
@@ -30,11 +31,11 @@ const ReactImagePickerEditor = dynamic(
 
 export const ProfileSection = (props) => {
     const { addToast } = useToasts();
-    const { data: session, status } = useSession();
+    const { data: session, status, update } = useSession();
     const loading = status === "loading";
     const [qrcode, setQRCode] = useState(null);
     const [visible, setVisible] = useState(false);
-
+    const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     const [fundAmount, setFundAmount] = useState(300);
 
@@ -236,13 +237,14 @@ export const ProfileSection = (props) => {
             );
 
             if (res.ok) {
-                const { success, message } = await res.json();
+                const { success, message, balance } = await res.json();
                 if (success) {
                     addToast(message, {
                         appearance: "success",
                         autoDismiss: true
                     });
                     setVisible(false);
+                    update({ balance: balance });
                 } else {
                     addToast(message, {
                         appearance: "error",
@@ -423,7 +425,7 @@ export const ProfileSection = (props) => {
                                     <div className="flex flex-col justify-center items-center">
                                         <div className="w-full text-white text-title text-xl md:text-2xl lg:text-3xl mb-8">
                                             Your account balance is $
-                                            {props.userInfo.balance}
+                                            {session.balance}
                                         </div>
                                         <form
                                             className="w-full bg-white/10 p-4 rounded-xl"

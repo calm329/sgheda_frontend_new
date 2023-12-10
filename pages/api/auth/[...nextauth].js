@@ -68,7 +68,12 @@ export default NextAuth({
 
     // JWT
     callbacks: {
-        jwt: async ({ token, account, user }) => {
+        jwt: async ({ token, user, trigger, session }) => {
+            console.log(user);
+            if (trigger == "update" && session?.balance) {
+                token.balance = session?.balance;
+            }
+
             if (user) {
                 token.userId = user.id;
                 token.verified = user.verified;
@@ -76,7 +81,8 @@ export default NextAuth({
             }
             return token;
         },
-        session: async ({ session, token, user }) => {
+        session: async ({ session, token, user, trigger, newSession }) => {
+            console.log({ session, trigger, newSession });
             if (token) {
                 session.userId = token.userId;
                 session.verified = token.verified;

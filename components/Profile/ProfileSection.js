@@ -124,6 +124,7 @@ export const ProfileSection = (props) => {
 
                 if (success) {
                     window.location.href = invoice_url;
+                    update({ balance: "refetch" });
                 } else {
                     addToast(error, {
                         appearance: "error",

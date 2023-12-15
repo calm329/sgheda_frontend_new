@@ -6,6 +6,17 @@
 
 **/
 
+@layer tailwind-base, primereact, tailwind-utilities;
+
+@layer tailwind-base {
+    @tailwind base;
+}
+
+@layer tailwind-utilities {
+    @tailwind components;
+    @tailwind utilities;
+}
+
 @layer utilities {
     .wrap {
         @apply container my-0 mx-auto w-full lg:max-w-7xl;

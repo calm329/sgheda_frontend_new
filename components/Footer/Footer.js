@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const navigation = [
     { name: "Home", to: "/", href: "/" },
+    { name: "Calculator", to: "/calculator", href: "/calculator" },
     { name: "Resource", to: "resource", href: "/resource" },
     { name: "Collective", to: "collective", href: "/collective" },
     { name: "License", to: "#license", href: "/#license" },
@@ -46,7 +47,7 @@ export const Footer = () => {
                                 <div className="text-title text-orange-400 uppercase text-lg">
                                     About us:
                                 </div>
-                                <div className="text-content text-white-500 text-sm">
+                                <div className="text-content text-white/80 text-sm">
                                     At SGHEDA, we are dedicated to
                                     revolutionizing slinky ground loop heat
                                     exchanger design. Our innovative software
@@ -65,7 +66,7 @@ export const Footer = () => {
                             <div className="text-title text-orange-400 uppercase text-lg">
                                 Navigation
                             </div>
-                            <div className="text-content text-white-500 mt-4 text-lg">
+                            <div className="text-content text-white/80 mt-4 text-lg">
                                 {navigation.map((item) => (
                                     <div key={item.name}>
                                         <Link
@@ -91,7 +92,7 @@ export const Footer = () => {
                                         className="w-full h-full"
                                     />
                                 </div>
-                                <div className="text-content text-md">
+                                <div className="text-content text-md text-white/90">
                                     Cardamone Law 100 W. Main Street, Suite 120,
                                     Lansdale, PA 19446
                                 </div>
@@ -104,10 +105,10 @@ export const Footer = () => {
                                     />
                                 </div>
                                 <div className="text-content text-md flex flex-col">
-                                    <span>
+                                    <span className="text-white/90">
                                         Always Call Cards® (215) 206-9068
                                     </span>
-                                    <span className="text-white-500">
+                                    <span className="text-white/40">
                                         (All Communications Remain Confidential)
                                     </span>
                                 </div>
@@ -119,7 +120,7 @@ export const Footer = () => {
                                         className="w-full h-full"
                                     />
                                 </div>
-                                <div className="text-content text-md">
+                                <div className="text-content text-md text-white/90">
                                     Hours: Available 24/7/365
                                 </div>
                             </div>

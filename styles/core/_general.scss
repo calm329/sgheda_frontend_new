@@ -92,3 +92,72 @@ body {
 .image-gallery-bullets {
     bottom: -30px !important;
 }
+
+.google-login-button {
+    background: #4285f4 !important;
+    color: white !important;
+
+    div {
+        border-radius: 999px !important;
+        width: 40px !important;
+        height: 40px !important;
+        margin: 2px !important;
+    }
+
+    span {
+        width: calc(100% - 38px) !important;
+        @apply text-lg;
+    }
+}
+
+/* Hide the up and down arrows for Chrome, Safari, Edge (not Firefox)*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide the up and down arrows for Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(156, 163, 175) rgb(249, 250, 251);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-50 rounded;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+}
+
+.p-confirm-dialog-accept {
+    @apply p-4 py-2 bg-orange-400 text-white;
+}
+
+.p-confirm-dialog-reject {
+    @apply p-4 py-2;
+}
+
+.dark-modal-view {
+    .p-dialog-header {
+        background-color: #09112d !important;
+    }
+
+    .p-dialog-content {
+        background-color: #09112d !important;
+    }
+}

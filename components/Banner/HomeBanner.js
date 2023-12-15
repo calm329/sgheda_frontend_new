@@ -3,6 +3,7 @@ import { MotionBTTContainer } from "@components/Motion";
 import { SectionContainer } from "@components/Section";
 import { PageTitle } from "@components/Title";
 import Image from "next/image";
+import Link from "next/link";
 
 export const HomeBanner = () => {
     return (
@@ -18,7 +19,7 @@ export const HomeBanner = () => {
                     backgroundSize: "cover"
                 }}
             >
-                <SectionContainer className="w-full h-full flex justify-center flex-col rounded-lg bg-[#09112D]/30 p-12 md:px-20 lg:px-40 xl:px-64">
+                <SectionContainer className="w-full h-full flex justify-center flex-col rounded-lg bg-[#09112D]/30 p-12 md:px-20 lg:px-32 xl:px-48">
                     <MotionBTTContainer
                         transition={{ delay: 0.4, duration: 0.5 }}
                     >
@@ -37,56 +38,74 @@ export const HomeBanner = () => {
                     <MotionBTTContainer
                         transition={{ delay: 0.6, duration: 0.5 }}
                     >
-                        <div className="text-2xl flex flex-col justify-center">
-                            <div className="lg:w-1/3 md:w-1/2 w-full flex flex-row items-center gap-4 bg-[#526781]/40 p-2 my-2 rounded-lg">
-                                <Image
-                                    src="/images/pros/commercial.svg"
-                                    width={40}
-                                    height={40}
-                                    alt="Commercial"
-                                    objectFit="cover"
-                                    loading="lazy"
-                                    className="bg-[#004D9833] rounded-md bg-opacity-30 p-2"
-                                />
-                                <span className="text-white">Commercial</span>
+                        <div className="text-2xl flex flex-col lg:flex-row justify-between">
+                            <div className="w-full lg:w-1/3">
+                                <div className="w-full flex flex-row items-center gap-4 bg-[#526781]/40 p-2 my-2 rounded-lg">
+                                    <Image
+                                        src="/images/pros/commercial.svg"
+                                        width={40}
+                                        height={40}
+                                        alt="Commercial"
+                                        loading="lazy"
+                                        className="bg-[#004D9833] rounded-md bg-opacity-30 p-2"
+                                    />
+                                    <span className="text-white text-lg">
+                                        Commercial
+                                    </span>
+                                </div>
+                                <div className="w-full flex flex-row items-center gap-4 bg-[#526781]/40 p-2 my-2 rounded-lg">
+                                    <Image
+                                        src="/images/pros/geothermal.svg"
+                                        width={40}
+                                        height={40}
+                                        alt="Geothermal"
+                                        loading="lazy"
+                                        className="bg-[#004D9833] rounded-md bg-opacity-30 p-2"
+                                    />
+                                    <span className="text-white text-lg">
+                                        Geothermal
+                                    </span>
+                                </div>
+                                <div className="w-full flex flex-row items-center gap-4 bg-[#526781]/40 p-2 my-2 rounded-lg">
+                                    <Image
+                                        src="/images/pros/betterdesign.svg"
+                                        width={40}
+                                        height={40}
+                                        alt="Better design"
+                                        loading="lazy"
+                                        className="bg-[#004D9833] rounded-md bg-opacity-30 p-2"
+                                    />
+                                    <span className="text-white text-lg">
+                                        Better Design
+                                    </span>
+                                </div>
                             </div>
-                            <div className="lg:w-1/3 md:w-1/2 w-full flex flex-row items-center gap-4 bg-[#526781]/40 p-2 my-2 rounded-lg">
-                                <Image
-                                    src="/images/pros/geothermal.svg"
-                                    width={40}
-                                    height={40}
-                                    alt="Geothermal"
-                                    objectFit="cover"
-                                    loading="lazy"
-                                    className="bg-[#004D9833] rounded-md bg-opacity-30 p-2"
-                                />
-                                <span className="text-white">Geothermal</span>
-                            </div>
-                            <div className="lg:w-1/3 md:w-1/2 w-full flex flex-row items-center gap-4 bg-[#526781]/40 p-2 my-2 rounded-lg">
-                                <Image
-                                    src="/images/pros/betterdesign.svg"
-                                    width={40}
-                                    height={40}
-                                    alt="Better design"
-                                    objectFit="cover"
-                                    loading="lazy"
-                                    className="bg-[#004D9833] rounded-md bg-opacity-30 p-2"
-                                />
-                                <span className="text-white">
-                                    Better Design
-                                </span>
-                            </div>
-                        </div>
-                        <div className="mt-6 mb-16 text-center">
-                            <ButtonGroup alignment="right">
+                            <div className="w-full sm:w-1/2 lg:w-1/3 text-center ml-auto -mb-8 flex flex-col items-end justify-end">
+                                {/* <div className="text-white text-xl text-content lg:block hidden">
+                                    Get Your Software Now And Make Wonders Now
+                                </div> */}
+                                <Link
+                                    href="/calculator"
+                                    className="btn btn--secondary w-full my-2 whitespace-nowrap text-white !text-lg lemonsqueezy-button"
+                                >
+                                    {/* <Image
+                                        src="/images/calculator/calculator.svg"
+                                        width={40}
+                                        height={40}
+                                        alt="performance analysis"
+                                        loading="lazy"
+                                        className="p-2 bg-[#F98222]/40 rounded-xl"
+                                    /> */}
+                                    Online Calculator
+                                </Link>
                                 <Button
                                     type="link"
                                     href={`${process.env.NEXT_PUBLIC_SERVER_ADDRESS}/api/download?type=software`}
-                                    className="btn btn--secondary w-1/3 lg:w-1/4 text-white lemonsqueezy-button"
+                                    className="btn btn--secondary w-full my-2 text-white !text-lg lemonsqueezy-button"
                                 >
                                     Download Now
                                 </Button>
-                            </ButtonGroup>
+                            </div>
                         </div>
                     </MotionBTTContainer>
                     {/* </div> */}

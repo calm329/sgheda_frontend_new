@@ -1,35 +1,48 @@
 import clsx from "clsx";
 
-const ButtonVariant = {
-    primary: "btn--primary",
-    secondary: "btn--secondary",
-    outline: "btn--outline",
-    black: "btn--black"
-};
-
 export const Input = ({
     label = "",
     name = "",
+    type = "text",
     placeholder = "",
     error = false,
+    badge = null, // new prop
     errorText = "",
     className = "",
+    value = "",
+    step = 1,
+    autoFocus = false,
+    readOnly = false,
+    others,
     onChange = () => {}
 }) => {
     return (
-        <div className={clsx("w-full flex flex-col", className)}>
+        <div className={clsx("relative w-full flex flex-col", className)}>
             <label htmlFor={name} className="mb-1 text-white text-title">
                 {label}
             </label>
-            <input
-                type="text"
-                name={name}
-                placeholder={placeholder}
-                onChange={onChange}
-                className={`shadow appearance-none border ${
-                    error ? "border-red-500" : "border-[#17234F]"
-                } text-content rounded w-full py-2 px-3 text-white bg-[#09112D] leading-tight focus:outline-none focus:shadow-outline`}
-            />
+            <div class="relative">
+                <input
+                    type={type}
+                    name={name}
+                    autoFocus={autoFocus}
+                    placeholder={placeholder}
+                    onChange={onChange}
+                    value={value}
+                    readOnly={readOnly}
+                    step={step}
+                    {...others}
+                    className={clsx(
+                        "shadow appearance-none border text-content rounded w-full py-2 px-3 text-white bg-[#09112D] leading-tight focus:outline-none focus:shadow-outline",
+                        { "border-red-500": error, "border-[#17234F]": !error }
+                    )}
+                />
+                {badge && (
+                    <span className="absolute inset-y-0 right-0 flex items-center px-4 py-2 text-sm font-medium leading-5 text-white/80 bg-transparent rounded-r-md">
+                        {badge}
+                    </span>
+                )}
+            </div>
             {error && <div className="text-red-500">{errorText}</div>}
         </div>
     );

@@ -21,7 +21,7 @@
         }
     }
     .header-nav--menu {
-        @apply my-3 flex flex-col gap-6 border border-gray-100 bg-gray-50 p-4 font-medium lg:my-0 lg:mt-0 lg:flex-row lg:border-0 lg:bg-transparent lg:p-0 lg:font-medium;
+        @apply my-3 flex flex-col gap-4 border border-gray-100 bg-gray-50 p-4 font-medium lg:my-0 lg:mt-0 lg:flex-row lg:border-0 lg:bg-transparent lg:p-2 lg:font-medium;
     }
     .header-nav--menu-item {
     }

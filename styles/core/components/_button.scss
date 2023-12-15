@@ -8,19 +8,19 @@
 
 @layer components {
     .btn {
-        @apply inline-flex w-full cursor-pointer items-center justify-center gap-3 rounded-lg px-8 py-2 font-semibold  text-black transition-colors duration-300 hover:bg-secondary-500 md:w-auto;
+        @apply inline-flex w-full cursor-pointer items-center justify-center gap-3 rounded-lg px-8 py-2 font-semibold  text-black transition-all duration-300 hover:opacity-80 md:w-auto;
     }
     .btn--primary {
         @apply bg-primary-500;
     }
     .btn--secondary {
-        background-color: #F98222;
+        background-color: #f98222;
     }
     .btn--outline {
         @apply border border-[1px] border-black bg-white text-black hover:text-white;
     }
     .btn--black {
-        @apply bg-black-500;
+        @apply bg-[#526781]/10;
     }
 
     /**

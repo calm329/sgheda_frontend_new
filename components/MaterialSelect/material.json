@@ -1,0 +1,2154 @@
+[
+    {
+        "name": "Boost'R Hybrid",
+        "thermalConductivity": 1.35
+    },
+    {
+        "name": "Hcontrol Hybrid",
+        "thermalConductivity": 1.9
+    },
+    {
+        "name": "Hcontrol Reflex+",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Hybris",
+        "thermalConductivity": 1.5
+    },
+    {
+        "name": "Airflex",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Thermo-Foil",
+        "thermalConductivity": 200
+    },
+    {
+        "name": "Thermo-Foil®ES",
+        "thermalConductivity": 200
+    },
+    {
+        "name": "Eco-Brite",
+        "thermalConductivity": 200
+    },
+    {
+        "name": "Glasroc F Multiboard",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "Gyproc FireLine",
+        "thermalConductivity": 0.24
+    },
+    {
+        "name": "Gyproc HandiBoard",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Gyproc Plank",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Gyproc SoundBloc",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Gyproc Wallboard",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Gyproc Wallboard Duplex 12.5mm",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Gyproc Wallboard Duplex 15mm",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Acrylic",
+        "thermalConductivity": 0.2
+    },
+    {
+        "name": "Air",
+        "thermalConductivity": 0.025
+    },
+    {
+        "name": "Aluminium alloys",
+        "thermalConductivity": 160
+    },
+    {
+        "name": "Aluminium foil 0.05 mm",
+        "thermalConductivity": 200
+    },
+    {
+        "name": "Aluminium paper 0.4 mm",
+        "thermalConductivity": 200
+    },
+    {
+        "name": "Argon",
+        "thermalConductivity": 0.017
+    },
+    {
+        "name": "Artificial stone",
+        "thermalConductivity": 1.3
+    },
+    {
+        "name": "Asphalt",
+        "thermalConductivity": 0.7
+    },
+    {
+        "name": "Basalt [2700 kg/m3]",
+        "thermalConductivity": 3.5
+    },
+    {
+        "name": "Basalt [2800 kg/m3]",
+        "thermalConductivity": 3.5
+    },
+    {
+        "name": "Basalt [2900 kg/m3]",
+        "thermalConductivity": 3.5
+    },
+    {
+        "name": "Basalt [3000 kg/m3]",
+        "thermalConductivity": 3.5
+    },
+    {
+        "name": "Bitumen felt/sheet",
+        "thermalConductivity": 0.23
+    },
+    {
+        "name": "Bituminous paper 0.1 mm",
+        "thermalConductivity": 0.2
+    },
+    {
+        "name": "Brass",
+        "thermalConductivity": 120
+    },
+    {
+        "name": "Breather membrane",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Bronze",
+        "thermalConductivity": 65
+    },
+    {
+        "name": "Butadiene",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Butyl, (isobutene), solid/hot melt",
+        "thermalConductivity": 0.24
+    },
+    {
+        "name": "Carbon dioxide",
+        "thermalConductivity": 0.014
+    },
+    {
+        "name": "Carpet/textile flooring",
+        "thermalConductivity": 0.06
+    },
+    {
+        "name": "Cement-bonded particleboard",
+        "thermalConductivity": 0.23
+    },
+    {
+        "name": "Ceramic/porcelain tiles",
+        "thermalConductivity": 1.3
+    },
+    {
+        "name": "Chipboard [300 kg/m3]",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Chipboard [600 kg/m3]",
+        "thermalConductivity": 0.14
+    },
+    {
+        "name": "Chipboard [900 kg/m3]",
+        "thermalConductivity": 0.18
+    },
+    {
+        "name": "Clay or silt [1200 kg/m]",
+        "thermalConductivity": 1.5
+    },
+    {
+        "name": "Clay or silt [1400 kg/m]",
+        "thermalConductivity": 1.5
+    },
+    {
+        "name": "Clay or silt [1600 kg/m]",
+        "thermalConductivity": 1.5
+    },
+    {
+        "name": "Clay or silt [1800 kg/m]",
+        "thermalConductivity": 1.5
+    },
+    {
+        "name": "Concrete, High density",
+        "thermalConductivity": 2
+    },
+    {
+        "name": "Concrete, Medium density 1800",
+        "thermalConductivity": 1.15
+    },
+    {
+        "name": "Concrete, Medium density 2000",
+        "thermalConductivity": 1.35
+    },
+    {
+        "name": "Concrete, Medium density 2200",
+        "thermalConductivity": 1.65
+    },
+    {
+        "name": "Concrete, Reinforced (with 1% of steel)",
+        "thermalConductivity": 2.3
+    },
+    {
+        "name": "Concrete, Reinforced (with 2% of steel)",
+        "thermalConductivity": 2.5
+    },
+    {
+        "name": "Copper",
+        "thermalConductivity": 380
+    },
+    {
+        "name": "Elastomeric foam, flexible (80 kg/m]",
+        "thermalConductivity": 0.05
+    },
+    {
+        "name": "Elastomeric foam, flexible [70 kg/m]",
+        "thermalConductivity": 0.05
+    },
+    {
+        "name": "Epoxy resin",
+        "thermalConductivity": 0.2
+    },
+    {
+        "name": "Ethylene propylene diene monomer (EPDM)",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Fibreboard, including MDF [250 kg/m3]",
+        "thermalConductivity": 0.07
+    },
+    {
+        "name": "Fibreboard, including MDF [400 kg/m3]",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Fibreboard, including MDF [600 kg/m3]",
+        "thermalConductivity": 0.14
+    },
+    {
+        "name": "Fibreboard, including MDF [800 kg/m3]",
+        "thermalConductivity": 0.14
+    },
+    {
+        "name": "Floor covering, linoleum",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Floor covering, rubber",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Floor covering, tiles, cork",
+        "thermalConductivity": 0.065
+    },
+    {
+        "name": "Foam rubber [60 kg/m3]",
+        "thermalConductivity": 0.06
+    },
+    {
+        "name": "Foam rubber [70 kg/m3]",
+        "thermalConductivity": 0.06
+    },
+    {
+        "name": "Foam rubber [80 kg/m3]",
+        "thermalConductivity": 0.06
+    },
+    {
+        "name": "Glass mosaic",
+        "thermalConductivity": 1.2
+    },
+    {
+        "name": "Gneiss [2400 kg/m3]",
+        "thermalConductivity": 3.5
+    },
+    {
+        "name": "Gneiss [2600 kg/m3]",
+        "thermalConductivity": 3.5
+    },
+    {
+        "name": "Gneiss [2700 kg/m3]",
+        "thermalConductivity": 3.5
+    },
+    {
+        "name": "Granite [2500 kg/m3]",
+        "thermalConductivity": 2.8
+    },
+    {
+        "name": "Granite [2700 kg/m3]",
+        "thermalConductivity": 2.8
+    },
+    {
+        "name": "Gypsum (1500 kg/m]",
+        "thermalConductivity": 0.56
+    },
+    {
+        "name": "Gypsum (600 kg/m]",
+        "thermalConductivity": 0.18
+    },
+    {
+        "name": "Gypsum [1200 kg/m]",
+        "thermalConductivity": 0.43
+    },
+    {
+        "name": "Gypsum insulating plaster",
+        "thermalConductivity": 0.18
+    },
+    {
+        "name": "Gypsum plasterboard",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Gypsum plastering",
+        "thermalConductivity": 0.57
+    },
+    {
+        "name": "Hard rubber (eboniet), massive",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Hardwood Timber (700 kg/m]",
+        "thermalConductivity": 0.18
+    },
+    {
+        "name": "Ice at 0 °C",
+        "thermalConductivity": 2.2
+    },
+    {
+        "name": "Ice at -10 °C",
+        "thermalConductivity": 2.3
+    },
+    {
+        "name": "Iron, cast",
+        "thermalConductivity": 50
+    },
+    {
+        "name": "Krypton",
+        "thermalConductivity": 0.009
+    },
+    {
+        "name": "Lead",
+        "thermalConductivity": 35
+    },
+    {
+        "name": "Limestone, extra hard",
+        "thermalConductivity": 2.3
+    },
+    {
+        "name": "Limestone, extra soft",
+        "thermalConductivity": 0.85
+    },
+    {
+        "name": "Limestone, hard",
+        "thermalConductivity": 1.7
+    },
+    {
+        "name": "Limestone, semi-hard",
+        "thermalConductivity": 1.4
+    },
+    {
+        "name": "Limestone, soft",
+        "thermalConductivity": 1.1
+    },
+    {
+        "name": "Marble",
+        "thermalConductivity": 3.5
+    },
+    {
+        "name": "Natural pumice",
+        "thermalConductivity": 0.12
+    },
+    {
+        "name": "Natural rubber",
+        "thermalConductivity": 0.13
+    },
+    {
+        "name": "Natural, crystaline rock",
+        "thermalConductivity": 3.5
+    },
+    {
+        "name": "Natural, porous, e.g. lava",
+        "thermalConductivity": 0.55
+    },
+    {
+        "name": "Natural, sedimentary rock",
+        "thermalConductivity": 2.3
+    },
+    {
+        "name": "Natural, sedimentary rock, light",
+        "thermalConductivity": 0.85
+    },
+    {
+        "name": "Neoprene (polychloroprene)",
+        "thermalConductivity": 0.23
+    },
+    {
+        "name": "Oriented Strand Board (OSB)",
+        "thermalConductivity": 0.13
+    },
+    {
+        "name": "Paint - emulsion",
+        "thermalConductivity": 0.2
+    },
+    {
+        "name": "Paint - gloss",
+        "thermalConductivity": 0.2
+    },
+    {
+        "name": "PE-foil (stapled) 0.15 mm",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Phenolic resin",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "Plastic floor covering",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Plastic tiles",
+        "thermalConductivity": 0.2
+    },
+    {
+        "name": "Plywood [1000 kg/m3]",
+        "thermalConductivity": 0.24
+    },
+    {
+        "name": "Plywood [300 kg/m3]",
+        "thermalConductivity": 0.09
+    },
+    {
+        "name": "Plywood [500 kg/m3]",
+        "thermalConductivity": 0.13
+    },
+    {
+        "name": "Plywood [700 kg/m3]",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Polyacetate",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "Polyamide (nylon)",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Polyamide 6.6 with 25% glass fibre",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "Polycarbonates",
+        "thermalConductivity": 0.2
+    },
+    {
+        "name": "Polyester film 0.2 mm",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Polyester resin",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Polyethylene 0.15 mm",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Polyethylene 0.25 mm",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Polyethylene foam",
+        "thermalConductivity": 0.05
+    },
+    {
+        "name": "Polyethylene/polythene, high density",
+        "thermalConductivity": 0.5
+    },
+    {
+        "name": "Polyethylene/polythene, low density",
+        "thermalConductivity": 0.33
+    },
+    {
+        "name": "Polyisobutylene",
+        "thermalConductivity": 0.2
+    },
+    {
+        "name": "Polymethylmethacrylat (PMMA)",
+        "thermalConductivity": 0.18
+    },
+    {
+        "name": "Polypropylene with 25 % glass fibre",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Polystyrene",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Polysulfide",
+        "thermalConductivity": 0.4
+    },
+    {
+        "name": "Polytetrafluorethylene (PFTE)",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Polyurethane (PU)",
+        "thermalConductivity": 0.05
+    },
+    {
+        "name": "Polyurethane (PU)",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Polyvinylchloride (PVC)",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Polyvinylchloride (PVC) flexible, 40% softener",
+        "thermalConductivity": 0.14
+    },
+    {
+        "name": "Pure bitumen",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "PVC foil",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Quartz",
+        "thermalConductivity": 1.4
+    },
+    {
+        "name": "Render, cement and sand",
+        "thermalConductivity": 1
+    },
+    {
+        "name": "Render, gypsum and sand",
+        "thermalConductivity": 0.8
+    },
+    {
+        "name": "Render, lime and sand",
+        "thermalConductivity": 0.8
+    },
+    {
+        "name": "Sand and gravel [1700 kg/m]",
+        "thermalConductivity": 2
+    },
+    {
+        "name": "Sand and gravel [1900 kg/m]",
+        "thermalConductivity": 2
+    },
+    {
+        "name": "Sand and gravel [2100 kg/m]",
+        "thermalConductivity": 2
+    },
+    {
+        "name": "Sand and gravel [2200 kg/m]",
+        "thermalConductivity": 2
+    },
+    {
+        "name": "Sandstone (silica)",
+        "thermalConductivity": 2.3
+    },
+    {
+        "name": "Silica gel (dessicant)",
+        "thermalConductivity": 0.13
+    },
+    {
+        "name": "Silicone foam",
+        "thermalConductivity": 0.12
+    },
+    {
+        "name": "Silicone, filled",
+        "thermalConductivity": 0.5
+    },
+    {
+        "name": "Silicone, pure",
+        "thermalConductivity": 0.35
+    },
+    {
+        "name": "Slate [2000 kg/m3]",
+        "thermalConductivity": 2.2
+    },
+    {
+        "name": "Slate [2200 kg/m3]",
+        "thermalConductivity": 2.2
+    },
+    {
+        "name": "Slate [2400 kg/m3]",
+        "thermalConductivity": 2.2
+    },
+    {
+        "name": "Slate [2600 kg/m3]",
+        "thermalConductivity": 2.2
+    },
+    {
+        "name": "Slate [2800 kg/m3]",
+        "thermalConductivity": 2.2
+    },
+    {
+        "name": "Snow, compacted (< 200mm)",
+        "thermalConductivity": 0.6
+    },
+    {
+        "name": "Snow, freshly fallen (< 30mm)",
+        "thermalConductivity": 0.05
+    },
+    {
+        "name": "Snow, slightly compacted (70… 100mm)",
+        "thermalConductivity": 0.23
+    },
+    {
+        "name": "Snow, soft (30… 70mm)",
+        "thermalConductivity": 0.12
+    },
+    {
+        "name": "Soda lime (incl. \"float glass\")",
+        "thermalConductivity": 1
+    },
+    {
+        "name": "Softwood Timber (500 kg/m?)",
+        "thermalConductivity": 0.13
+    },
+    {
+        "name": "Stainless steel",
+        "thermalConductivity": 17
+    },
+    {
+        "name": "Steel",
+        "thermalConductivity": 50
+    },
+    {
+        "name": "Sulphur hexafluoride",
+        "thermalConductivity": 0.013
+    },
+    {
+        "name": "Tiles (roofing), clay",
+        "thermalConductivity": 1
+    },
+    {
+        "name": "Tiles (roofing), concrete",
+        "thermalConductivity": 1.5
+    },
+    {
+        "name": "Underlay floor covering, cellular rubber or plastic",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Underlay floor covering, cork",
+        "thermalConductivity": 0.05
+    },
+    {
+        "name": "Underlay floor covering, felt",
+        "thermalConductivity": 0.05
+    },
+    {
+        "name": "Underlay floor covering, wool",
+        "thermalConductivity": 0.06
+    },
+    {
+        "name": "Urethane/polyurethane (thermal break)",
+        "thermalConductivity": 0.21
+    },
+    {
+        "name": "Vinyl wallpaper",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Water at 10ᵒC",
+        "thermalConductivity": 0.6
+    },
+    {
+        "name": "Water at 40ᵒC",
+        "thermalConductivity": 0.63
+    },
+    {
+        "name": "Water at 80ᵒC",
+        "thermalConductivity": 0.67
+    },
+    {
+        "name": "Xenon",
+        "thermalConductivity": 0.005
+    },
+    {
+        "name": "Zinc",
+        "thermalConductivity": 110
+    },
+    {
+        "name": "Celotex tuff-R CG4000",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Celotex tuff-R CW3000",
+        "thermalConductivity": 0.023
+    },
+    {
+        "name": "Celotex tuff-R Deck TA3000",
+        "thermalConductivity": 0.024
+    },
+    {
+        "name": "Celotex tuff-R Deck TD3000",
+        "thermalConductivity": 0.024
+    },
+    {
+        "name": "Celotex tuff-R FF3000",
+        "thermalConductivity": 0.023
+    },
+    {
+        "name": "Celotex tuff-R FR4000",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Celotex tuff-R GA3000",
+        "thermalConductivity": 0.023
+    },
+    {
+        "name": "Floormate 200-X",
+        "thermalConductivity": 0.029
+    },
+    {
+        "name": "Floormate SP-X",
+        "thermalConductivity": 0.029
+    },
+    {
+        "name": "Roofmate PR-X (150)",
+        "thermalConductivity": 0.031
+    },
+    {
+        "name": "Roofmate PR-X (T30)",
+        "thermalConductivity": 0.029
+    },
+    {
+        "name": "Roofmate SL-X",
+        "thermalConductivity": 0.029
+    },
+    {
+        "name": "Wallmate CW-X",
+        "thermalConductivity": 0.029
+    },
+    {
+        "name": "Tyvek Framewrap",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Tyvek Housewrap",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Tyvek Proclad",
+        "thermalConductivity": 0.085
+    },
+    {
+        "name": "Tyvek Reflex",
+        "thermalConductivity": 0.085
+    },
+    {
+        "name": "Tyvek SD2",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Tyvek Solid",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Tyvek Supro",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Tyvek Supro Plus",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Eco-Cavity Full Fill",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Ecotherm Eco-Cavity",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Eco-Versal Board For Floors",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Eco-Versal Board For Pitched Roofs",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Eco-Versal Framing For Walls",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "10mm Gypsum Fibreboard",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "12.5mm Gypsum Fibreboard",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "15mm Gypsum Fibreboard",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "18mm Gypsum Fibreboard",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "Forticrete Dense Block 390x190",
+        "thermalConductivity": 0.82
+    },
+    {
+        "name": "Forticrete Dense Block 440x215",
+        "thermalConductivity": 0.82
+    },
+    {
+        "name": "Forticrete Hi-Light Block",
+        "thermalConductivity": 1.13
+    },
+    {
+        "name": "Forticrete Lightweight Block 390x190",
+        "thermalConductivity": 0.43
+    },
+    {
+        "name": "Forticrete Lightweight Block 440x215",
+        "thermalConductivity": 0.43
+    },
+    {
+        "name": "AAC Block 600 kg/m3",
+        "thermalConductivity": 0.18
+    },
+    {
+        "name": "Acoustic or fire resistant plasterboard",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Aggregate block 1400 kg/m3 (inner leaf)",
+        "thermalConductivity": 0.57
+    },
+    {
+        "name": "Brick inner leaf",
+        "thermalConductivity": 0.56
+    },
+    {
+        "name": "Brick outer leaf",
+        "thermalConductivity": 0.77
+    },
+    {
+        "name": "Concrete block inner leaf (1800 kg/m3)",
+        "thermalConductivity": 1.13
+    },
+    {
+        "name": "Concrete block inner leaf (2000 kg/m3)",
+        "thermalConductivity": 1.33
+    },
+    {
+        "name": "Concrete block outer leaf (1800 kg/m3)",
+        "thermalConductivity": 1.21
+    },
+    {
+        "name": "Concrete, no fines",
+        "thermalConductivity": 0.96
+    },
+    {
+        "name": "EPS - Full Fill Cavity",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "EPS - General Purpose",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "EPS - Partial Fill Cavity",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "EPS - Variable thickness",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Foundation Blocks AAC 600 kg/m3",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Hardwood Timber [700 kg/m3]",
+        "thermalConductivity": 0.18
+    },
+    {
+        "name": "Hollow Block",
+        "thermalConductivity": 1.024
+    },
+    {
+        "name": "Inner leaf",
+        "thermalConductivity": 0.88
+    },
+    {
+        "name": "Limstone mortar",
+        "thermalConductivity": 0.7
+    },
+    {
+        "name": "Mineral wool batt - Cavity Batts",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Mineral wool batt - General Purpose",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Outer leaf",
+        "thermalConductivity": 0.94
+    },
+    {
+        "name": "Phenolic foam - General Purpose",
+        "thermalConductivity": 0.025
+    },
+    {
+        "name": "Plaster dabs Gypsum [1200 kg/m3]",
+        "thermalConductivity": 0.43
+    },
+    {
+        "name": "Polyurethane - General Purpose",
+        "thermalConductivity": 0.025
+    },
+    {
+        "name": "Prefab Timber frame wall panels [460-480 kg/m3]",
+        "thermalConductivity": 0.12
+    },
+    {
+        "name": "Softwood Timber [500 kg/m3]",
+        "thermalConductivity": 0.13
+    },
+    {
+        "name": "Standard wall board plasterboard",
+        "thermalConductivity": 0.21
+    },
+    {
+        "name": "XPS - General Purpose",
+        "thermalConductivity": 0.027
+    },
+    {
+        "name": "Celcon Floor Block 610x350",
+        "thermalConductivity": 0.15
+    },
+    {
+        "name": "Celcon Foundation 4 (Standard) Block 440x215",
+        "thermalConductivity": 0.15
+    },
+    {
+        "name": "Celcon Foundation 7 (Hi-Seven) Blocks 440x215",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Celcon Hi-Seven 440x215",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Celcon Hi-Seven Jumbo Plus 610x270",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Celcon Hi-Seven Plus 610x140",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Celcon Hi-Seven Plus 610x215",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Celcon Solar Block 440x215",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Celcon Solar Jumbo Plus Block 610x270",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Celcon Solar Plus 610x140",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Celcon Solar Plus 610x215",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Celcon Standard Block 440x215",
+        "thermalConductivity": 0.15
+    },
+    {
+        "name": "Celcon Standard Jumbo Plus Block 610x270",
+        "thermalConductivity": 0.15
+    },
+    {
+        "name": "Celcon Standard Plus 610x140",
+        "thermalConductivity": 0.15
+    },
+    {
+        "name": "Celcon Standard Plus 610x215",
+        "thermalConductivity": 0.15
+    },
+    {
+        "name": "Claymaster",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Jabfloor 100",
+        "thermalConductivity": 0.036
+    },
+    {
+        "name": "Jabfloor 150",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Jabfloor 200",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "Jabfloor 250",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "Jabfloor 70",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Jabfloor HP 100",
+        "thermalConductivity": 0.032
+    },
+    {
+        "name": "Jabfloor HP 70",
+        "thermalConductivity": 0.032
+    },
+    {
+        "name": "EPS 250",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "EPS 500",
+        "thermalConductivity": 0.033
+    },
+    {
+        "name": "EPS 70",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "EPS 100",
+        "thermalConductivity": 0.036
+    },
+    {
+        "name": "EPS 150",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "EPS 200",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "Kingspan Kooltherm K1 Roofboard",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Kingspan Kooltherm K8 Cavity 17-20mm",
+        "thermalConductivity": 0.024
+    },
+    {
+        "name": "Kingspan Kooltherm K8 Cavity 25-44mm",
+        "thermalConductivity": 0.023
+    },
+    {
+        "name": "Kingspan Kooltherm K8 Cavity 45-100mm",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Kingspan Thermaroof TR21 120-145mm",
+        "thermalConductivity": 0.025
+    },
+    {
+        "name": "Kingspan Thermaroof TR21 45-75mm",
+        "thermalConductivity": 0.027
+    },
+    {
+        "name": "Kingspan Thermaroof TR21 80-110mm",
+        "thermalConductivity": 0.026
+    },
+    {
+        "name": "Kingspan Thermaroof TR26 FM",
+        "thermalConductivity": 0.026
+    },
+    {
+        "name": "Kingspan Thermaroof TR27 FM 120-150mm",
+        "thermalConductivity": 0.025
+    },
+    {
+        "name": "Kingspan Thermaroof TR27 FM 50-75mm",
+        "thermalConductivity": 0.027
+    },
+    {
+        "name": "Kingspan Thermaroof TR27 FM 80-110mm",
+        "thermalConductivity": 0.026
+    },
+    {
+        "name": "Kingspan Thermawall TW50 17-30mm",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Kingspan Thermawall TW50 35-65mm",
+        "thermalConductivity": 0.023
+    },
+    {
+        "name": "OPTIM-R 20-60mm",
+        "thermalConductivity": 0.007
+    },
+    {
+        "name": "Klober Permo Classic Pro HD",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Klober Permo Easy Breather Membrane",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Klober Permo Forte",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Klober Wallint 10",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Knauf Plank",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Knauf Soundshield",
+        "thermalConductivity": 0.24
+    },
+    {
+        "name": "Knauf Vapourshield",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Knauf Wallboard",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Acoustic Floor Slab (Rock)",
+        "thermalConductivity": 0.036
+    },
+    {
+        "name": "Acoustic Floor Slab Plus (Rock)",
+        "thermalConductivity": 0.036
+    },
+    {
+        "name": "Earthwool Acoustic Partition Roll",
+        "thermalConductivity": 0.032
+    },
+    {
+        "name": "Earthwool Acoustic Timber Roll RD10",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Earthwool DriTherm Cavity Slab (Glass) 32 Ultimate",
+        "thermalConductivity": 0.032
+    },
+    {
+        "name": "Earthwool DriTherm Cavity Slab (Glass) 34 Super",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "Earthwool DriTherm Cavity Slab (Glass) 37 Standard",
+        "thermalConductivity": 0.037
+    },
+    {
+        "name": "Earthwool DriTherm Cavity Slab (Rock) 37",
+        "thermalConductivity": 0.037
+    },
+    {
+        "name": "Earthwool Flexible Slab",
+        "thermalConductivity": 0.037
+    },
+    {
+        "name": "Earthwool Flexible Slab 140mm",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Earthwool Loft Roll 40",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Earthwool Loft Roll 44",
+        "thermalConductivity": 0.044
+    },
+    {
+        "name": "Earthwool Rafter Roll 32",
+        "thermalConductivity": 0.032
+    },
+    {
+        "name": "Earthwool RainScreen Slab",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Earthwool Universal Slab Glass CS24",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Earthwool Universal Slab Glass CS32",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "Earthwool Universal Slab Glass CS48",
+        "thermalConductivity": 0.032
+    },
+    {
+        "name": "Earthwool Universal Slabs Rock RS100",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Earthwool Universal Slabs Rock RS128",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Earthwool Universal Slabs Rock RS140",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Earthwool Universal Slabs Rock RS200",
+        "thermalConductivity": 0.036
+    },
+    {
+        "name": "Earthwool Universal Slabs Rock RS33",
+        "thermalConductivity": 0.037
+    },
+    {
+        "name": "Earthwool Universal Slabs Rock RS60",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Earthwool Universal Slabs Rock RS80",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Polyfoam Floorboard (Extra) 25-75mm",
+        "thermalConductivity": 0.029
+    },
+    {
+        "name": "Polyfoam Floorboard (Standard) 25-75mm",
+        "thermalConductivity": 0.029
+    },
+    {
+        "name": "Polyfoam Floorboard (Super) 50-75mm",
+        "thermalConductivity": 0.029
+    },
+    {
+        "name": "Polyfoam Pitched Roofboard",
+        "thermalConductivity": 0.029
+    },
+    {
+        "name": "Polyfoam Raftersqueeze",
+        "thermalConductivity": 0.03
+    },
+    {
+        "name": "Polyfoam Roofboard (Extra) 130-140mm",
+        "thermalConductivity": 0.031
+    },
+    {
+        "name": "Polyfoam Roofboard (Extra) 50-120mm",
+        "thermalConductivity": 0.029
+    },
+    {
+        "name": "Polyfoam Roofboard (Standard) 35-75mm",
+        "thermalConductivity": 0.029
+    },
+    {
+        "name": "Polyfoam Roofboard (Super)",
+        "thermalConductivity": 0.03
+    },
+    {
+        "name": "Supafil 34",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "Supafil 40",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Thermal Floor Slab Plus (Rock)",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Kontrol Duo",
+        "thermalConductivity": 0.032
+    },
+    {
+        "name": "Kontrol R 1.9",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "Kontrol Supaloft Green",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Kontrol Wool batts",
+        "thermalConductivity": 0.039
+    },
+    {
+        "name": "Kontrol Wool rolls",
+        "thermalConductivity": 0.039
+    },
+    {
+        "name": "Lafarge Acoustic Homespan Wallboard",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Lafarge Baseboard",
+        "thermalConductivity": 0.18
+    },
+    {
+        "name": "Lafarge dBcheck wallboard",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Lafarge Echeck wallboard",
+        "thermalConductivity": 0.21
+    },
+    {
+        "name": "Lafarge Hydrodeco",
+        "thermalConductivity": 0.24
+    },
+    {
+        "name": "Lafarge Megadeco",
+        "thermalConductivity": 0.25
+    },
+    {
+        "name": "Lafarge Moisturecheck",
+        "thermalConductivity": 0.24
+    },
+    {
+        "name": "Lafarge Plank",
+        "thermalConductivity": 0.18
+    },
+    {
+        "name": "Lafarge Standard wallboard",
+        "thermalConductivity": 0.18
+    },
+    {
+        "name": "Lafarge Thermalcheck 22",
+        "thermalConductivity": 0.061
+    },
+    {
+        "name": "Lafarge Thermalcheck 30",
+        "thermalConductivity": 0.053
+    },
+    {
+        "name": "Lafarge Thermalcheck 40",
+        "thermalConductivity": 0.048
+    },
+    {
+        "name": "Lafarge Thermalcheck 50",
+        "thermalConductivity": 0.045
+    },
+    {
+        "name": "Lafarge Thermalcheck K 30",
+        "thermalConductivity": 0.026
+    },
+    {
+        "name": "Lafarge Thermalcheck K 40",
+        "thermalConductivity": 0.023
+    },
+    {
+        "name": "Lafarge Thermalcheck K 50",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Lafarge Thermalcheck XP27",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Lafarge Thermalcheck XP35",
+        "thermalConductivity": 0.036
+    },
+    {
+        "name": "Lafarge Thermalcheck XP45",
+        "thermalConductivity": 0.033
+    },
+    {
+        "name": "Lafarge Thermalcheck XP52",
+        "thermalConductivity": 0.032
+    },
+    {
+        "name": "Lafarge Vapourcheck Wallboard",
+        "thermalConductivity": 0.18
+    },
+    {
+        "name": "Foamglas 14",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Foamglas Floorboard",
+        "thermalConductivity": 0.042
+    },
+    {
+        "name": "Foamglas Floorboard F",
+        "thermalConductivity": 0.05
+    },
+    {
+        "name": "Foamglas P+R Board",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Foamglas Ready Board",
+        "thermalConductivity": 0.042
+    },
+    {
+        "name": "Foamglas S3",
+        "thermalConductivity": 0.045
+    },
+    {
+        "name": "Foamglas Wallboard",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Aglite Ultima 10.4N",
+        "thermalConductivity": 0.36
+    },
+    {
+        "name": "Aglite Ultima 4.2N",
+        "thermalConductivity": 0.31
+    },
+    {
+        "name": "Aglite Ultima 7.3N",
+        "thermalConductivity": 0.31
+    },
+    {
+        "name": "Airey Blocks 3.6N",
+        "thermalConductivity": 0.33
+    },
+    {
+        "name": "Fibolite 3.6N",
+        "thermalConductivity": 0.24
+    },
+    {
+        "name": "Fibolite 7.3N",
+        "thermalConductivity": 0.28
+    },
+    {
+        "name": "Plascon 10.4N",
+        "thermalConductivity": 1.13
+    },
+    {
+        "name": "Plascon 7.3N",
+        "thermalConductivity": 1.13
+    },
+    {
+        "name": "Stranlite 10.4N",
+        "thermalConductivity": 0.43
+    },
+    {
+        "name": "Stranlite 4.2N",
+        "thermalConductivity": 0.41
+    },
+    {
+        "name": "Stranlite 7.3N",
+        "thermalConductivity": 0.41
+    },
+    {
+        "name": "MASTERBOARD",
+        "thermalConductivity": 0.22
+    },
+    {
+        "name": "PROMATECTO-B",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "PROMATECTO-HD",
+        "thermalConductivity": 0.35
+    },
+    {
+        "name": "SUPALUX",
+        "thermalConductivity": 0.17
+    },
+    {
+        "name": "Isoshield Full Fill Cavity Wallboard",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "QF Floor Board",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "QL Insulated Dry Lining Composite Board",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "QR Pitched Roof Board",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "QRFR-DPFR Dual Purpose Flat Roof Board 120Mm-150Mm",
+        "thermalConductivity": 0.024
+    },
+    {
+        "name": "QRFR-DPFR Dual Purpose Flat Roof Board 25Mm-79Mm",
+        "thermalConductivity": 0.026
+    },
+    {
+        "name": "QRFR-DPFR Dual Purpose Flat Roof Board 80Mm-119Mm",
+        "thermalConductivity": 0.025
+    },
+    {
+        "name": "QRFR-FFR Foil-Faced Flat Roof Board",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "QRFR-GFR Glass-Fibre-Faced Flat Roof Board 120Mm-150Mm",
+        "thermalConductivity": 0.024
+    },
+    {
+        "name": "QRFR-GFR Glass-Fibre-Faced Flat Roof Board 25Mm-79Mm",
+        "thermalConductivity": 0.026
+    },
+    {
+        "name": "QRFR-GFR Glass-Fibre-Faced Flat Roof Board 80Mm-119Mm",
+        "thermalConductivity": 0.025
+    },
+    {
+        "name": "QW Insulated Dry Lining Board",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "QW Partial Fill Cavity Wallboard",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "QW-STFI Steel / Timber Frame Insulation",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Eurothane Eurodeck",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Eurothane Gp Pitched Roof Insulation",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Eurothane Gp Timber Frame Board",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Eurothane Gp Underfloor Insulation",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Eurothane Liquid Roofing Insulation Board",
+        "thermalConductivity": 0.023
+    },
+    {
+        "name": "Eurowall +",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Eurowall Cavity",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Roadstone Standard Concrete Blocks",
+        "thermalConductivity": 1.13
+    },
+    {
+        "name": "Roadstone Standard Hollow Blocks",
+        "thermalConductivity": 1.13
+    },
+    {
+        "name": "Rockfon Cosmos",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Acoustic Membrane 10",
+        "thermalConductivity": 0.45
+    },
+    {
+        "name": "Acoustic Membrane 5",
+        "thermalConductivity": 0.45
+    },
+    {
+        "name": "Acoustic Partition Slab",
+        "thermalConductivity": 0.037
+    },
+    {
+        "name": "Acoustic Rockfloor",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Brickshield Adhesive Mortar",
+        "thermalConductivity": 0.9
+    },
+    {
+        "name": "Brickshield Brick Slips",
+        "thermalConductivity": 0.77
+    },
+    {
+        "name": "Brickshield Facade Ultra Insulation",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Cavity",
+        "thermalConductivity": 0.037
+    },
+    {
+        "name": "Cavity -variable thickness",
+        "thermalConductivity": 0.037
+    },
+    {
+        "name": "Cladding Roll 100mm",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Cladding Roll 120mm",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Cladding Roll 150mm",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Cladding Roll 160mm",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Cladding Roll 170mm",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Cladding Roll 180mm",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Cladding Roll 60mm",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Cladding Roll 80mm",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Duorock Roofing Board (Plain)",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Duorock SPA",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Duorock Tissue Faced",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Flexi (50 -100mm) 400mm wide",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Flexi (50-120mm) 600mm wide",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Hardrock Dual Density Roofing Board (Plain)",
+        "thermalConductivity": 0.039
+    },
+    {
+        "name": "Hardrock Dual Density Roofing Board SPA",
+        "thermalConductivity": 0.039
+    },
+    {
+        "name": "Hardrock Dual Density Roofing Board Tissue Faced",
+        "thermalConductivity": 0.039
+    },
+    {
+        "name": "High Performance Partial Fill (100mm)",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "High Performance Partial Fill (50-90mm)",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "Rainscreen Duo-Slab (100-150mm)",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Rainscreen Duo-Slab (50-75mm)",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "Rockfall Overlay Board",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Rockliner Base Slab",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Rockshield Adhesive Mortar",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "Rockshield Base coat Render LW",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "Rockshield Base coat Render TC",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "Rockshield Finish Coat Silcoplast",
+        "thermalConductivity": 0.3
+    },
+    {
+        "name": "Rockshield Lamella Slab",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Rockshield Slab",
+        "thermalConductivity": 0.036
+    },
+    {
+        "name": "Roll 170mm",
+        "thermalConductivity": 0.044
+    },
+    {
+        "name": "RW3 Slabs",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "RW3 Tissue faced Slabs",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "RW5 Soffit Lining Solution",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "RW5 Tissue faced Slabs",
+        "thermalConductivity": 0.034
+    },
+    {
+        "name": "RW6 Slabs",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "RWA45 Slabs",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Slimfloor Base Slab",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Thermal Rockfloor",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Isover CWS",
+        "thermalConductivity": 0.036
+    },
+    {
+        "name": "Isover Frame Batt 32",
+        "thermalConductivity": 0.032
+    },
+    {
+        "name": "Isover Frame Batt 35",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Isover Frame Batt 43",
+        "thermalConductivity": 0.043
+    },
+    {
+        "name": "Isover Frame Roll 35",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Isover Frame Roll 43",
+        "thermalConductivity": 0.043
+    },
+    {
+        "name": "Isover General Purose Roll",
+        "thermalConductivity": 0.043
+    },
+    {
+        "name": "Isowool Spacesaver Plus",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Multi Roll",
+        "thermalConductivity": 0.044
+    },
+    {
+        "name": "Superglass Floor Slab",
+        "thermalConductivity": 0.033
+    },
+    {
+        "name": "Superglass Mat",
+        "thermalConductivity": 0.044
+    },
+    {
+        "name": "Superwall Cavity Slab",
+        "thermalConductivity": 0.036
+    },
+    {
+        "name": "Timber Batt 35",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Timber Batt 38",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Timber Batt 40",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Timber Roll 35",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Timber Roll 38",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Timber Roll 40",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Durox Floor Blocks 620x215",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Durox Floor Blocks 620x540",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Durox Supabloc",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Durox Supabloc 4",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Durox Supabloc 400",
+        "thermalConductivity": 0.1
+    },
+    {
+        "name": "Durox Supabloc 7",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Durox System 500 620x214",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Durox System 500 620x299",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Durox System 500 620x429",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Durox System 600 620x214",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Durox System 600 620x299",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Hemelite Paint Quality solid (10)",
+        "thermalConductivity": 0.48
+    },
+    {
+        "name": "Hemelite Paint Quality solid (3.5) & (7.0)",
+        "thermalConductivity": 0.46
+    },
+    {
+        "name": "Hemelite Paint Quality solid Ultra (3.5) & (7.0)",
+        "thermalConductivity": 0.38
+    },
+    {
+        "name": "Hemelite Standard Solid (10)",
+        "thermalConductivity": 0.49
+    },
+    {
+        "name": "Hemelite Standard Solid (3.5)",
+        "thermalConductivity": 0.45
+    },
+    {
+        "name": "Hemelite Standard Solid (7.0)",
+        "thermalConductivity": 0.47
+    },
+    {
+        "name": "Topcrete Beam & block Flooring 440x215",
+        "thermalConductivity": 1.28
+    },
+    {
+        "name": "Topcrete Paint Quality Blocks",
+        "thermalConductivity": 1.18
+    },
+    {
+        "name": "Topcrete Standard Blocks",
+        "thermalConductivity": 1.28
+    },
+    {
+        "name": "Toplite 7",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Toplite Floor Blocks 440x215",
+        "thermalConductivity": 0.15
+    },
+    {
+        "name": "Toplite Floor Blocks 440x360",
+        "thermalConductivity": 0.15
+    },
+    {
+        "name": "Toplite Floor Blocks 440x535",
+        "thermalConductivity": 0.15
+    },
+    {
+        "name": "Toplite Foundation Blocks (3.5)",
+        "thermalConductivity": 0.15
+    },
+    {
+        "name": "Toplite Foundation Blocks (7.0)",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Toplite GTI",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Toplite Standard",
+        "thermalConductivity": 0.15
+    },
+    {
+        "name": "EdenBloc35 50-100mm",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "EdenBloc35 variable thickness",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Thermafleece EcoRoll",
+        "thermalConductivity": 0.039
+    },
+    {
+        "name": "Thermafleece Hemp batts",
+        "thermalConductivity": 0.04
+    },
+    {
+        "name": "Thermafleece Original batts",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Thermafleece TF35",
+        "thermalConductivity": 0.035
+    },
+    {
+        "name": "Floorblock 440x215",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Floorblock 440x350",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Floorblock 440x540",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Hi-Strength 10 440x215",
+        "thermalConductivity": 0.2
+    },
+    {
+        "name": "Hi-Strength 10 440x430",
+        "thermalConductivity": 0.2
+    },
+    {
+        "name": "Hi-Strength 7 440x215",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Hi-Strength 7 440x430",
+        "thermalConductivity": 0.19
+    },
+    {
+        "name": "Hi-Strength Smooth Face 440x215",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Hi-Strength Smooth Face 440x430",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Shield 440x140",
+        "thermalConductivity": 0.14
+    },
+    {
+        "name": "Shield 440x215",
+        "thermalConductivity": 0.14
+    },
+    {
+        "name": "Shield 440x430",
+        "thermalConductivity": 0.14
+    },
+    {
+        "name": "Shield 540x440",
+        "thermalConductivity": 0.14
+    },
+    {
+        "name": "Smooth Face 440x215",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Smooth Face 440x430",
+        "thermalConductivity": 0.16
+    },
+    {
+        "name": "Turbo Block 440x215",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Turbo Block 440x430",
+        "thermalConductivity": 0.11
+    },
+    {
+        "name": "Jabfill Cavity wall insulation",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Jabfloor 70",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Jabroof Pitched roof insulation",
+        "thermalConductivity": 0.038
+    },
+    {
+        "name": "Visqueen Building Products: Visqueen DPM 250 (1000 Gauge)",
+        "thermalConductivity": 0.33
+    },
+    {
+        "name": "Visqueen Building Products: Visqueen DPM 300 (1200 Gauge)",
+        "thermalConductivity": 0.33
+    },
+    {
+        "name": "Visqueen Building Products: Visqueen DPM 500 (2000 Gauge)",
+        "thermalConductivity": 0.33
+    },
+    {
+        "name": "Visqueen Building Products: Visqueen Radon Membrane",
+        "thermalConductivity": 0.33
+    },
+    {
+        "name": "Visqueen Building Products: Visqueen Vapour Barrier",
+        "thermalConductivity": 0.33
+    },
+    {
+        "name": "Thin-R FR-MG Flat Roof Lambda 0.024",
+        "thermalConductivity": 0.024
+    },
+    {
+        "name": "Thin-R FR-MG Flat Roof Lambda 0.025",
+        "thermalConductivity": 0.025
+    },
+    {
+        "name": "Thin-R FR-MG Flat Roof Lambda 0.027",
+        "thermalConductivity": 0.027
+    },
+    {
+        "name": "Thin-R XT/CW (T&G) Partial fill - lambda 0.022",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Thin-R XT/CW Partial fill - lambda 0.022",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Thin-R XT/CWP (T&G) Partial fill - lambda 0.021",
+        "thermalConductivity": 0.021
+    },
+    {
+        "name": "Thin-R XT/HYF T&G Hyfloor",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Thin-R XT/PR Pitched Roof",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Thin-R XT/RLOC Rafterloc",
+        "thermalConductivity": 0.023
+    },
+    {
+        "name": "Thin-R XT/SB Timber Frame",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Thin-R XT/SK Sarking",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Thin-R XT/TF Timber Frame",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Thin-R XT/TL Timber Frame",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "Thin-R XT/UF Underfloor",
+        "thermalConductivity": 0.022
+    },
+    {
+        "name": "XtroLiner TO/PR Pitched Roof",
+        "thermalConductivity": 0.021
+    },
+    {
+        "name": "XtroLiner XO/CW Cavity Wall",
+        "thermalConductivity": 0.021
+    },
+    {
+        "name": "XtroLiner XO/FB Framing Board",
+        "thermalConductivity": 0.021
+    },
+    {
+        "name": "XtroLiner XO/RS Rainscreen",
+        "thermalConductivity": 0.021
+    },
+    {
+        "name": "XtroLiner XO/ST Soffit",
+        "thermalConductivity": 0.021
+    },
+    {
+        "name": "Safe-R SR/ST Soffit",
+        "thermalConductivity": 0.021
+    }
+]

@@ -113,7 +113,6 @@ export const LicenseSection = () => {
                                         width={35}
                                         height={35}
                                         alt="design capabilities"
-                                        objectFit="cover"
                                         loading="lazy"
                                         className="mb-4"
                                     />

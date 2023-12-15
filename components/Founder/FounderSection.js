@@ -45,7 +45,6 @@ export const FounderSection = () => {
                                     width={640}
                                     height={40}
                                     alt={founder.name}
-                                    objectFit="cover"
                                     loading="lazy"
                                     className="rounded-3xl w-full"
                                 />

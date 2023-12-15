@@ -4,7 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import dbConnect from "server/dbConnect";
 import Account from "server/model/account.model";
-import argon from "argon2";
+import bcrypt from "bcryptjs";
 
 export default NextAuth({
     providers: [
@@ -48,9 +48,9 @@ export default NextAuth({
                     throw Error("Please sign in with Google");
                 }
 
-                const isValid = await argon.verify(
-                    account.password,
-                    credentials.password
+                const isValid = await bcrypt.compare(
+                    credentials.password,
+                    account.password
                 );
 
                 if (!isValid) throw Error("Email or Password doesn't match!");
@@ -68,7 +68,21 @@ export default NextAuth({
 
     // JWT
     callbacks: {
-        jwt: async ({ token, account, user }) => {
+        jwt: async ({ token, user, trigger, session }) => {
+            if (trigger == "update" && typeof session?.balance == "number") {
+                token.balance = session?.balance;
+            }
+            if (
+                trigger == "update" &&
+                session?.balance == "refetch" &&
+                user?.email
+            ) {
+                const account = await Account.findOne({
+                    email: user.email
+                });
+                token.balance = account?.balance ?? token.balance;
+            }
+
             if (user) {
                 token.userId = user.id;
                 token.verified = user.verified;
@@ -76,7 +90,7 @@ export default NextAuth({
             }
             return token;
         },
-        session: async ({ session, token, user }) => {
+        session: async ({ session, token, user, trigger, newSession }) => {
             if (token) {
                 session.userId = token.userId;
                 session.verified = token.verified;

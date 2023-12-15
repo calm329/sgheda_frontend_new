@@ -1,4 +1,3 @@
-import argon from "argon2";
 import { getServerSession } from "next-auth";
 import dbConnect from "server/dbConnect";
 import Account from "server/model/account.model";
@@ -6,7 +5,6 @@ import { authOptions } from "./auth/[...nextauth]";
 import corsMiddleware from "./cors";
 
 async function handler(req, res) {
-    console.log("SDFSDFSDFSDF", req.headers);
     await dbConnect();
 
     // Verify the session
